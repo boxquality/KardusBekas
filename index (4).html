@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#382719">
+<meta name="description" content="BOXQUALITY — Quality in Every Box. Kardus bekas, packing service, dan layanan pendukung.">
+<title>BOXQUALITY — Quality in Every Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5eee4;--paper:#fffaf3;--ink:#332316;--brown:#67452c;--brown2:#8c6341;--tan:#c99b6b;--muted:#88735f;--line:#e6d8c7;--shadow:0 24px 65px #50351d18}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
+.topbar{height:5px;background:linear-gradient(90deg,#50351f,#bd8b5a,#e6c9a5)}
+header{position:sticky;top:0;z-index:30;background:#f5eee4e8;backdrop-filter:blur(18px);border-bottom:1px solid #67452c18}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font:800 20px Manrope;letter-spacing:-.8px}.brandmark{width:39px;height:39px;background:var(--brown);color:#fff2df;border-radius:12px;display:grid;place-items:center;box-shadow:0 8px 18px #67452c35}.brandmark svg{width:25px}
+.navlinks{display:flex;gap:30px;font-size:12px;font-weight:700;color:#755d48}.navlinks a:hover{color:#b17d4c}.navbtn,.btn{border:0;border-radius:99px;background:var(--brown);color:#fff8ef;padding:14px 21px;font-weight:700;font-size:12px;display:inline-flex;align-items:center;gap:10px;transition:.25s}.navbtn:hover,.btn:hover{background:#8a6241;transform:translateY(-3px);box-shadow:0 12px 25px #67452c35}.hamb{display:none;background:none;border:0;font-size:25px;color:var(--brown)}
+.hero{min-height:650px;display:flex;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 48%,#e6d2b9 0,transparent 34%),linear-gradient(115deg,#f7f1e8,#f0e4d4)}
+.hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#8b674522 .8px,transparent .8px);background-size:22px 22px;mask-image:linear-gradient(90deg,transparent,black)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px;padding:60px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid #d7c1a7;border-radius:99px;color:#98704b;font-size:9px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:#b7824f;box-shadow:0 0 0 4px #b7824f22}
+h1{font:800 clamp(48px,6vw,76px)/1.02 Manrope;letter-spacing:-4px;margin:22px 0 17px}h1 span{color:#a7784d}.lead{max-width:490px;color:var(--muted);font-size:15px;line-height:1.85}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn.secondary{background:#fffaf3;color:var(--brown);border:1px solid #dfcfbc}.btn.secondary:hover{background:#eee0ce}
+.mini-points{display:flex;gap:20px;flex-wrap:wrap;margin-top:31px;color:#8b7763;font-size:10px;font-weight:700}.mini-points span:before{content:"✓";color:#ad7d4e;margin-right:7px}
+.visual{min-height:470px;display:grid;place-items:center;position:relative;perspective:1000px}.halo{position:absolute;width:390px;height:390px;border-radius:50%;background:#d9b99166;filter:blur(35px)}.ring{position:absolute;width:390px;height:390px;border:1px solid #b88d6333;border-radius:50%;animation:spin 32s linear infinite}.ring:before,.ring:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#b88758;top:55px;left:55px;box-shadow:0 0 0 7px #b8875818}.ring:after{top:auto;left:auto;right:30px;bottom:80px;width:6px;height:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.boxwrap{width:min(100%,470px);position:relative;z-index:2;transform-style:preserve-3d;animation:boxWobble 4.6s ease-in-out infinite;filter:drop-shadow(0 28px 24px #55381f30)}
+@keyframes boxWobble{0%,100%{transform:translateY(0) rotate(-2deg) rotateY(-5deg)}20%{transform:translateY(-7px) rotate(1.5deg) rotateY(4deg)}42%{transform:translateY(1px) rotate(-1deg) rotateY(-2deg)}62%{transform:translateY(-10px) rotate(2deg) rotateY(5deg)}82%{transform:translateY(-3px) rotate(-1deg) rotateY(-3deg)}}
+.boxwrap:hover{animation:boxShake .7s ease-in-out}.boxsvg{width:100%;overflow:visible}.floatingtag{position:absolute;z-index:3;background:#fffaf3;border:1px solid #e5d6c4;border-radius:15px;padding:13px 17px;box-shadow:var(--shadow);font-size:10px;color:#8b755f}.floatingtag strong{display:block;font:800 15px Manrope;color:#68482e;margin-bottom:3px}.tagone{left:0;bottom:62px}.tagtwo{right:0;top:68px}@keyframes boxShake{0%,100%{transform:translateX(0) rotate(0)}20%{transform:translateX(-7px) rotate(-2deg)}40%{transform:translateX(7px) rotate(2deg)}60%{transform:translateX(-5px) rotate(-1deg)}80%{transform:translateX(4px) rotate(1deg)}}
+.ribbon{background:#fffaf4;border-block:1px solid #e9ddce}.ribbon .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:19px 0}.ribbon span{font-size:10px;font-weight:800;letter-spacing:1.2px;color:#8b765f;text-transform:uppercase}
+section.content{padding:88px 0}.heading{text-align:center;max-width:650px;margin:0 auto 43px}.kicker{font-size:9px;font-weight:800;letter-spacing:2px;color:#ae8053;text-transform:uppercase}.heading h2,.abouttext h2{font:800 clamp(30px,4vw,44px)/1.14 Manrope;letter-spacing:-1.8px;margin:12px 0}.heading p,.abouttext p{font-size:13px;line-height:1.85;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:var(--paper);border:1px solid #ebdfd1;border-radius:20px;padding:24px 21px;min-height:242px;transition:.3s;position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:100px;height:100px;border:1px solid #b58b6330;border-radius:50%;right:-55px;bottom:-55px;transition:.4s}.card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:#d3b896}.card:hover:after{transform:scale(1.6)}.ico{width:48px;height:48px;background:#f0e4d5;border-radius:15px;display:grid;place-items:center;color:#795637;margin-bottom:22px}.ico svg{width:24px}.card h3{font:800 16px Manrope;margin:0 0 9px}.card p{font-size:11px;line-height:1.8;color:#897560;margin:0}.card small{display:inline-block;margin-top:17px;color:#a4774d;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.about{background:#ede0cf;padding:78px 0}.aboutgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}.manifesto{min-height:315px;background:linear-gradient(140deg,#765337,#4e321f);border-radius:25px;padding:34px;color:#fff2e4;position:relative;overflow:hidden;box-shadow:0 22px 45px #51351f25}.manifesto:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #fff3;border-radius:50%;right:-70px;bottom:-110px;box-shadow:0 0 0 24px #ffffff0b,0 0 0 48px #ffffff08}.manifesto .big{font:800 48px/.98 Manrope;letter-spacing:-3px;margin-top:24px}.manifesto p{font-size:12px;line-height:1.8;color:#e7d4bf;max-width:230px}.abouttext h2{font-size:38px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:23px}.checks span{font-size:11px;font-weight:700;color:#70543a}.checks span:before{content:"✦";color:#b17d4b;margin-right:8px}
+.contact{padding:85px 0}.contactbox{background:#513621;border-radius:27px;padding:43px 48px;color:#fff4e7;display:flex;align-items:center;justify-content:space-between;gap:25px;position:relative;overflow:hidden}.contactbox:after{content:"";position:absolute;width:350px;height:350px;border:1px solid #fff2;border-radius:50%;right:22%;top:-245px;box-shadow:0 0 0 35px #ffffff08,0 0 0 70px #ffffff05}.contactbox h2{font:800 31px Manrope;margin:10px 0}.contactbox p{font-size:12px;line-height:1.8;color:#e2cdb6}.details{display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;font-size:11px;color:#e6d2bd}.details b{display:block;color:white;margin-bottom:5px}.contactbox .btn{background:#fff2e1;color:#5b3c25;position:relative;z-index:2;white-space:nowrap}.contactbox .btn:hover{background:#e9d3b7}
+footer{border-top:1px solid #e4d7c8;padding:24px 0;color:#8a7764;font-size:10px}.foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.foot strong{font:800 14px Manrope;color:#67452c}
+.whatsapp{position:fixed;z-index:40;right:22px;bottom:22px;width:55px;height:55px;border-radius:50%;display:grid;place-items:center;background:#67945e;color:white;box-shadow:0 10px 25px #294d283d;transition:.2s}.whatsapp:hover{transform:translateY(-5px)}.whatsapp svg{width:25px}
+.reveal{opacity:0;transform:translateY(22px);transition:.75s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.hero-grid{gap:0}.aboutgrid{gap:35px}}
+@media(max-width:650px){.wrap{width:calc(100% - 32px)}nav{height:68px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:22px;background:#f8f1e7;flex-direction:column;gap:20px;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.navbtn{display:none}.hamb{display:block}.hero{min-height:0}.hero-grid{grid-template-columns:1fr;padding:35px 0 58px}.visual{grid-row:1;min-height:325px}.boxwrap{max-width:340px}.halo,.ring{width:285px;height:285px}.tagone{bottom:25px;left:-2px}.tagtwo{top:35px;right:-3px}h1{font-size:51px;letter-spacing:-2.8px}.lead{font-size:13px}.ribbon .wrap{justify-content:center;gap:13px 22px}.ribbon span{font-size:8px}.content{padding:65px 0!important}.cards{gap:10px}.card{padding:18px 14px;min-height:228px}.card h3{font-size:14px}.card p{font-size:10px}.aboutgrid{grid-template-columns:1fr}.manifesto{min-height:260px}.abouttext h2{font-size:32px}.contactbox{padding:30px 23px;display:block}.contactbox h2{font-size:26px}.contactbox .btn{margin-top:23px}.details{gap:15px}.checks{gap:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<header><div class="wrap"><nav>
+<a class="brand" href="#home"><span class="brandmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></span>BOXQUALITY</a>
+<div class="navlinks" id="navlinks"><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About Us</a><a href="#contact">Contact</a></div>
+<a class="navbtn" href="https://wa.me/6285736213152">Let's Talk ↗</a><button class="hamb" id="hamb" aria-label="Open navigation">☰</button>
+</nav></div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div class="reveal"><div class="eyebrow"><i class="dot"></i> Packaging • Logistics • Services</div><h1>Quality in<br>Every <span>Box.</span></h1>
+<p class="lead">Bukan sekadar kotak. Kami menghadirkan solusi kebutuhan kardus bekas, layanan packing, dan dukungan pengiriman dengan cara yang lebih praktis.</p>
+<div class="actions"><a class="btn" href="https://wa.me/6285736213152?text=Halo%20BOXQUALITY%2C%20saya%20ingin%20bertanya.">Contact Us <b>↗</b></a><a class="btn secondary" href="#services">Explore Services</a></div>
+<div class="mini-points"><span>Reuse with purpose</span><span>Practical solutions</span><span>Easy communication</span></div></div>
+<div class="visual reveal"><div class="halo"></div><div class="ring"></div>
+<div class="boxwrap"><svg class="boxsvg" viewBox="0 0 520 440" role="img" aria-label="Kardus BOXQUALITY bergerak">
+<defs>
+<linearGradient id="boxfront" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7ad7b"/><stop offset="1" stop-color="#ad7c4d"/></linearGradient>
+<linearGradient id="boxside" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b78353"/><stop offset="1" stop-color="#79502f"/></linearGradient>
+<linearGradient id="boxtop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0d2aa"/><stop offset="1" stop-color="#c99b6b"/></linearGradient>
+<filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<ellipse cx="263" cy="373" rx="176" ry="22" fill="#57391f" opacity=".18" filter="url(#soft)"/>
+<!-- rear top flaps -->
+<path d="M113 143 254 76l143 61-137 78Z" fill="#b98757"/>
+<path d="m254 76 7 86 83-38-4-62Z" fill="#d7ad7d"/>
+<path d="m113 143 88 39 60-20-7-86Z" fill="#e2bd91"/>
+<!-- body -->
+<path d="M113 143v174l148 76V205Z" fill="url(#boxfront)"/>
+<path d="M261 205v188l136-76V137Z" fill="url(#boxside)"/>
+<!-- front flap / tape -->
+<path d="m237 196 24 9v188l-24-12Z" fill="#e7c79e" opacity=".8"/>
+<path d="m245 199 9 4v181l-9-4Z" fill="#f5dfbd" opacity=".65"/>
+<!-- front label -->
+<rect x="144" y="236" width="91" height="55" rx="6" fill="#f8eddd" opacity=".97"/>
+<path d="M157 250h65" stroke="#d6b58e" stroke-width="2"/>
+<text x="189" y="267" text-anchor="middle" fill="#65452c" font-family="Manrope,sans-serif" font-size="10" font-weight="800" letter-spacing=".5">BOX</text>
+<text x="189" y="280" text-anchor="middle" fill="#65452c" font-family="Manrope,sans-serif" font-size="8" font-weight="800" letter-spacing=".5">QUALITY</text>
+<!-- side details -->
+<path d="m291 238 78-43v8l-78 43Zm0 24 78-43v8l-78 43Zm0 24 78-43v8l-78 43Z" fill="#f0d8b8" opacity=".48"/>
+<path d="m113 143 148 62 136-68" fill="none" stroke="#f4daba" stroke-width="2" opacity=".65"/>
+<path d="m113 317 148 76 136-76" fill="none" stroke="#704a2b" stroke-width="2" opacity=".25"/>
+<!-- top tape -->
+<path d="m246 80 12 5 5 116-12-5Z" fill="#f1d7b3" opacity=".75"/>
+<path d="m254 76 143 61-14 7-130-56Z" fill="#f7dfbd" opacity=".3"/>
+</svg></div>
+<div class="floatingtag tagone"><strong>BOXQUALITY</strong>Quality in Every Box.</div><div class="floatingtag tagtwo">♻ <b>Reuse</b> with purpose</div>
+</div></div></section>
+<div class="ribbon"><div class="wrap"><span>♻ Reuse & Recycle</span><span>▣ Smart Packaging</span><span>✦ Thoughtful Service</span><span>⌁ Easy Contact</span></div></div>
+<section class="content" id="services"><div class="wrap"><div class="heading reveal"><div class="kicker">Our Services</div><h2>More Than Just a Box.</h2><p>Berbagai layanan yang dirancang untuk membantu kebutuhan kardus, packing, dan aktivitas pengiriman.</p></div>
+<div class="cards">
+<article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></div><h3>Used Box Supply</h3><p>Penyediaan dan jual beli kardus bekas yang masih layak untuk kebutuhan penyimpanan dan pengemasan.</p><small>Reuse • Recycle • Revalue</small></article>
+<article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12v9"/></svg></div><h3>Packing Service</h3><p>Bantuan packing agar barang tersusun lebih rapi dan siap dipersiapkan sebelum pengiriman.</p><small>Pack with Care</small></article>
+<article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><h3>Delivery Service</h3><p>Informasi dan opsi bantuan pengiriman sesuai kebutuhan. Jangkauan dikonfirmasi terlebih dahulu.</p><small>Delivery Support</small></article>
+<article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/><path d="m15 17 2 2 4-4"/></svg></div><h3>Personal Shopping</h3><p>Layanan titip beli untuk membantu mendapatkan barang sesuai permintaan dan kesepakatan.</p><small>Request • Arrange • Deliver</small></article>
+</div></div></section>
+<section class="about" id="about"><div class="wrap aboutgrid"><div class="manifesto reveal"><div class="kicker" style="color:#e5bd91">Our Philosophy</div><div class="big">BOX<br>QUALITY.</div><p>Memberi nilai lebih pada setiap kotak, setiap proses, dan setiap layanan.</p></div><div class="abouttext reveal"><div class="kicker">About Us</div><h2>Simple Solutions.<br>Better Experience.</h2><p>BOXQUALITY hadir dengan semangat memanfaatkan kembali kardus yang masih layak pakai dan membantu kebutuhan packing sehari-hari. Kami ingin membuat proses mencari kardus dan layanan pendukung terasa lebih mudah, jelas, dan praktis.</p><p>Kami terus mengembangkan layanan sesuai kebutuhan. Untuk detail ketersediaan, silakan hubungi kami secara langsung.</p><div class="checks"><span>Praktis dan mudah</span><span>Komunikasi langsung</span><span>Reuse dengan tujuan</span><span>Layanan berkembang</span></div></div></div></section>
+<section class="contact" id="contact"><div class="wrap"><div class="contactbox reveal"><div><div class="kicker" style="color:#d7ad80">Get in Touch</div><h2>Let's Make It Happen.</h2><p>Punya pertanyaan atau kebutuhan layanan? Hubungi BOXQUALITY untuk informasi lebih lanjut.</p><div class="details"><div><b>WhatsApp</b>0857 3621 3152</div><div><b>Address</b>Jl. Gajayana No. 30, Malang</div><div><b>Operating Hours</b>24 Hours</div></div></div><a class="btn" href="https://wa.me/6285736213152?text=Halo%20BOXQUALITY%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div></div></section>
+</main>
+<footer><div class="wrap foot"><strong>BOXQUALITY.</strong><span>Quality in Every Box.</span><span>© <span id="year"></span> BOXQUALITY. All rights reserved.</span></div></footer>
+<a class="whatsapp" href="https://wa.me/6285736213152" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.3-4A8 8 0 1 1 20 11.7Z"/><path d="M8.5 8.5c.3-.6.6-.6 1-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.4-1.2.6-2 .4-1-.2-2.3-.8-3.6-2-1.1-1-1.8-2.3-2-3.2-.2-.9 0-1.7.5-2.2Z"/></svg></a>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const nav=document.getElementById('navlinks');document.getElementById('hamb').addEventListener('click',()=>nav.classList.toggle('open'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body></html>
