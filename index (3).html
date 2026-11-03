@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5b3b25">
+  <meta name="description" content="BOXQUALITY — solusi kardus bekas, packing, dan layanan pendukung pengiriman. Quality in Every Box.">
+  <title>BOXQUALITY — Quality in Every Box</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#392719;--brown:#65452e;--brown2:#8c6545;--tan:#c99b6b;--cream:#f8f3eb;--paper:#fffdf9;--muted:#806d5c;--line:#eadfD1;--shadow:0 18px 50px rgba(75,48,27,.10)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1140px,calc(100% - 42px));margin:auto}
+    .topline{height:5px;background:linear-gradient(90deg,#5b3b25,#c99b6b,#ead4b7)}
+    header{position:sticky;top:0;z-index:20;background:rgba(248,243,235,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(101,69,46,.10)}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:11px;font:800 21px Manrope,sans-serif;letter-spacing:-.8px}
+    .brand-mark{width:38px;height:38px;border-radius:11px;background:var(--brown);display:grid;place-items:center;color:#fff2df;box-shadow:0 7px 16px #65452e30}
+    .brand-mark svg{width:24px}.navlinks{display:flex;align-items:center;gap:30px;color:#705a48;font-size:13px;font-weight:700}
+    .navlinks a:hover{color:#b07845}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:13px 20px;background:var(--brown);color:#fff8ef;font-weight:700;font-size:13px;transition:.25s;cursor:pointer}
+    .nav-cta:hover,.btn:hover{background:#8a6040;transform:translateY(-2px);box-shadow:0 10px 22px #65452e30}
+    .menu{display:none;background:none;border:0;color:var(--brown);font-size:25px}
+    .hero{padding:78px 0 76px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:#e8d5bd66;right:-180px;top:-150px;filter:blur(2px)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px;position:relative}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #d9c5ae;border-radius:99px;padding:8px 13px;color:#8a6849;font-size:10px;letter-spacing:1.8px;font-weight:800;text-transform:uppercase}
+    .eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#b27c4d;box-shadow:0 0 0 4px #b27c4d20}
+    h1{font:800 clamp(43px,6vw,70px)/1.04 Manrope,sans-serif;letter-spacing:-3.6px;margin:22px 0 18px;max-width:620px}
+    h1 span{color:#a8794d}.hero-copy{font-size:16px;line-height:1.8;color:var(--muted);max-width:510px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn-light{background:#fffaf3;color:var(--brown);border:1px solid #e5d6c5}.btn-light:hover{background:#f0e3d3}
+    .hero-note{display:flex;gap:22px;margin-top:34px;color:#8a7867;font-size:11px;font-weight:600}.hero-note span{display:flex;align-items:center;gap:7px}
+    .hero-art{min-height:390px;display:grid;place-items:center;position:relative}
+    .art-glow{position:absolute;width:340px;height:340px;background:#e5c9a8;border-radius:50%;filter:blur(35px);opacity:.45}
+    .box-scene{width:min(100%,440px);position:relative;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 24px 24px #65452e24)}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+    .art-label{position:absolute;bottom:20px;right:0;background:#fffaf3;border:1px solid #e8dac9;border-radius:15px;padding:13px 17px;box-shadow:var(--shadow);font-size:11px;color:#80674f}
+    .art-label strong{display:block;color:var(--brown);font:800 16px Manrope;margin-bottom:3px}
+    .trust-strip{background:#fffaf4;border-block:1px solid #eee3d6;padding:19px 0}.trust-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#8c7865;font-size:11px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}.trust-inner span{display:flex;align-items:center;gap:9px}
+    section{padding:88px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 42px}.kicker{color:#ad8055;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.section-head h2{font:800 clamp(30px,4vw,43px)/1.15 Manrope;letter-spacing:-1.8px;margin:12px 0}.section-head p{color:var(--muted);line-height:1.75;font-size:14px}
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.service{background:var(--paper);border:1px solid #eee3d6;border-radius:20px;padding:24px 21px;min-height:235px;transition:.28s;position:relative;overflow:hidden}.service:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:#d8bea0}.service-icon{width:47px;height:47px;border-radius:14px;background:#f2e7d9;display:grid;place-items:center;color:#805a39;margin-bottom:22px}.service-icon svg{width:24px;height:24px}.service h3{font:800 17px Manrope;margin:0 0 9px}.service p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}.service small{display:inline-block;margin-top:16px;color:#a17850;font-size:9px;letter-spacing:1.2px;font-weight:800;text-transform:uppercase}
+    .about{background:#efe4d6}.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:65px}.about-card{background:#6a4930;border-radius:25px;padding:34px;color:#fff2e2;min-height:300px;position:relative;overflow:hidden}.about-card:after{content:"";position:absolute;width:210px;height:210px;border:1px solid #ffffff35;border-radius:50%;right:-65px;bottom:-80px;box-shadow:0 0 0 25px #ffffff0b,0 0 0 50px #ffffff08}.about-card .big{font:800 50px Manrope;letter-spacing:-3px}.about-card p{max-width:240px;color:#e5d2bd;font-size:13px;line-height:1.7}.about-copy h2{font:800 37px/1.15 Manrope;letter-spacing:-1.7px;margin:12px 0}.about-copy p{color:#796653;line-height:1.85;font-size:14px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.checks span{font-size:12px;font-weight:700;color:#6e5137}.checks span:before{content:"✓";color:#a7784b;margin-right:8px}
+    .contact{padding-bottom:95px}.contact-box{background:#5d3e29;border-radius:28px;padding:44px 48px;color:#fff5e8;display:flex;align-items:center;justify-content:space-between;gap:30px;position:relative;overflow:hidden}.contact-box:after{content:"";position:absolute;width:290px;height:290px;border:1px solid #ffffff22;border-radius:50%;right:22%;top:-190px;box-shadow:0 0 0 30px #ffffff08,0 0 0 60px #ffffff05}.contact-copy{position:relative;z-index:1}.contact-copy h2{font:800 32px Manrope;letter-spacing:-1px;margin:0 0 10px}.contact-copy p{color:#e3cdb6;font-size:13px;line-height:1.7;margin:0}.contact-details{display:flex;gap:25px;flex-wrap:wrap;margin-top:22px;color:#f0ddc9;font-size:12px}.contact-details b{display:block;color:white;margin-bottom:4px}.contact-box .btn{background:#fff4e5;color:#5d3e29;position:relative;z-index:1;white-space:nowrap}.contact-box .btn:hover{background:#e8d1b5}
+    footer{padding:24px 0;border-top:1px solid #e8ddcf;color:#8b7967;font-size:11px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center}.footer-brand{font:800 14px Manrope;color:#65452e;letter-spacing:.3px}
+    .float-wa{position:fixed;right:22px;bottom:22px;z-index:15;width:54px;height:54px;border-radius:50%;background:#6c9b65;color:white;display:grid;place-items:center;box-shadow:0 10px 24px #294d283d;transition:.2s}.float-wa:hover{transform:translateY(-4px)}.float-wa svg{width:25px}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:translateY(0)}
+    @media(max-width:900px){.hero-grid{gap:20px}.services{grid-template-columns:repeat(2,1fr)}.about-grid{gap:35px}}
+    @media(max-width:650px){.wrap{width:min(100% - 32px,540px)}nav{height:68px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:#faf5ed;padding:20px 25px 25px;flex-direction:column;align-items:stretch;gap:18px;border-bottom:1px solid #e8ddcf}.navlinks.open{display:flex}.nav-cta{display:none}.menu{display:block}.hero{padding:55px 0 40px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:290px;grid-row:1}.box-scene{max-width:340px}.art-label{right:5px;bottom:0}h1{font-size:48px;letter-spacing:-2.8px}.hero-copy{font-size:14px}.hero-note{gap:12px;flex-wrap:wrap}.trust-inner{justify-content:center;gap:14px 22px;font-size:9px}.trust-inner span{gap:6px}section{padding:68px 0}.services{gap:10px}.service{padding:18px 15px;min-height:220px}.service h3{font-size:15px}.service p{font-size:11px}.about-grid{grid-template-columns:1fr}.about-card{min-height:240px}.about-copy h2{font-size:31px}.contact-box{padding:30px 24px;display:block}.contact-copy h2{font-size:27px}.contact-box .btn{margin-top:25px}.contact-details{gap:15px}.checks{grid-template-columns:1fr 1fr}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#home" aria-label="BOXQUALITY home">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7M12 11v10M7.5 5l9 4"/></svg></span>
+          BOXQUALITY
+        </a>
+        <div class="navlinks" id="navlinks">
+          <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="https://wa.me/6285736213152">Contact Us ↗</a>
+        <button class="menu" id="menu" aria-label="Open menu">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Packaging • Logistics • Services</div>
+          <h1>Quality in<br>Every <span>Box.</span></h1>
+          <p class="hero-copy">Lebih dari sekadar kardus. Temukan solusi kebutuhan kardus bekas, layanan packing, dan berbagai kebutuhan pendukung pengiriman dalam satu tempat.</p>
+          <div class="hero-actions">
+            <a class="btn" href="https://wa.me/6285736213152?text=Halo%20BOXQUALITY%2C%20saya%20ingin%20bertanya%20tentang%20layanan.">Hubungi Kami <span>↗</span></a>
+            <a class="btn btn-light" href="#services">Jelajahi Layanan</a>
+          </div>
+          <div class="hero-note"><span>✦ Solusi praktis</span><span>✦ Lebih bermanfaat</span><span>✦ Mudah dihubungi</span></div>
+        </div>
+        <div class="hero-art reveal">
+          <div class="art-glow"></div>
+          <svg class="box-scene" viewBox="0 0 500 410" role="img" aria-label="Ilustrasi kardus BOXQUALITY">
+            <defs><linearGradient id="front" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c99a68"/><stop offset="1" stop-color="#9d7048"/></linearGradient><linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a8794e"/><stop offset="1" stop-color="#805735"/></linearGradient><linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1bd91"/><stop offset="1" stop-color="#c99b6b"/></linearGradient></defs>
+            <ellipse cx="250" cy="350" rx="175" ry="25" fill="#6e4b2e" opacity=".12"/>
+            <path d="M82 143 245 75l176 68-166 82Z" fill="url(#top)"/>
+            <path d="M82 143v157l173 78V221Z" fill="url(#front)"/>
+            <path d="M255 221v157l166-78V143Z" fill="url(#side)"/>
+            <path d="m163 109 82-34 89 34-82 37Z" fill="#edd1aa" opacity=".8"/>
+            <path d="m245 75 4 85 86-36-1-15Z" fill="#b8895a"/>
+            <path d="m82 143 84 37 89-42-10-63Z" fill="#d7ad7d" opacity=".65"/>
+            <path d="M255 221v157" stroke="#704a2c" stroke-width="2" opacity=".35"/>
+            <path d="m82 143 173 78 166-78" stroke="#f3d9b6" stroke-width="2" fill="none" opacity=".6"/>
+            <rect x="133" y="218" width="104" height="51" rx="7" fill="#f5e8d5" opacity=".94"/>
+            <text x="185" y="239" font-family="Manrope, sans-serif" font-size="10" font-weight="800" text-anchor="middle" fill="#68472e" letter-spacing="1">BOX</text>
+            <text x="185" y="253" font-family="Manrope, sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#68472e" letter-spacing=".7">QUALITY</text>
+            <path d="m306 240 65-29v79l-65 31Z" fill="#f2dfc6" opacity=".12"/>
+            <path d="m324 251 28-13m-28 25 28-13m-28 25 28-13" stroke="#f0d5b1" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+            <path d="m158 143 3 68" stroke="#f2d5ae" stroke-width="3" opacity=".35"/>
+          </svg>
+          <div class="art-label"><strong>BOXQUALITY</strong>Quality in Every Box.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip"><div class="wrap trust-inner"><span>♻ Reuse with Purpose</span><span>▣ Practical Packaging</span><span>✦ Thoughtful Service</span><span>⌁ Easy Communication</span></div></div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="kicker">What We Offer</div><h2>Solutions for Every Need.</h2><p>Mulai dari kebutuhan kardus hingga layanan pendukung aktivitas packing dan pengiriman.</p></div>
+        <div class="services">
+          <article class="service reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 7 9-4 9 4-9 4-9-4Z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></div><h3>Used Box Supply</h3><p>Penyediaan dan jual beli kardus bekas untuk berbagai kebutuhan penyimpanan maupun pengemasan.</p><small>Reuse • Recycle • Revalue</small></article>
+          <article class="service reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12v9M8 5.2l8 4.5"/></svg></div><h3>Packing Service</h3><p>Layanan bantuan packing untuk membantu barang tersusun dan terlindungi sebelum dikirim.</p><small>Pack with Care</small></article>
+          <article class="service reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><h3>Delivery Service</h3><p>Informasi dan opsi bantuan pengiriman sesuai kebutuhan. Jangkauan dan ketersediaan dikonfirmasi terlebih dahulu.</p><small>Delivery Support</small></article>
+          <article class="service reveal"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/><path d="m15 17 2 2 4-4"/></svg></div><h3>Personal Shopping</h3><p>Layanan titip beli untuk membantu mendapatkan barang sesuai permintaan dan kesepakatan.</p><small>Request • Arrange • Deliver</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-card reveal"><div class="kicker" style="color:#e6bd91">Our Philosophy</div><div class="big">BOX<br>QUALITY.</div><p>Memberi nilai lebih pada setiap kotak, setiap proses, dan setiap layanan.</p></div>
+        <div class="about-copy reveal"><div class="kicker">About BOXQUALITY</div><h2>Simple Solutions.<br>Better Experience.</h2><p>BOXQUALITY hadir dengan semangat memanfaatkan kembali kardus yang masih layak pakai dan membantu kebutuhan packing sehari-hari. Kami ingin membuat proses mencari kardus dan layanan pendukung terasa lebih mudah, jelas, dan praktis.</p><p>Kami terus mengembangkan layanan sesuai kebutuhan pelanggan. Untuk detail ketersediaan, silakan hubungi kami secara langsung.</p><div class="checks"><span>Praktis dan mudah</span><span>Komunikasi langsung</span><span>Reuse dengan tujuan</span><span>Layanan berkembang</span></div></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-box reveal">
+          <div class="contact-copy"><div class="kicker" style="color:#d8ad80">Let's Connect</div><h2>Need a Box? Let's Talk.</h2><p>Punya pertanyaan atau kebutuhan layanan? Hubungi BOXQUALITY untuk informasi lebih lanjut.</p>
+            <div class="contact-details"><div><b>WhatsApp</b>0857 3621 3152</div><div><b>Address</b>Jl. Gajayana No. 30, Malang</div><div><b>Operating Hours</b>24 Hours</div></div>
+          </div>
+          <a class="btn" href="https://wa.me/6285736213152?text=Halo%20BOXQUALITY%2C%20saya%20ingin%20bertanya%20tentang%20layanan." target="_blank" rel="noopener">Chat via WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><div class="footer-brand">BOXQUALITY.</div><div>Quality in Every Box.</div><div>© <span id="year"></span> BOXQUALITY. All rights reserved.</div></div></footer>
+  <a class="float-wa" href="https://wa.me/6285736213152" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.3-4A8 8 0 1 1 20 11.7Z"/><path d="M8.5 8.5c.3-.6.6-.6 1-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.4-1.2.6-2 .4-1-.2-2.3-.8-3.6-2-1.1-1-1.8-2.3-2-3.2-.2-.9 0-1.7.5-2.2Z"/></svg>
+  </a>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menu = document.getElementById('menu');
+    const links = document.getElementById('navlinks');
+    menu.addEventListener('click',()=>links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+    const observer = new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
