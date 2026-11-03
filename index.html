@@ -97,6 +97,203 @@ footer{border-top:1px solid #e4d7c8;padding:24px 0;color:#8a7764;font-size:10px}
 <section class="contact" id="contact"><div class="wrap"><div class="contactbox reveal"><div><div class="kicker" style="color:#d7ad80">Get in Touch</div><h2>Let's Make It Happen.</h2><p>Punya pertanyaan atau kebutuhan layanan? Hubungi BOXQUALITY untuk informasi lebih lanjut.</p><div class="details"><div><b>WhatsApp</b>0857 3621 3152</div><div><b>Address</b>Jl. Gajayana No. 30, Malang</div><div><b>Operating Hours</b>24 Hours</div></div></div><a class="btn" href="https://wa.me/6285736213152?text=Halo%20BOXQUALITY%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div></div></section>
 </main>
 <footer><div class="wrap foot"><strong>BOXQUALITY.</strong><span>Quality in Every Box.</span><span>© <span id="year"></span> BOXQUALITY. All rights reserved.</span></div></footer>
+<!-- BOXQUALITY CUSTOMER REQUEST -->
+<section class="request-section" id="request">
+  <div class="request-container">
+    <div class="request-info">
+      <span class="request-label">BOXQUALITY • CUSTOMER SERVICE</span>
+      <h2>Let's Make Your<br><span>Request.</span></h2>
+      <p>
+        Butuh kardus bekas, jasa packing, atau layanan lainnya?
+        Isi formulir dan tim BOXQUALITY akan menerima permintaanmu
+        melalui WhatsApp.
+      </p>
+      <div class="request-contact">
+        <strong>Need assistance?</strong>
+        <p>WhatsApp: 085736213152</p>
+        <p>Service: 24 Hours</p>
+      </div>
+    </div>
+
+    <form class="request-form" id="boxqualityForm">
+      <h3>Customer Request Form</h3>
+      <p class="form-subtitle">Lengkapi informasi di bawah ini.</p>
+
+      <label>Nama Lengkap *</label>
+      <input id="customerName" type="text"
+        placeholder="Masukkan nama kamu" required>
+
+      <label>Nomor WhatsApp *</label>
+      <input id="customerPhone" type="tel"
+        placeholder="Contoh: 08xxxxxxxxxx" required>
+
+      <label>Pilih Layanan *</label>
+      <select id="customerService" required>
+        <option value="">Pilih layanan</option>
+        <option>Jual Beli Kardus Bekas</option>
+        <option>Jasa Packing</option>
+        <option>Jasa Pengiriman</option>
+        <option>Personal Shopping / Jastip</option>
+        <option>Layanan Lainnya</option>
+      </select>
+
+      <label>Jumlah / Perkiraan Kebutuhan</label>
+      <input id="customerQuantity" type="text"
+        placeholder="Contoh: 50 kardus ukuran sedang">
+
+      <label>Detail Permintaan *</label>
+      <textarea id="customerDetails" rows="4"
+        placeholder="Jelaskan kebutuhan kamu..." required></textarea>
+
+      <button type="submit">
+        SEND REQUEST VIA WHATSAPP →
+      </button>
+
+      <small>
+        Dengan mengirim formulir, kamu akan diarahkan ke WhatsApp
+        BOXQUALITY untuk melanjutkan permintaan.
+      </small>
+    </form>
+  </div>
+</section>
+
+<style>
+.request-section {
+  padding: 90px 20px;
+  background: #eee4d3;
+  color: #392719;
+  font-family: Arial, sans-serif;
+}
+.request-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 55px;
+  align-items: center;
+}
+.request-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #9a7047;
+}
+.request-info h2 {
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.05;
+  margin: 22px 0;
+}
+.request-info h2 span { color: #a36e3f; }
+.request-info p {
+  color: #786653;
+  line-height: 1.8;
+}
+.request-contact {
+  margin-top: 35px;
+  padding: 20px;
+  border-left: 3px solid #a36e3f;
+  background: #e5d6c0;
+}
+.request-contact p { margin: 6px 0; }
+.request-form {
+  padding: 35px;
+  border-radius: 18px;
+  background: #fffaf2;
+  box-shadow: 0 15px 45px #49351b18;
+}
+.request-form h3 {
+  font-size: 25px;
+  margin: 0 0 8px;
+}
+.form-subtitle {
+  color: #927e68;
+  margin-bottom: 25px;
+}
+.request-form label {
+  display: block;
+  margin: 17px 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.request-form input,
+.request-form select,
+.request-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #e2d5c3;
+  border-radius: 9px;
+  background: #fff;
+  font: inherit;
+  outline: none;
+  transition: .2s;
+}
+.request-form input:focus,
+.request-form select:focus,
+.request-form textarea:focus {
+  border-color: #a36e3f;
+  box-shadow: 0 0 0 3px #a36e3f20;
+}
+.request-form textarea { resize: vertical; }
+.request-form button {
+  width: 100%;
+  margin-top: 23px;
+  padding: 16px;
+  border: 0;
+  border-radius: 9px;
+  background: #80532f;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .25s;
+}
+.request-form button:hover {
+  background: #59391f;
+  transform: translateY(-3px);
+}
+.request-form small {
+  display: block;
+  margin-top: 14px;
+  color: #998774;
+  line-height: 1.6;
+}
+@media(max-width: 750px) {
+  .request-container { grid-template-columns: 1fr; gap: 30px; }
+  .request-form { padding: 23px; }
+}
+</style>
+
+<script>
+document.getElementById("boxqualityForm")
+.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const service = document.getElementById("customerService").value;
+  const quantity = document.getElementById("customerQuantity").value.trim() || "-";
+  const details = document.getElementById("customerDetails").value.trim();
+
+  const message =
+`Halo BOXQUALITY! Saya ingin mengajukan permintaan layanan.
+
+Nama: ${name}
+Nomor WhatsApp: ${phone}
+Layanan: ${service}
+Jumlah/Kebutuhan: ${quantity}
+
+Detail Permintaan:
+${details}
+
+Mohon informasi lebih lanjut. Terima kasih!`;
+
+  const url = "https://wa.me/6285736213152?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+});
+</script>
+
 <a class="whatsapp" href="https://wa.me/6285736213152" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.3-4A8 8 0 1 1 20 11.7Z"/><path d="M8.5 8.5c.3-.6.6-.6 1-.6h.4c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.4-1.2.6-2 .4-1-.2-2.3-.8-3.6-2-1.1-1-1.8-2.3-2-3.2-.2-.9 0-1.7.5-2.2Z"/></svg></a>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
