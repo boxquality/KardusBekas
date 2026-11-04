@@ -4,380 +4,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100d09">
-<title>BOXQUALITY — Quality in Every Box</title>
-<meta name="description" content="BOXQUALITY — solusi kardus, packing, pengiriman dan personal shopping. Quality in Every Box.">
+<meta name="theme-color" content="#100c08">
+<title>BOXQUALITY | Quality in Every Box</title>
+<meta name="description" content="BOXQUALITY menyediakan kardus bekas, packing service, delivery service dan personal shopping di Malang.">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root{
-  --bg:#100d09;
-  --bg2:#19130d;
-  --panel:#21190f;
-  --gold:#c99b55;
-  --gold2:#edc987;
-  --bronze:#805a2e;
-  --text:#f3eadb;
-  --muted:#a99b87;
-  --line:rgba(210,169,105,.19);
+  --bg:#100c08;
+  --bg2:#181109;
+  --panel:#21180f;
+  --gold:#c79a5a;
+  --gold-light:#efd09a;
+  --bronze:#81572f;
+  --white:#f3eadc;
+  --muted:#a99a85;
+  --line:rgba(205,162,100,.2);
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   background:var(--bg);
-  color:var(--text);
+  color:var(--white);
   font-family:'DM Sans',sans-serif;
   overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit}
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
-.container{width:min(1160px,90%);margin:auto}
-.gold{color:var(--gold2)}
+.container{width:min(1150px,90%);margin:auto}
+.gold{color:var(--gold-light)}
 .eyebrow{
   color:var(--gold);
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
   letter-spacing:3px;
   text-transform:uppercase;
 }
-.section{padding:100px 0}
+.section{padding:95px 0}
 .section-title{
   font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(30px,5vw,49px);
-  line-height:1.12;
-  letter-spacing:-1.8px;
+  font-size:clamp(32px,5vw,51px);
+  letter-spacing:-2px;
+  line-height:1.1;
   margin:14px 0;
 }
-.section-desc{color:var(--muted);line-height:1.8;max-width:590px;font-size:14px}
-.gold-line{
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  opacity:.5;
+.section-desc{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  max-width:600px;
 }
-
-/* BACKGROUND */
 .ambient{
-  position:fixed;inset:0;pointer-events:none;z-index:-2;
+  position:fixed;inset:0;z-index:-2;
   background:
-    radial-gradient(ellipse at 80% 15%,rgba(161,105,42,.13),transparent 38%),
-    radial-gradient(ellipse at 10% 60%,rgba(116,75,31,.10),transparent 35%),
-    #100d09;
+    radial-gradient(ellipse at 80% 10%,rgba(159,104,43,.13),transparent 40%),
+    radial-gradient(ellipse at 10% 65%,rgba(112,72,31,.1),transparent 38%),
+    var(--bg);
 }
 .grid-bg{
   position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(rgba(205,164,99,.035) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(205,164,99,.035) 1px,transparent 1px);
+  background-image:
+    linear-gradient(rgba(205,162,100,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(205,162,100,.035) 1px,transparent 1px);
   background-size:55px 55px;
-  mask-image:linear-gradient(to bottom,black,transparent 85%);
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
 }
-
-/* NAVBAR */
-header{
-  position:fixed;top:0;left:0;width:100%;z-index:100;
-  background:rgba(16,13,9,.83);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:14px 21px;
+  color:#1b1208;
+  background:linear-gradient(130deg,#f0d19b,#b78345);
+  border:1px solid #d0a56c;
+  font-size:10px;font-weight:800;letter-spacing:1px;
+  transition:.3s;
 }
-.nav{
-  height:76px;display:flex;align-items:center;
-  justify-content:space-between;
-}
-.brand{display:flex;align-items:center;gap:11px}
-.brand-icon{
-  width:38px;height:38px;border:1px solid var(--gold);
-  display:grid;place-items:center;color:var(--gold2);
-  transform:rotate(45deg);font-size:17px;
-}
-.brand-icon span{transform:rotate(-45deg)}
-.brand-name{
-  font-family:'Space Grotesk';font-weight:700;
-  letter-spacing:1.2px;font-size:18px;
-}
-.brand-name small{
-  display:block;font-size:8px;color:var(--gold);
-  letter-spacing:3px;font-weight:500;margin-top:2px;
-}
-.nav-links{display:flex;gap:30px;align-items:center}
-.nav-links a{font-size:12px;color:#c8bba8;transition:.25s}
-.nav-links a:hover{color:var(--gold2)}
-.nav-cta,.btn{
-  border:1px solid var(--gold);
-  padding:12px 19px;
-  color:#17110a;
-  background:linear-gradient(135deg,#edc987,#ad7738);
-  font-size:11px;font-weight:800;letter-spacing:1px;
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:9px;transition:.3s;
-}
-.nav-cta:hover,.btn:hover{
+.btn:hover{
   transform:translateY(-3px);
   box-shadow:0 10px 30px rgba(201,155,85,.2);
 }
-.menu-btn{display:none;background:none;border:0;color:var(--gold2);font-size:25px}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 20px;
+  border:1px solid var(--line);
+  color:var(--white);
+  font-size:10px;letter-spacing:1px;
+  transition:.3s;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+
+/* NAVIGATION */
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  background:rgba(16,12,8,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  height:75px;display:flex;align-items:center;
+  justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:37px;height:37px;
+  display:grid;place-items:center;
+  border:1px solid var(--gold);
+  color:var(--gold-light);
+  transform:rotate(45deg);
+  font-size:18px;
+}
+.brand-mark span{transform:rotate(-45deg)}
+.brand-name{
+  font-family:'Space Grotesk';
+  font-size:18px;font-weight:700;letter-spacing:1px;
+}
+.brand-name small{
+  display:block;color:var(--gold);
+  font-size:8px;letter-spacing:3px;
+}
+.nav-links{display:flex;align-items:center;gap:27px}
+.nav-links a{
+  font-size:10px;letter-spacing:1px;color:#c9baa4;
+  transition:.2s;
+}
+.nav-links a:hover{color:var(--gold-light)}
+.menu-btn{
+  display:none;border:0;background:none;color:var(--gold-light);
+  font-size:25px;
+}
 
 /* HERO */
 .hero{
-  min-height:740px;padding:155px 0 90px;
-  display:flex;align-items:center;position:relative;
+  min-height:740px;
+  padding:145px 0 85px;
+  position:relative;
+  display:flex;align-items:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 75% 55%,rgba(144,91,38,.17),transparent 48%);
 }
-.hero-grid{
-  display:grid;grid-template-columns:1.05fr .95fr;
-  align-items:center;gap:30px;
-}
+.hero-content{position:relative;z-index:5;max-width:740px}
 .hero h1{
   font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(45px,6.7vw,83px);
-  line-height:.99;letter-spacing:-4px;
-  margin:22px 0;
+  font-size:clamp(55px,9vw,105px);
+  line-height:.94;
+  letter-spacing:-5px;
+  margin:23px 0;
 }
 .hero h1 span{
   display:block;
-  background:linear-gradient(100deg,#fff1d4,#c99b55 55%,#8c602e);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
+  background:linear-gradient(100deg,#fff0d3,#d5a76b 55%,#90602f);
+  color:transparent;
+  background-clip:text;
+  -webkit-background-clip:text;
 }
-.hero-copy{font-size:14px;color:var(--muted);line-height:1.9;max-width:490px}
+.hero-copy{
+  max-width:520px;color:#b5a58e;
+  font-size:14px;line-height:1.95;
+}
 .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
-.btn-outline{
-  border:1px solid var(--line);color:var(--text);
-  padding:12px 19px;font-size:11px;letter-spacing:1px;
-  display:inline-flex;align-items:center;gap:9px;
-  transition:.3s;
+.hero-bottom{
+  display:flex;gap:35px;flex-wrap:wrap;
+  margin-top:48px;padding-top:22px;
+  border-top:1px solid var(--line);
+  max-width:510px;
 }
-.btn-outline:hover{border-color:var(--gold);color:var(--gold2)}
-.hero-stats{
-  display:flex;gap:35px;margin-top:50px;padding-top:25px;
-  border-top:1px solid var(--line);max-width:480px;
+.hero-stat strong{
+  display:block;font-family:'Space Grotesk';
+  font-size:23px;color:var(--gold-light);
 }
-.stat strong{font-family:'Space Grotesk';font-size:23px;color:var(--gold2);display:block}
-.stat span{font-size:10px;color:var(--muted);letter-spacing:1px}
+.hero-stat span{
+  color:var(--muted);font-size:9px;letter-spacing:1.5px;
+}
 
-/* 3D BOX VISUAL */
-.visual{
-  position:relative;min-height:440px;
-  display:grid;place-items:center;
-  border:1px solid rgba(201,155,85,.15);
-  background:radial-gradient(ellipse,rgba(172,112,44,.16),rgba(27,20,12,.15) 55%,transparent 75%);
-  overflow:hidden;
+/* FALLING 3D BOXES */
+.rain-layer{
+  position:absolute;inset:0;overflow:hidden;
+  pointer-events:none;z-index:2;
+  perspective:850px;
 }
-.visual:before{
-  content:"";position:absolute;width:340px;height:340px;
-  border:1px solid rgba(201,155,85,.14);border-radius:50%;
-}
-.visual:after{
-  content:"";position:absolute;width:440px;height:440px;
-  border:1px solid rgba(201,155,85,.08);border-radius:50%;
-}
-.orbit{
-  position:absolute;width:380px;height:140px;
-  border:1px solid rgba(220,177,111,.28);
-  border-radius:50%;transform:rotate(-25deg);
-}
-.orbit-dot{
-  position:absolute;width:8px;height:8px;border-radius:50%;
-  background:var(--gold2);box-shadow:0 0 18px var(--gold);
-  top:35px;left:45px;
-}
-.visual-label{
-  position:absolute;z-index:5;bottom:22px;left:24px;
-  font-size:9px;letter-spacing:2px;color:var(--gold);
-}
-.visual-code{
-  position:absolute;z-index:5;right:22px;top:22px;
-  font-size:9px;color:#8c7656;letter-spacing:2px;
-}
-.box-scene{
-  width:270px;height:260px;position:relative;z-index:3;
-  perspective:850px;touch-action:pan-y;cursor:grab;
-}
-.box-scene:active{cursor:grabbing}
-.crate{
-  position:absolute;width:210px;height:155px;
-  left:30px;top:75px;
+.falling-box{
+  position:absolute;top:-170px;
+  width:70px;height:70px;
   transform-style:preserve-3d;
-  transform:rotateX(-18deg) rotateY(-30deg);
-  transition:transform .15s linear;
-  animation:floatBox 4s ease-in-out infinite;
+  animation:boxFall linear infinite;
+  opacity:.76;
 }
-@keyframes floatBox{
-  0%,100%{translate:0 0}
-  50%{translate:0 -13px}
-}
-.face{
-  position:absolute;display:flex;align-items:center;
-  justify-content:center;overflow:hidden;
-  border:1px solid rgba(68,39,15,.6);
+.falling-box .face{
+  position:absolute;width:70px;height:70px;
+  border:1px solid rgba(66,40,17,.55);
   background:
-    repeating-linear-gradient(0deg,rgba(80,48,18,.08) 0 2px,transparent 2px 5px),
-    linear-gradient(145deg,#bd8950,#936033 65%,#70441f);
-  box-shadow:inset 0 0 30px rgba(48,25,7,.2);
+    repeating-linear-gradient(0deg,rgba(67,42,19,.07) 0 2px,transparent 2px 5px),
+    linear-gradient(140deg,#d1a16a,#956334);
+  display:grid;place-items:center;
+  color:rgba(68,43,21,.7);
+  font-family:'Space Grotesk';font-size:8px;
+  font-weight:700;letter-spacing:1px;
 }
-.face.front{width:210px;height:155px;transform:translateZ(65px)}
-.face.back{width:210px;height:155px;transform:rotateY(180deg) translateZ(65px)}
-.face.right{width:130px;height:155px;transform:rotateY(90deg) translateZ(145px)}
-.face.left{width:130px;height:155px;transform:rotateY(-90deg) translateZ(65px)}
-.face.bottom{
-  width:210px;height:130px;
-  transform:rotateX(90deg) translateZ(77px);
-  background:#68421f;
+.falling-box .front{transform:translateZ(35px)}
+.falling-box .back{transform:rotateY(180deg) translateZ(35px)}
+.falling-box .right{transform:rotateY(90deg) translateZ(35px);background:#80552e}
+.falling-box .left{transform:rotateY(-90deg) translateZ(35px);background:#a87842}
+.falling-box .top{transform:rotateX(90deg) translateZ(35px);background:#e0b77f}
+.falling-box .bottom{transform:rotateX(-90deg) translateZ(35px);background:#704921}
+@keyframes boxFall{
+  0%{transform:translate3d(0,-120px,-100px) rotateX(0) rotateY(0) rotateZ(0);opacity:0}
+  10%{opacity:.8}
+  85%{opacity:.65}
+  100%{transform:translate3d(var(--drift),900px,var(--depth)) rotateX(420deg) rotateY(550deg) rotateZ(180deg);opacity:0}
 }
-.face.front:before{
-  content:"BOXQUALITY";font-family:'Space Grotesk';
-  font-size:19px;font-weight:700;letter-spacing:2px;
-  color:#422b17;border:1px solid rgba(61,37,16,.5);
-  padding:9px 12px;
-}
-.face.front:after{
-  content:"QUALITY IN EVERY BOX";
-  position:absolute;bottom:17px;font-size:7px;
-  letter-spacing:2px;color:#56391e;
-}
-.tape{
-  position:absolute;width:30px;height:155px;
-  background:linear-gradient(90deg,#d3a86c,#f1d39d,#b88a4f);
-  opacity:.8;left:90px;top:0;
-  transform:translateZ(66px);
-}
-.lid{
-  position:absolute;width:210px;height:130px;
-  left:0;top:-65px;
-  transform-origin:50% 0%;
-  transform:translateZ(65px) rotateX(0deg);
-  background:linear-gradient(140deg,#d0a16a,#a9763e);
-  border:1px solid #6e4826;
-  transition:transform 1s cubic-bezier(.2,.8,.2,1);
-  backface-visibility:visible;
-}
-.flap-left,.flap-right{
-  position:absolute;top:-65px;width:65px;height:130px;
-  background:linear-gradient(120deg,#c18e56,#906034);
-  border:1px solid #704923;
-  transition:transform 1s cubic-bezier(.2,.8,.2,1);
-}
-.flap-left{left:-65px;transform-origin:right center;transform:rotateY(0deg)}
-.flap-right{right:-65px;transform-origin:left center;transform:rotateY(0deg)}
-.crate.open .lid{transform:translateZ(65px) rotateX(-115deg)}
-.crate.open .flap-left{transform:rotateY(-95deg)}
-.crate.open .flap-right{transform:rotateY(95deg)}
-.box-controls{
-  position:absolute;z-index:6;bottom:57px;
-  display:flex;gap:9px;
-}
-.box-controls button{
-  background:rgba(15,12,8,.8);color:var(--gold2);
-  border:1px solid rgba(201,155,85,.45);
-  padding:9px 13px;font-size:9px;letter-spacing:1px;
-}
-.box-controls button:hover{background:var(--gold);color:#140e07}
+.falling-box:nth-child(1){left:8%;animation-duration:13s;animation-delay:-3s;--drift:70px;--depth:-150px}
+.falling-box:nth-child(2){left:24%;width:43px;height:43px;animation-duration:17s;animation-delay:-10s;--drift:-65px;--depth:80px;transform:scale(.65)}
+.falling-box:nth-child(2) .face{width:43px;height:43px}
+.falling-box:nth-child(2) .front{transform:translateZ(21px)}
+.falling-box:nth-child(2) .back{transform:rotateY(180deg) translateZ(21px)}
+.falling-box:nth-child(2) .right{transform:rotateY(90deg) translateZ(21px)}
+.falling-box:nth-child(2) .left{transform:rotateY(-90deg) translateZ(21px)}
+.falling-box:nth-child(2) .top{transform:rotateX(90deg) translateZ(21px)}
+.falling-box:nth-child(2) .bottom{transform:rotateX(-90deg) translateZ(21px)}
+.falling-box:nth-child(3){left:43%;animation-duration:19s;animation-delay:-8s;--drift:100px;--depth:-250px}
+.falling-box:nth-child(4){left:60%;animation-duration:14s;animation-delay:-5s;--drift:-80px;--depth:100px}
+.falling-box:nth-child(5){left:78%;width:48px;height:48px;animation-duration:16s;animation-delay:-12s;--drift:50px;--depth:-100px}
+.falling-box:nth-child(6){left:92%;animation-duration:21s;animation-delay:-7s;--drift:-100px;--depth:30px}
+.falling-box:nth-child(7){left:15%;animation-duration:20s;animation-delay:-15s;--drift:120px;--depth:50px}
+.falling-box:nth-child(8){left:69%;animation-duration:18s;animation-delay:-2s;--drift:-40px;--depth:-200px}
 
 /* TICKER */
 .ticker{
-  overflow:hidden;border-top:1px solid var(--line);
+  overflow:hidden;padding:17px 0;
   border-bottom:1px solid var(--line);
-  background:rgba(201,155,85,.035);padding:17px 0;
+  background:rgba(201,155,85,.035);
 }
 .ticker-track{
-  display:flex;gap:55px;white-space:nowrap;width:max-content;
-  animation:marquee 28s linear infinite;
+  display:flex;gap:55px;width:max-content;
+  animation:marquee 30s linear infinite;
 }
-.ticker span{font-size:10px;letter-spacing:3px;color:#b79b72}
-.ticker b{color:var(--gold);margin-right:10px}
+.ticker span{white-space:nowrap;color:#bba17d;font-size:10px;letter-spacing:3px}
+.ticker b{color:var(--gold);margin-right:9px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
+/* SECTION HEAD */
+.section-head{
+  display:flex;justify-content:space-between;
+  align-items:end;gap:25px;margin-bottom:40px;
+}
+
 /* SERVICES */
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:42px}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
 .card{
-  position:relative;padding:27px 22px;min-height:220px;
+  padding:26px 22px;min-height:215px;
   border:1px solid var(--line);
-  background:linear-gradient(145deg,rgba(47,34,20,.8),rgba(22,17,11,.8));
-  transition:.35s;overflow:hidden;
+  background:linear-gradient(145deg,rgba(48,34,20,.8),rgba(22,16,10,.9));
+  transition:.3s;
 }
-.card:after{
-  content:"";position:absolute;width:120px;height:120px;
-  border:1px solid rgba(201,155,85,.12);border-radius:50%;
-  right:-65px;bottom:-65px;transition:.4s;
+.card:hover{
+  transform:translateY(-7px);
+  border-color:var(--gold);
+  box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
-.card:hover{transform:translateY(-7px);border-color:var(--gold)}
-.card:hover:after{transform:scale(1.5)}
 .card-icon{
-  width:43px;height:43px;border:1px solid rgba(201,155,85,.4);
-  display:grid;place-items:center;color:var(--gold2);
-  font-size:19px;margin-bottom:26px;
+  width:43px;height:43px;
+  display:grid;place-items:center;
+  border:1px solid rgba(201,155,85,.4);
+  color:var(--gold-light);font-size:20px;
+  margin-bottom:24px;
 }
-.card h3{font-family:'Space Grotesk';font-size:17px;margin-bottom:11px}
+.card h3{font-family:'Space Grotesk';font-size:17px;margin-bottom:10px}
 .card p{font-size:12px;color:var(--muted);line-height:1.8}
 
 /* CATALOG */
 .catalog{
-  background:linear-gradient(110deg,rgba(115,76,34,.12),transparent 70%);
+  background:linear-gradient(110deg,rgba(115,76,34,.1),transparent 70%);
 }
 .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.product{
-  border:1px solid var(--line);background:#1b150e;overflow:hidden;
-}
-.product-visual{
-  height:190px;display:grid;place-items:center;position:relative;
+.product{border:1px solid var(--line);background:#1b150e;overflow:hidden}
+.product-art{
+  height:190px;display:grid;place-items:center;
   background:radial-gradient(circle,rgba(188,135,69,.2),rgba(26,19,12,.4));
+  overflow:hidden;
 }
 .mini-box{
   width:105px;height:75px;position:relative;
   background:linear-gradient(140deg,#c99a63,#815126);
-  transform:rotate(-12deg) skewY(2deg);
+  transform:rotate(-12deg);
   box-shadow:15px 18px 28px rgba(0,0,0,.4);
 }
 .mini-box:before{
   content:"";position:absolute;left:0;top:-28px;
-  width:105px;height:28px;
-  background:#d9b17c;clip-path:polygon(0 100%,50% 0,100% 100%);
+  width:105px;height:28px;background:#d9b17c;
+  clip-path:polygon(0 100%,50% 0,100% 100%);
 }
 .mini-box:after{
   content:"";position:absolute;right:-28px;top:0;
-  width:28px;height:75px;
-  background:#70451f;transform:skewY(-35deg);
+  width:28px;height:75px;background:#70451f;
+  transform:skewY(-35deg);
 }
 .product-info{padding:21px}
 .product-info h3{font-family:'Space Grotesk';font-size:17px}
-.product-info p{color:var(--muted);font-size:12px;line-height:1.7;margin:9px 0 17px}
-.product-link{color:var(--gold2);font-size:10px;letter-spacing:1px;font-weight:800}
+.product-info p{font-size:12px;color:var(--muted);line-height:1.8;margin:10px 0 17px}
+.product-link{font-size:10px;color:var(--gold-light);letter-spacing:1px;font-weight:800}
 
 /* GALLERY */
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
 .gallery-item{
-  height:230px;position:relative;overflow:hidden;
+  position:relative;height:230px;overflow:hidden;
   border:1px solid var(--line);background:#21180f;
 }
 .gallery-item img{
   width:100%;height:100%;object-fit:cover;
-  transition:transform .5s;display:block;
+  display:block;transition:.5s;
 }
 .gallery-item:hover img{transform:scale(1.07)}
 .gallery-item span{
   position:absolute;bottom:0;left:0;width:100%;
-  padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.8));
-  font-size:11px;letter-spacing:1px;
+  padding:20px 15px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  font-size:10px;letter-spacing:2px;
 }
+.gallery-placeholder{
+  display:grid;place-items:center;text-align:center;
+  color:var(--gold-light);height:100%;
+}
+.gallery-placeholder small{color:var(--muted);display:block;margin-top:8px}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:60px;
+}
 .about-visual{
   min-height:350px;border:1px solid var(--line);
-  display:grid;place-items:center;position:relative;
+  display:grid;place-items:center;
   background:radial-gradient(circle,rgba(164,111,49,.19),transparent 65%);
 }
-.about-visual .symbol{
-  width:170px;height:170px;border:1px solid var(--gold);
-  display:grid;place-items:center;color:var(--gold2);
-  font-family:'Space Grotesk';font-size:70px;
-  transform:rotate(45deg);box-shadow:0 0 70px rgba(201,155,85,.1);
+.about-symbol{
+  width:165px;height:165px;border:1px solid var(--gold);
+  display:grid;place-items:center;
+  color:var(--gold-light);font-family:'Space Grotesk';
+  font-size:65px;transform:rotate(45deg);
+  box-shadow:0 0 65px rgba(201,155,85,.1);
 }
-.about-visual .symbol span{transform:rotate(-45deg)}
-.about-points{display:grid;gap:17px;margin-top:27px}
-.point{display:flex;gap:13px;align-items:flex-start}
-.point i{font-style:normal;color:var(--gold2);font-size:17px}
-.point strong{font-size:13px;display:block;margin-bottom:5px}
+.about-symbol span{transform:rotate(-45deg)}
+.about-points{display:grid;gap:18px;margin-top:27px}
+.point{display:flex;gap:13px}
+.point i{font-style:normal;color:var(--gold-light)}
+.point strong{display:block;font-size:13px;margin-bottom:5px}
 .point small{color:var(--muted);font-size:11px;line-height:1.7}
 
 /* PROCESS */
@@ -386,120 +359,145 @@ header{
   padding:24px;border-top:1px solid var(--gold);
   background:rgba(201,155,85,.045);
 }
-.process em{font-style:normal;color:var(--gold);font-size:12px;letter-spacing:2px}
+.process em{font-style:normal;color:var(--gold);font-size:11px;letter-spacing:2px}
 .process h3{font-family:'Space Grotesk';font-size:17px;margin:15px 0 8px}
 .process p{font-size:12px;line-height:1.8;color:var(--muted)}
 
 /* FAQ */
 .faq-wrap{max-width:800px;margin:35px auto 0}
-.faq{
-  border-bottom:1px solid var(--line);
-}
+.faq{border-bottom:1px solid var(--line)}
 .faq-question{
-  width:100%;background:none;border:0;color:var(--text);
+  width:100%;padding:21px 3px;
   display:flex;justify-content:space-between;gap:15px;
-  text-align:left;padding:21px 3px;font-size:14px;
+  background:none;border:0;color:var(--white);
+  text-align:left;font-size:13px;
 }
-.faq-question span:last-child{color:var(--gold);font-size:20px}
+.faq-question span:last-child{color:var(--gold);font-size:20px;transition:.2s}
 .faq-answer{
+  max-height:0;overflow:hidden;
   color:var(--muted);font-size:12px;line-height:1.8;
-  max-height:0;overflow:hidden;transition:max-height .35s,padding .35s;
+  transition:max-height .3s,padding .3s;
 }
-.faq.active .faq-answer{max-height:150px;padding:0 3px 20px}
+.faq.active .faq-answer{max-height:140px;padding:0 3px 20px}
 .faq.active .faq-question span:last-child{transform:rotate(45deg)}
 
 /* CONTACT */
-.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px}
-.contact-info{
-  padding:30px;border:1px solid var(--line);
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:25px}
+.contact-info,.contact-form{
+  padding:29px;border:1px solid var(--line);
   background:linear-gradient(145deg,#251b10,#17110b);
 }
-.contact-info h3{font-family:'Space Grotesk';font-size:24px;margin:14px 0}
+.contact-info h3{font-family:'Space Grotesk';font-size:24px;margin:15px 0}
+.contact-info>p{font-size:12px;color:var(--muted);line-height:1.8}
 .contact-row{padding:17px 0;border-bottom:1px solid var(--line)}
-.contact-row small{color:var(--gold);font-size:9px;letter-spacing:2px}
-.contact-row p{font-size:13px;margin-top:7px;color:#e1d3bd;line-height:1.7}
-.contact-form{
-  padding:30px;border:1px solid var(--line);
-  background:rgba(29,22,14,.8);
-}
+.contact-row small{font-size:9px;color:var(--gold);letter-spacing:2px}
+.contact-row p{font-size:13px;margin-top:7px;line-height:1.7}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.field{margin-bottom:16px}
+.field{margin-bottom:15px}
 .field label{
-  display:block;color:var(--gold);font-size:9px;
-  letter-spacing:1.5px;margin-bottom:8px;
+  display:block;color:var(--gold);
+  font-size:9px;letter-spacing:1.5px;margin-bottom:8px;
 }
 .field input,.field textarea,.field select{
-  width:100%;padding:13px 14px;
-  background:#100d09;border:1px solid rgba(201,155,85,.23);
-  color:var(--text);outline:none;font-size:12px;
+  width:100%;padding:13px;
+  background:#100d09;color:var(--white);
+  border:1px solid rgba(201,155,85,.23);
+  outline:none;font-size:12px;border-radius:0;
 }
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold)}
-.field textarea{min-height:100px;resize:vertical}
+.field textarea{min-height:105px;resize:vertical}
 .field select option{background:#100d09}
 .form-full{grid-column:1/-1}
 
 /* MAP */
 .map-frame{
-  width:100%;height:330px;border:1px solid var(--line);
-  filter:grayscale(.7) sepia(.25) brightness(.8);
+  width:100%;height:330px;
+  border:1px solid var(--line);
+  filter:grayscale(.55) sepia(.35) brightness(.8);
 }
 
 /* FOOTER */
-footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
-.footer-top{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
-.footer-note{font-size:12px;color:var(--muted);max-width:320px;line-height:1.8;margin-top:15px}
+footer{
+  padding:55px 0 24px;
+  border-top:1px solid var(--line);
+  background:#0b0907;
+}
+.footer-top{
+  display:flex;justify-content:space-between;
+  gap:25px;flex-wrap:wrap;
+}
+.footer-note{
+  color:var(--muted);font-size:11px;
+  line-height:1.8;max-width:300px;margin-top:15px;
+}
 .footer-links{display:flex;gap:22px;flex-wrap:wrap}
-.footer-links a{font-size:11px;color:var(--muted)}
-.footer-links a:hover{color:var(--gold2)}
+.footer-links a{font-size:10px;color:var(--muted)}
+.footer-links a:hover{color:var(--gold-light)}
 .copyright{
-  margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
-  color:#766b5b;font-size:10px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;
+  margin-top:40px;padding-top:20px;
+  border-top:1px solid var(--line);
+  text-align:center;color:#857662;
+  font-size:10px;line-height:2;
+}
+.copyright .credit{
+  display:block;color:#b99a6b;
+  font-size:10px;letter-spacing:1px;
 }
 .wa-float{
-  position:fixed;right:20px;bottom:20px;z-index:90;
+  position:fixed;right:19px;bottom:19px;z-index:90;
   background:linear-gradient(135deg,#eac47f,#a9793e);
-  color:#1a1208;padding:14px 18px;border-radius:3px;
-  font-size:11px;font-weight:800;letter-spacing:1px;
+  color:#1a1208;padding:14px 18px;
+  font-size:10px;font-weight:800;letter-spacing:1px;
   box-shadow:0 5px 25px rgba(0,0,0,.4);
 }
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
+/* SCROLL ANIMATION */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .7s,transform .7s;
+}
 .reveal.show{opacity:1;transform:translateY(0)}
 
 @media(max-width:850px){
   .nav-links{
-    display:none;position:absolute;top:76px;left:0;width:100%;
-    padding:25px 5%;background:#130f0a;
-    border-bottom:1px solid var(--line);
+    display:none;position:absolute;top:75px;left:0;
+    width:100%;padding:25px 5%;
+    background:#130f0a;border-bottom:1px solid var(--line);
     flex-direction:column;align-items:flex-start;gap:22px;
   }
   .nav-links.active{display:flex}
   .menu-btn{display:block}
-  .nav-cta{display:none}
-  .hero-grid{grid-template-columns:1fr}
-  .hero{padding-top:130px}
-  .visual{min-height:390px;margin-top:15px}
+  .hero{min-height:720px}
+  .hero-content{max-width:600px}
   .cards{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr;gap:35px}
   .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:560px){
   .section{padding:75px 0}
-  .hero h1{letter-spacing:-2.5px}
-  .hero-stats{gap:18px}
-  .stat strong{font-size:19px}
+  .hero{min-height:690px;padding-top:125px}
+  .hero h1{font-size:clamp(54px,15vw,78px);letter-spacing:-3px}
+  .hero-copy{font-size:13px}
+  .hero-bottom{gap:20px}
+  .hero-stat strong{font-size:20px}
   .section-head{display:block}
   .section-head .section-desc{margin-top:12px}
   .cards,.catalog-grid,.gallery-grid,.process-grid{grid-template-columns:1fr}
   .gallery-item{height:250px}
   .form-grid{grid-template-columns:1fr}
   .form-full{grid-column:auto}
-  .visual{min-height:350px}
-  .box-scene{transform:scale(.88)}
-  .contact-form,.contact-info{padding:22px}
-  .copyright{display:block;line-height:2}
-  .copyright span{display:block}
+  .contact-info,.contact-form{padding:21px}
+  .about-visual{min-height:270px}
+  .footer-links{gap:15px}
+  .wa-float{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
 }
 </style>
 </head>
@@ -511,7 +509,7 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
 <header>
   <div class="container nav">
     <a href="#home" class="brand">
-      <div class="brand-icon"><span>▧</span></div>
+      <div class="brand-mark"><span>▧</span></div>
       <div class="brand-name">BOXQUALITY<small>QUALITY IN EVERY BOX</small></div>
     </a>
 
@@ -524,67 +522,61 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
       <a href="#contact">CONTACT</a>
     </nav>
 
-    <a class="nav-cta" href="#contact">GET IN TOUCH ↗</a>
+    <a href="#contact" class="btn">ORDER NOW ↗</a>
     <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
   </div>
 </header>
 
 <main>
+<!-- HERO -->
 <section class="hero" id="home">
-  <div class="container hero-grid">
-    <div class="reveal">
+  <div class="rain-layer" aria-hidden="true">
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+    <div class="falling-box"><div class="face front">BQ</div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content reveal">
       <div class="eyebrow">PACKAGING • LOGISTICS • SERVICES</div>
       <h1>BEYOND<br><span>THE BOX.</span></h1>
       <p class="hero-copy">
-        Lebih dari sekadar kardus. BOXQUALITY menghadirkan solusi
-        kebutuhan kardus, packing, pengiriman dan layanan praktis
-        dengan kualitas yang menjadi prioritas.
+        Setiap kebutuhan punya solusi. BOXQUALITY hadir membantu
+        kebutuhan kardus, pengemasan, pengiriman, dan layanan praktis
+        dengan mengutamakan kualitas serta pelayanan yang komunikatif.
       </p>
       <div class="hero-actions">
-        <a href="#catalog" class="btn">EXPLORE CATALOG ↗</a>
-        <a href="#about" class="btn-outline">DISCOVER MORE</a>
+        <a href="#catalog" class="btn">EXPLORE OUR CATALOG ↗</a>
+        <a href="#contact" class="btn-outline">CONTACT US</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><strong>01</strong><span>QUALITY FIRST</span></div>
-        <div class="stat"><strong>24/7</strong><span>CONTACT SERVICE</span></div>
-        <div class="stat"><strong>∞</strong><span>POSSIBILITIES</span></div>
+      <div class="hero-bottom">
+        <div class="hero-stat"><strong>QUALITY</strong><span>OUR PRIORITY</span></div>
+        <div class="hero-stat"><strong>24 HOURS</strong><span>CONTACT SERVICE</span></div>
+        <div class="hero-stat"><strong>MALANG</strong><span>OUR LOCATION</span></div>
       </div>
-    </div>
-
-    <div class="visual reveal">
-      <div class="orbit"><div class="orbit-dot"></div></div>
-      <div class="visual-code">BQ / 001 — PRODUCT SYSTEM</div>
-      <div class="box-scene" id="boxScene">
-        <div class="crate" id="crate">
-          <div class="face front"></div>
-          <div class="face back"></div>
-          <div class="face right"></div>
-          <div class="face left"></div>
-          <div class="face bottom"></div>
-          <div class="tape"></div>
-          <div class="flap-left"></div>
-          <div class="flap-right"></div>
-          <div class="lid"></div>
-        </div>
-      </div>
-      <div class="box-controls">
-        <button id="openBox">OPEN BOX ↗</button>
-        <button id="closeBox">CLOSE BOX ↙</button>
-      </div>
-      <div class="visual-label">ENGINEERED FOR EVERYDAY NEEDS</div>
     </div>
   </div>
 </section>
 
 <div class="ticker">
   <div class="ticker-track">
-    <span><b>✦</b> BOXQUALITY</span><span>PACKAGING SOLUTIONS</span>
-    <span><b>✦</b> QUALITY IN EVERY BOX</span><span>SMART LOGISTICS</span>
-    <span><b>✦</b> BOXQUALITY</span><span>PACKAGING SOLUTIONS</span>
-    <span><b>✦</b> QUALITY IN EVERY BOX</span><span>SMART LOGISTICS</span>
+    <span><b>✦</b> BOXQUALITY</span>
+    <span>PACKAGING SOLUTIONS</span>
+    <span><b>✦</b> QUALITY IN EVERY BOX</span>
+    <span>SMART SERVICES</span>
+    <span><b>✦</b> BOXQUALITY</span>
+    <span>PACKAGING SOLUTIONS</span>
+    <span><b>✦</b> QUALITY IN EVERY BOX</span>
+    <span>SMART SERVICES</span>
   </div>
 </div>
 
+<!-- SERVICES -->
 <section class="section" id="services">
   <div class="container">
     <div class="section-head reveal">
@@ -592,34 +584,38 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         <div class="eyebrow">WHAT WE DO / 01</div>
         <h2 class="section-title">Our <span class="gold">Services.</span></h2>
       </div>
-      <p class="section-desc">Solusi praktis untuk kebutuhan kardus, pengemasan, dan layanan pendukung aktivitas sehari-hari.</p>
+      <p class="section-desc">
+        Berbagai layanan untuk membantu kebutuhan kardus dan aktivitas
+        pelanggan. Praktis, komunikatif, dan dapat dikonsultasikan langsung.
+      </p>
     </div>
 
     <div class="cards">
-      <div class="card reveal">
+      <article class="card reveal">
         <div class="card-icon">▤</div>
         <h3>Used Box Supply</h3>
-        <p>Jual beli kardus bekas untuk berbagai kebutuhan penyimpanan dan pengemasan.</p>
-      </div>
-      <div class="card reveal">
+        <p>Jual beli kardus bekas untuk kebutuhan penyimpanan, packing, dan pengiriman.</p>
+      </article>
+      <article class="card reveal">
         <div class="card-icon">◇</div>
         <h3>Packing Service</h3>
         <p>Layanan pengemasan untuk membantu barang lebih tertata dan siap dikirim.</p>
-      </div>
-      <div class="card reveal">
+      </article>
+      <article class="card reveal">
         <div class="card-icon">↗</div>
         <h3>Delivery Service</h3>
-        <p>Layanan pengiriman dengan area dan ketersediaan yang dapat dikonfirmasi.</p>
-      </div>
-      <div class="card reveal">
+        <p>Layanan pengiriman yang dapat dikonfirmasi berdasarkan lokasi dan kebutuhan.</p>
+      </article>
+      <article class="card reveal">
         <div class="card-icon">◎</div>
         <h3>Personal Shopping</h3>
         <p>Bantuan pembelian barang sesuai kebutuhan dan kesepakatan layanan.</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- CATALOG -->
 <section class="section catalog" id="catalog">
   <div class="container">
     <div class="section-head reveal">
@@ -627,38 +623,42 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         <div class="eyebrow">PRODUCT SYSTEM / 02</div>
         <h2 class="section-title">Explore <span class="gold">Catalog.</span></h2>
       </div>
-      <p class="section-desc">Temukan kebutuhan kardus dan layanan yang sesuai. Detail ukuran, kondisi, dan ketersediaan dapat ditanyakan langsung.</p>
+      <p class="section-desc">
+        Temukan pilihan produk dan layanan BOXQUALITY.
+        Tanyakan ketersediaan, ukuran, kondisi, dan detail harga kepada kami.
+      </p>
     </div>
 
     <div class="catalog-grid">
-      <div class="product reveal">
-        <div class="product-visual"><div class="mini-box"></div></div>
+      <article class="product reveal">
+        <div class="product-art"><div class="mini-box"></div></div>
         <div class="product-info">
           <h3>Used Cardboard</h3>
-          <p>Pilihan kardus bekas untuk kebutuhan packing, penyimpanan, dan pengiriman.</p>
+          <p>Pilihan kardus bekas untuk berbagai kebutuhan packing dan penyimpanan.</p>
           <a class="product-link" href="#contact">ASK AVAILABILITY ↗</a>
         </div>
-      </div>
-      <div class="product reveal">
-        <div class="product-visual"><div class="mini-box" style="transform:rotate(8deg) scale(.85)"></div></div>
+      </article>
+      <article class="product reveal">
+        <div class="product-art"><div class="mini-box" style="transform:rotate(9deg) scale(.9)"></div></div>
         <div class="product-info">
           <h3>Packing Solution</h3>
-          <p>Bantuan pengemasan untuk kebutuhan barang dan paket.</p>
+          <p>Bantuan pengemasan untuk barang dan paket sesuai kebutuhan.</p>
           <a class="product-link" href="#contact">ASK SERVICE ↗</a>
         </div>
-      </div>
-      <div class="product reveal">
-        <div class="product-visual"><div class="mini-box" style="transform:rotate(-20deg) scale(1.1)"></div></div>
+      </article>
+      <article class="product reveal">
+        <div class="product-art"><div class="mini-box" style="transform:rotate(-20deg) scale(1.1)"></div></div>
         <div class="product-info">
           <h3>Custom Request</h3>
-          <p>Hubungi kami untuk mendiskusikan kebutuhan kardus atau layanan khusus.</p>
+          <p>Diskusikan kebutuhan kardus atau layanan lainnya bersama tim kami.</p>
           <a class="product-link" href="#contact">MAKE AN INQUIRY ↗</a>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- GALLERY -->
 <section class="section" id="gallery">
   <div class="container">
     <div class="section-head reveal">
@@ -666,45 +666,48 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         <div class="eyebrow">REAL PROJECT / 03</div>
         <h2 class="section-title">Our <span class="gold">Gallery.</span></h2>
       </div>
-      <p class="section-desc">Dokumentasi produk dan aktivitas BOXQUALITY.</p>
+      <p class="section-desc">Dokumentasi foto produk dan aktivitas BOXQUALITY.</p>
     </div>
 
     <div class="gallery-grid">
       <div class="gallery-item reveal">
-        <img src="images/img%20wa%2000020.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy">
+        <img src="images/img%20wa%2000020.jpg" alt="Foto kardus BOXQUALITY 1" loading="lazy">
         <span>BOXQUALITY / 01</span>
       </div>
       <div class="gallery-item reveal">
-        <img src="images/kardus-2.jpg" alt="Produk kardus kedua" loading="lazy">
-        <span>PACKAGING / 02</span>
+        <img src="images/kardus-2.jpg" alt="Foto kardus BOXQUALITY 2" loading="lazy">
+        <span>PRODUCT / 02</span>
       </div>
       <div class="gallery-item reveal">
-        <img src="images/kardus-3.jpg" alt="Produk kardus ketiga" loading="lazy">
+        <img src="images/kardus-3.jpg" alt="Foto kardus BOXQUALITY 3" loading="lazy">
         <span>PRODUCT / 03</span>
       </div>
       <div class="gallery-item reveal">
-        <img src="images/kardus-4.jpg" alt="Produk kardus keempat" loading="lazy">
+        <img src="images/kardus-4.jpg" alt="Foto kardus BOXQUALITY 4" loading="lazy">
         <span>PRODUCT / 04</span>
       </div>
       <div class="gallery-item reveal">
-        <img src="images/kardus-5.jpg" alt="Produk kardus kelima" loading="lazy">
+        <img src="images/kardus-5.jpg" alt="Foto kardus BOXQUALITY 5" loading="lazy">
         <span>PRODUCT / 05</span>
       </div>
-      <div class="gallery-item reveal" style="display:grid;place-items:center">
-        <div style="text-align:center;padding:20px">
-          <div class="eyebrow">YOUR NEXT PROJECT</div>
-          <h3 style="font-family:'Space Grotesk';font-size:25px;margin:15px 0">Let's build<br><span class="gold">something.</span></h3>
-          <a href="#contact" class="product-link">CONTACT US ↗</a>
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <div>
+            <div class="eyebrow">YOUR NEXT PROJECT</div>
+            <h3 style="font-family:'Space Grotesk';font-size:25px;margin-top:13px">Let's work<br>together.</h3>
+            <small>Quality in Every Box.</small>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section class="section" id="about">
   <div class="container about-grid">
     <div class="about-visual reveal">
-      <div class="symbol"><span>BQ</span></div>
+      <div class="about-symbol"><span>BQ</span></div>
     </div>
     <div class="reveal">
       <div class="eyebrow">ABOUT THE BRAND / 04</div>
@@ -713,56 +716,77 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         BOXQUALITY hadir untuk membantu kebutuhan kardus dan layanan
         pendukung dengan pendekatan yang praktis, komunikatif, dan
         mengutamakan kualitas.
+        Kami percaya pelayanan yang baik dimulai dari memahami kebutuhan pelanggan.
       </p>
       <div class="about-points">
         <div class="point"><i>✦</i><div><strong>Quality Focus</strong><small>Mengutamakan kualitas dan kesesuaian kebutuhan pelanggan.</small></div></div>
-        <div class="point"><i>✦</i><div><strong>Practical Solution</strong><small>Layanan yang dirancang agar kebutuhan lebih mudah ditangani.</small></div></div>
+        <div class="point"><i>✦</i><div><strong>Practical Solution</strong><small>Solusi praktis untuk membantu berbagai kebutuhan.</small></div></div>
         <div class="point"><i>✦</i><div><strong>Direct Communication</strong><small>Komunikasi langsung untuk memastikan detail pesanan.</small></div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ORDER PROCESS -->
 <section class="section">
   <div class="container">
     <div class="eyebrow reveal">HOW IT WORKS / 05</div>
     <h2 class="section-title reveal">Simple. <span class="gold">Clear. Direct.</span></h2>
     <div class="process-grid" style="margin-top:35px">
-      <div class="process reveal"><em>STEP 01</em><h3>Send Inquiry</h3><p>Kirim kebutuhan atau pertanyaan melalui formulir pemesanan.</p></div>
-      <div class="process reveal"><em>STEP 02</em><h3>Confirm Details</h3><p>Konfirmasi ukuran, jumlah, kondisi, harga, dan area layanan melalui WhatsApp.</p></div>
-      <div class="process reveal"><em>STEP 03</em><h3>Get Your Service</h3><p>Lanjutkan pesanan setelah detail dan kesepakatan dikonfirmasi.</p></div>
+      <article class="process reveal">
+        <em>STEP 01</em>
+        <h3>Send Inquiry</h3>
+        <p>Kirim kebutuhan atau pertanyaan melalui formulir pemesanan.</p>
+      </article>
+      <article class="process reveal">
+        <em>STEP 02</em>
+        <h3>Confirm Details</h3>
+        <p>Konfirmasi ukuran, jumlah, kondisi, harga, dan lokasi melalui WhatsApp.</p>
+      </article>
+      <article class="process reveal">
+        <em>STEP 03</em>
+        <h3>Get Your Service</h3>
+        <p>Lanjutkan pesanan setelah detail dan kesepakatan dikonfirmasi.</p>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
-    <div style="text-align:center" class="reveal">
+    <div class="reveal" style="text-align:center">
       <div class="eyebrow">NEED TO KNOW / 06</div>
       <h2 class="section-title">Frequently <span class="gold">Asked.</span></h2>
-      <p class="section-desc" style="margin:auto">Beberapa pertanyaan umum tentang layanan BOXQUALITY.</p>
+      <p class="section-desc" style="margin:auto">Informasi singkat untuk membantu menjawab pertanyaan pelanggan.</p>
     </div>
+
     <div class="faq-wrap">
       <div class="faq">
         <button class="faq-question"><span>Apakah BOXQUALITY menjual kardus bekas?</span><span>+</span></button>
-        <div class="faq-answer">Ya, BOXQUALITY melayani jual beli kardus bekas. Ketersediaan ukuran dan kondisi dapat ditanyakan langsung.</div>
+        <div class="faq-answer">Ya, kami melayani jual beli kardus bekas. Silakan tanyakan ketersediaan ukuran, kondisi, dan jumlah kardus.</div>
       </div>
       <div class="faq">
         <button class="faq-question"><span>Apakah tersedia layanan packing?</span><span>+</span></button>
-        <div class="faq-answer">Tersedia layanan packing. Silakan konsultasikan jenis barang dan kebutuhan pengemasan melalui WhatsApp.</div>
+        <div class="faq-answer">Tersedia layanan packing. Konsultasikan jenis barang dan kebutuhan pengemasan melalui WhatsApp.</div>
       </div>
       <div class="faq">
-        <button class="faq-question"><span>Apakah bisa melakukan pengiriman?</span><span>+</span></button>
+        <button class="faq-question"><span>Apakah tersedia layanan pengiriman?</span><span>+</span></button>
         <div class="faq-answer">Layanan pengiriman dapat dikonfirmasi berdasarkan lokasi, jenis barang, dan ketersediaan layanan.</div>
       </div>
       <div class="faq">
         <button class="faq-question"><span>Bagaimana cara melakukan pemesanan?</span><span>+</span></button>
-        <div class="faq-answer">Isi formulir pemesanan di website ini. Pesan akan diteruskan ke WhatsApp BOXQUALITY untuk konfirmasi.</div>
+        <div class="faq-answer">Isi formulir pemesanan pada halaman ini. Detail pesanan akan diteruskan ke WhatsApp BOXQUALITY.</div>
+      </div>
+      <div class="faq">
+        <button class="faq-question"><span>Bagaimana mengetahui harga dan stok?</span><span>+</span></button>
+        <div class="faq-answer">Hubungi kami melalui WhatsApp untuk memperoleh informasi harga dan ketersediaan terbaru.</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section" id="contact">
   <div class="container">
     <div class="section-head reveal">
@@ -770,14 +794,17 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         <div class="eyebrow">LET'S CONNECT / 07</div>
         <h2 class="section-title">Start your <span class="gold">order.</span></h2>
       </div>
-      <p class="section-desc">Punya kebutuhan kardus atau ingin menggunakan layanan kami? Kirim detailnya melalui formulir berikut.</p>
+      <p class="section-desc">
+        Ceritakan kebutuhanmu kepada kami. Isi formulir berikut dan
+        lanjutkan percakapan melalui WhatsApp.
+      </p>
     </div>
 
     <div class="contact-grid">
       <div class="contact-info reveal">
         <div class="eyebrow">CONTACT INFORMATION</div>
         <h3>BOXQUALITY.</h3>
-        <p style="color:var(--muted);font-size:12px;line-height:1.8">Quality in Every Box. Hubungi kami untuk informasi dan pemesanan.</p>
+        <p>Quality in Every Box. Hubungi kami untuk informasi produk, layanan, dan pemesanan.</p>
 
         <div class="contact-row">
           <small>WHATSAPP</small>
@@ -785,7 +812,7 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         </div>
         <div class="contact-row">
           <small>LOCATION</small>
-          <p>Jl. Gajayana No. 30, Malang, Jawa Timur</p>
+          <p>Jl. Gajayana No. 30,<br>Malang, Jawa Timur</p>
         </div>
         <div class="contact-row">
           <small>OPERATING HOURS</small>
@@ -795,7 +822,7 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
       </div>
 
       <form class="contact-form reveal" id="orderForm">
-        <div class="eyebrow" style="margin-bottom:22px">ORDER / INQUIRY FORM</div>
+        <div class="eyebrow" style="margin-bottom:23px">ORDER / INQUIRY FORM</div>
         <div class="form-grid">
           <div class="field">
             <label>NAMA LENGKAP</label>
@@ -822,33 +849,49 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
           </div>
         </div>
         <button type="submit" class="btn" style="width:100%">SEND TO WHATSAPP ↗</button>
-        <p style="font-size:10px;color:var(--muted);margin-top:13px;line-height:1.7">Pesan akan dibuka melalui WhatsApp untuk dikirim setelah kamu memeriksanya.</p>
+        <p style="font-size:10px;color:var(--muted);margin-top:13px;line-height:1.7">
+          Pesan akan dibuka di WhatsApp. Periksa kembali sebelum mengirimkannya.
+        </p>
       </form>
     </div>
   </div>
 </section>
 
+<!-- MAP -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="eyebrow" style="margin-bottom:18px">FIND OUR LOCATION</div>
-    <iframe class="map-frame"
+    <h2 class="section-title" style="font-size:32px">Visit <span class="gold">BOXQUALITY.</span></h2>
+    <iframe
+      class="map-frame"
       src="https://maps.google.com/maps?q=Jl.%20Gajayana%20No.%2030%2C%20Malang&t=&z=15&ie=UTF8&iwloc=&output=embed"
-      loading="lazy" title="Peta lokasi BOXQUALITY">
+      loading="lazy"
+      title="Peta lokasi BOXQUALITY">
     </iframe>
-    <p style="font-size:10px;color:var(--muted);margin-top:10px">Lokasi peta merupakan pencarian alamat. Silakan konfirmasi titik lokasi yang tepat sebelum berkunjung.</p>
+    <p style="font-size:10px;color:var(--muted);margin-top:10px">
+      Peta menggunakan pencarian alamat. Pastikan titik lokasi tepat sebelum berkunjung.
+    </p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Jl+Gajayana+No+30+Malang"
+       target="_blank" rel="noopener" class="product-link" style="display:inline-block;margin-top:14px">
+       OPEN IN GOOGLE MAPS ↗
+    </a>
   </div>
 </section>
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-top">
       <div>
         <a href="#home" class="brand">
-          <div class="brand-icon"><span>▧</span></div>
+          <div class="brand-mark"><span>▧</span></div>
           <div class="brand-name">BOXQUALITY<small>QUALITY IN EVERY BOX</small></div>
         </a>
-        <p class="footer-note">Packaging, logistics and practical services. Built around quality and trust.</p>
+        <p class="footer-note">
+          Packaging, logistics and practical services.
+          Built around quality and customer trust.
+        </p>
       </div>
       <div class="footer-links">
         <a href="#home">HOME</a>
@@ -858,16 +901,20 @@ footer{padding:55px 0 25px;border-top:1px solid var(--line);background:#0b0907}
         <a href="#contact">CONTACT</a>
       </div>
     </div>
+
     <div class="copyright">
-      <span>© 2026 BOXQUALITY. ALL RIGHTS RESERVED.</span>
-      <span>QUALITY IN EVERY BOX.</span>
+      © 2026 BOXQUALITY. ALL RIGHTS RESERVED.
+      <span class="credit">Designed by ElangPhantom.</span>
     </div>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/6285736213152" target="_blank" rel="noopener">WHATSAPP ↗</a>
+<a class="wa-float" href="https://wa.me/6285736213152" target="_blank" rel="noopener">
+  WHATSAPP ↗
+</a>
 
 <script>
+// MOBILE MENU
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 
@@ -883,84 +930,37 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
+// SCROLL REVEAL
+const revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add('show'));
+}
+
 // FAQ INTERACTIVE
 document.querySelectorAll('.faq-question').forEach(button => {
   button.addEventListener('click', () => {
-    const item = button.parentElement;
-    item.classList.toggle('active');
+    const current = button.parentElement;
+    document.querySelectorAll('.faq').forEach(item => {
+      if (item !== current) item.classList.remove('active');
+    });
+    current.classList.toggle('active');
   });
 });
-
-// REVEAL ANIMATION
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-},{threshold:0.12});
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// 3D BOX OPEN / CLOSE
-const crate = document.getElementById('crate');
-document.getElementById('openBox').addEventListener('click', () => {
-  crate.classList.add('open');
-});
-document.getElementById('closeBox').addEventListener('click', () => {
-  crate.classList.remove('open');
-});
-
-// DRAG ROTATION
-const scene = document.getElementById('boxScene');
-let dragging = false;
-let lastX = 0;
-let lastY = 0;
-let rotateY = -30;
-let rotateX = -18;
-let autoRotate = true;
-
-function updateBox(){
-  crate.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-}
-
-scene.addEventListener('pointerdown', e => {
-  dragging = true;
-  autoRotate = false;
-  lastX = e.clientX;
-  lastY = e.clientY;
-  scene.setPointerCapture(e.pointerId);
-});
-scene.addEventListener('pointermove', e => {
-  if(!dragging) return;
-  const dx = e.clientX - lastX;
-  const dy = e.clientY - lastY;
-  rotateY += dx * 0.7;
-  rotateX -= dy * 0.5;
-  rotateX = Math.max(-65, Math.min(35, rotateX));
-  lastX = e.clientX;
-  lastY = e.clientY;
-  updateBox();
-});
-scene.addEventListener('pointerup', () => {
-  dragging = false;
-  setTimeout(() => { autoRotate = true; }, 2500);
-});
-scene.addEventListener('pointercancel', () => dragging = false);
-
-let previousTime = 0;
-function animateBox(time){
-  if(autoRotate && !dragging){
-    rotateY += 0.18;
-    crate.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  }
-  requestAnimationFrame(animateBox);
-}
-requestAnimationFrame(animateBox);
 
 // WHATSAPP ORDER FORM
-document.getElementById('orderForm').addEventListener('submit', function(e){
+document.getElementById('orderForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const name = document.getElementById('customerName').value.trim();
@@ -968,7 +968,7 @@ document.getElementById('orderForm').addEventListener('submit', function(e){
   const service = document.getElementById('serviceType').value;
   const details = document.getElementById('orderDetails').value.trim();
 
-  if(!name || !phone || !service || !details){
+  if (!name || !phone || !service || !details) {
     alert('Mohon lengkapi semua data terlebih dahulu.');
     return;
   }
@@ -976,7 +976,7 @@ document.getElementById('orderForm').addEventListener('submit', function(e){
   const message =
 `HALO BOXQUALITY!
 
-Saya ingin melakukan pemesanan / konsultasi.
+Saya ingin bertanya / melakukan pemesanan.
 
 Nama: ${name}
 Nomor Telepon: ${phone}
