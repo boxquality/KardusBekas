@@ -4,1618 +4,492 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#49301f">
-
-<title>BOXQUALITY | Quality in Every Box</title>
-<meta name="description" content="BOXQUALITY menyediakan kardus bekas berkualitas, jasa packing, layanan pengiriman dan personal shopping di Malang.">
+<meta name="theme-color" content="#090B0E">
+<title>BOXQUALITY | Beyond Packaging</title>
 
 <style>
-:root {
-  --brown: #49301f;
-  --brown2: #68462d;
-  --kraft: #b88b5a;
-  --cream: #f7f2e9;
-  --light: #fffdf8;
-  --text: #34271e;
-  --muted: #827568;
-  --border: #e9dfd1;
-  --shadow: 0 15px 40px rgba(65,43,25,.09);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--light);
-  color: var(--text);
-  line-height: 1.65;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button, input, select, textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.container {
-  width: min(1160px, 90%);
-  margin: auto;
-}
-
-.section {
-  padding: 90px 0;
-}
-
-.section-label {
-  color: var(--kraft);
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-family: Georgia, serif;
-  font-size: clamp(30px, 5vw, 46px);
-  line-height: 1.2;
-  color: var(--brown);
-  margin-bottom: 15px;
-}
-
-.section-desc {
-  color: var(--muted);
-  max-width: 620px;
-}
-
-.center {
-  text-align: center;
-}
-
-.center .section-desc {
-  margin: auto;
-}
-
-/* NAVBAR */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(255,253,248,.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(90,60,35,.09);
-}
-
-.navbar {
-  min-height: 76px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-}
-
-.logo {
-  font-family: Georgia, serif;
-  font-size: 25px;
-  font-weight: bold;
-  color: var(--brown);
-  letter-spacing: 1px;
-}
-
-.logo span {
-  color: var(--kraft);
-}
-
-.logo small {
-  display: block;
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  font-weight: normal;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-}
-
-.nav-links a {
-  font-size: 13px;
-  font-weight: 700;
-  color: #67594c;
-  transition: .25s;
-}
-
-.nav-links a:hover {
-  color: var(--kraft);
-}
-
-.nav-cta {
-  background: var(--brown);
-  color: white !important;
-  padding: 12px 19px;
-  border-radius: 7px;
-}
-
-.menu-btn {
-  display: none;
-  border: 0;
-  background: transparent;
-  font-size: 28px;
-  color: var(--brown);
-}
-
-/* HERO */
-
-.hero {
-  min-height: 620px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 80% 35%, rgba(190,151,105,.22), transparent 35%),
-    linear-gradient(120deg, #f7f0e5, #fffdf8 65%);
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border: 1px solid rgba(160,120,75,.18);
-  border-radius: 50%;
-  right: -120px;
-  top: -100px;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  align-items: center;
-  gap: 40px;
-  padding: 80px 0;
-}
-
-.hero-tag {
-  display: inline-block;
-  color: var(--brown2);
-  background: #eadcc9;
-  border-radius: 30px;
-  padding: 8px 15px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-bottom: 24px;
-}
-
-.hero h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(43px, 6vw, 70px);
-  color: var(--brown);
-  line-height: 1.08;
-  margin-bottom: 22px;
-}
-
-.hero h1 span {
-  color: var(--kraft);
-  font-style: italic;
-}
-
-.hero p {
-  color: var(--muted);
-  max-width: 510px;
-  margin-bottom: 30px;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 7px;
-  padding: 14px 22px;
-  font-size: 13px;
-  font-weight: 800;
-  transition: .25s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.btn-primary {
-  color: white;
-  background: var(--brown);
-  box-shadow: 0 8px 20px rgba(73,48,31,.18);
-}
-
-.btn-outline {
-  border: 1px solid #cbb99f;
-  color: var(--brown);
-  background: transparent;
-}
-
-.hero-art {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 350px;
-  position: relative;
-}
-
-.box-illustration {
-  position: relative;
-  width: 245px;
-  height: 195px;
-  background: linear-gradient(145deg, #c99b65, #a87543);
-  transform: rotate(-7deg);
-  border-radius: 5px;
-  box-shadow: 20px 30px 45px rgba(80,48,22,.2);
-  animation: floatBox 4s ease-in-out infinite;
-}
-
-.box-illustration::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  top: -39px;
-  left: 0;
-  background: #d6ad7d;
-  clip-path: polygon(0 100%, 20% 0, 80% 0, 100% 100%);
-}
-
-.box-illustration::after {
-  content: "";
-  position: absolute;
-  width: 28px;
-  height: 100%;
-  background: rgba(255,236,195,.3);
-  left: 48%;
-  top: 0;
-}
-
-.box-brand {
-  position: absolute;
-  z-index: 2;
-  top: 75px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #fff4df;
-  font-family: Georgia, serif;
-  font-size: 23px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.hero-stamp {
-  position: absolute;
-  right: 3%;
-  bottom: 5%;
-  background: white;
-  border-radius: 12px;
-  padding: 15px 20px;
-  box-shadow: var(--shadow);
-  font-size: 12px;
-  color: var(--brown);
-  font-weight: bold;
-  animation: floatBox 5s ease-in-out infinite reverse;
-}
-
-@keyframes floatBox {
-  0%,100% { transform: translateY(0) rotate(-7deg); }
-  50% { transform: translateY(-15px) rotate(-4deg); }
-}
-
-/* TRUST STRIP */
-
-.trust-strip {
-  background: var(--brown);
-  color: #fff4e5;
-  padding: 22px 0;
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
-  text-align: center;
-}
-
-.trust-grid strong {
-  display: block;
-  font-size: 14px;
-}
-
-.trust-grid span {
-  font-size: 11px;
-  color: #d7c4ae;
-}
-
-/* SERVICES */
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 18px;
-  margin-top: 42px;
-}
-
-.service-card {
-  padding: 28px 22px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: .3s;
-}
-
-.service-card:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--shadow);
-  border-color: #c5a47c;
-}
-
-.service-icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  background: var(--cream);
-  border-radius: 12px;
-  font-size: 25px;
-  margin-bottom: 20px;
-}
-
-.service-card h3 {
-  font-family: Georgia, serif;
-  font-size: 19px;
-  color: var(--brown);
-  margin-bottom: 9px;
-}
-
-.service-card p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* CATALOG */
-
-.catalog {
-  background: var(--cream);
-}
-
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 22px;
-  margin-top: 40px;
-}
-
-.product-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  overflow: hidden;
-  transition: .3s;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow);
-}
-
-.product-image {
-  height: 225px;
-  background: #f3ecdf;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding: 15px;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.product-box-art {
-  width: 135px;
-  height: 105px;
-  background: linear-gradient(145deg,#c99b65,#a87543);
-  position: relative;
-  border-radius: 4px;
-  box-shadow: 10px 15px 25px rgba(80,48,22,.16);
-}
-
-.product-box-art::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  width: 100%;
-  height: 22px;
-  background: #d8b384;
-  clip-path: polygon(0 100%,20% 0,80% 0,100% 100%);
-}
-
-.product-box-art::after {
-  content: "BOXQUALITY";
-  position: absolute;
-  top: 42px;
-  width: 100%;
-  text-align: center;
-  color: #fff0d9;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-.product-info {
-  padding: 21px;
-}
-
-.product-tag {
-  color: #a77c4c;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.product-info h3 {
-  font-family: Georgia, serif;
-  color: var(--brown);
-  font-size: 20px;
-  margin: 7px 0;
-}
-
-.product-info p {
-  color: var(--muted);
-  font-size: 13px;
-  min-height: 42px;
-}
-
-.product-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.price {
-  color: var(--brown);
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.product-bottom button {
-  background: var(--brown);
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  padding: 10px 13px;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-/* GALLERY */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
-  margin-top: 38px;
-}
-
-.gallery-item {
-  overflow: hidden;
-  border-radius: 12px;
-  background: var(--cream);
-  border: 1px solid var(--border);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 230px;
-  object-fit: contain;
-  object-position: center;
-  background: #f5eee4;
-  display: block;
-  transition: transform .4s;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.04);
-}
-
-.gallery-caption {
-  padding: 12px 15px;
-  font-size: 12px;
-  font-weight: bold;
-  color: var(--brown);
-}
-
-.gallery-note {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 18px;
-}
-
-/* ABOUT */
-
-.about {
-  background: #fffaf1;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 55px;
-  align-items: center;
-}
-
-.about-card {
-  background: #eadcc9;
-  border-radius: 15px;
-  min-height: 300px;
-  display: grid;
-  place-items: center;
-  padding: 30px;
-}
-
-.about-card .box-illustration {
-  transform: rotate(-7deg) scale(.85);
-  animation: none;
-}
-
-.about-text p {
-  color: var(--muted);
-  margin: 15px 0;
-}
-
-.about-points {
-  margin-top: 20px;
-  display: grid;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--brown);
-  font-weight: bold;
-}
-
-/* ORDER */
-
-.order-section {
-  background: var(--brown);
-  color: white;
-}
-
-.order-section .section-title {
-  color: white;
-}
-
-.order-section .section-desc {
-  color: #d8c7b5;
-}
-
-.order-grid {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 50px;
-  align-items: start;
-  margin-top: 35px;
-}
-
-.order-details {
-  padding-top: 15px;
-}
-
-.order-details h3 {
-  font-family: Georgia, serif;
-  font-size: 25px;
-  margin-bottom: 12px;
-}
-
-.order-details p {
-  color: #d8c7b5;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
-
-.contact-line {
-  border-top: 1px solid rgba(255,255,255,.15);
-  padding: 14px 0;
-  font-size: 13px;
-}
-
-.contact-line strong {
-  display: block;
-  color: white;
-  margin-bottom: 3px;
-}
-
-.contact-line span {
-  color: #d8c7b5;
-}
-
-.order-form {
-  background: #fffdf8;
-  color: var(--text);
-  border-radius: 13px;
-  padding: 30px;
-  box-shadow: 0 20px 50px rgba(0,0,0,.13);
-}
-
-.order-form h3 {
-  color: var(--brown);
-  font-family: Georgia, serif;
-  font-size: 24px;
-  margin-bottom: 5px;
-}
-
-.form-intro {
-  color: var(--muted);
-  font-size: 12px;
-  margin-bottom: 20px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 6px;
-  color: var(--brown);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  border: 1px solid #e2d8ca;
-  border-radius: 7px;
-  padding: 12px;
-  background: white;
-  color: var(--text);
-  outline: none;
-  font-size: 13px;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--kraft);
-  box-shadow: 0 0 0 3px rgba(184,139,90,.12);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 95px;
-}
-
-.submit-btn {
-  width: 100%;
-  background: #287b4c;
-  color: white;
-  border: 0;
-  border-radius: 7px;
-  padding: 15px;
-  font-weight: bold;
-  transition: .25s;
-}
-
-.submit-btn:hover {
-  background: #1e633c;
-  transform: translateY(-2px);
-}
-
-/* FAQ */
-
-.faq-list {
-  max-width: 800px;
-  margin: 38px auto 0;
-  display: grid;
-  gap: 12px;
-}
-
-.faq-list details {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px 20px;
-  background: white;
-}
-
-.faq-list summary {
-  cursor: pointer;
-  list-style: none;
-  color: var(--brown);
-  font-weight: bold;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.faq-list summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-list summary::after {
-  content: "+";
-  color: var(--kraft);
-  font-size: 20px;
-  line-height: 1;
-}
-
-.faq-list details[open] summary::after {
-  content: "−";
-}
-
-.faq-list details p {
-  color: var(--muted);
-  font-size: 13px;
-  padding-top: 13px;
-}
-
-/* MAP */
-
-.map-section {
-  background: var(--cream);
-}
-
-.map-frame {
-  margin-top: 30px;
-  border: 0;
-  width: 100%;
-  height: 340px;
-  border-radius: 13px;
-  box-shadow: var(--shadow);
-}
-
-.map-link {
-  display: inline-block;
-  margin-top: 15px;
-  color: var(--brown);
-  font-size: 13px;
-  font-weight: bold;
-}
-
-/* FOOTER */
-
-footer {
-  background: #302116;
-  color: #f8eddf;
-  padding: 55px 0 20px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 35px;
-  padding-bottom: 35px;
-}
-
-.footer-brand {
-  font-family: Georgia, serif;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.footer-brand span {
-  color: #c59b6d;
-}
-
-.footer-grid p,
-.footer-grid a {
-  color: #c8b6a2;
-  font-size: 13px;
-}
-
-.footer-grid p {
-  margin-top: 12px;
-}
-
-.footer-grid h4 {
-  margin-bottom: 13px;
-  font-size: 14px;
-}
-
-.footer-links {
-  display: grid;
-  gap: 8px;
-}
-
-.footer-links a:hover {
-  color: white;
-}
-
-.copyright {
-  border-top: 1px solid rgba(255,255,255,.12);
-  padding-top: 18px;
-  text-align: center;
-  color: #b5a18c;
-  font-size: 11px;
-}
-
-/* FLOATING WHATSAPP */
-
-.floating-wa {
-  position: fixed;
-  z-index: 999;
-  right: 20px;
-  bottom: 20px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #25d366;
-  color: white;
-  font-size: 27px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.2);
-  transition: .25s;
-}
-
-.floating-wa:hover {
-  transform: scale(1.1);
-}
-
-/* SCROLL ANIMATION */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-  .nav-links {
-    gap: 15px;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .catalog-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 680px) {
-  .section {
-    padding: 65px 0;
-  }
-
-  .navbar {
-    min-height: 68px;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    width: 100%;
-    padding: 22px 5%;
-    background: var(--light);
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 5px 0;
-  }
-
-  .nav-cta {
-    text-align: center;
-  }
-
-  .hero {
-    min-height: auto;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 65px 0 55px;
-    gap: 10px;
-  }
-
-  .hero p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .hero-art {
-    min-height: 270px;
-  }
-
-  .box-illustration {
-    transform: scale(.85) rotate(-7deg);
-  }
-
-  .trust-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .services-grid,
-  .catalog-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .service-card {
-    padding: 20px 15px;
-  }
-
-  .service-card h3 {
-    font-size: 16px;
-  }
-
-  .product-image {
-    height: 165px;
-  }
-
-  .product-info {
-    padding: 14px;
-  }
-
-  .product-info h3 {
-    font-size: 16px;
-  }
-
-  .product-info p {
-    font-size: 12px;
-  }
-
-  .product-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .gallery-item img {
-    height: 180px;
-  }
-
-  .about-grid,
-  .order-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .about-card {
-    min-height: 240px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .order-form {
-    padding: 22px 17px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .map-frame {
-    height: 280px;
-  }
-}
-
-@media (max-width: 380px) {
-  .services-grid,
-  .catalog-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#090B0E;
+  color:#E5E5E5;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+  linear-gradient(rgba(83,97,106,.09) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(83,97,106,.09) 1px,transparent 1px);
+  background-size:45px 45px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+nav{
+  height:75px;
+  padding:0 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #283139;
+  position:relative;
+  z-index:5;
+}
+.logo{
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.logo span{color:#B68A55}
+.nav-tag{
+  font-size:10px;
+  letter-spacing:3px;
+  color:#84919A;
+}
+.hero{
+  min-height:calc(100vh - 75px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:35px 18px 50px;
+  position:relative;
+}
+.eyebrow{
+  color:#B68A55;
+  letter-spacing:5px;
+  font-size:10px;
+  font-weight:bold;
+  margin-bottom:22px;
+}
+h1{
+  font-size:clamp(38px,8vw,76px);
+  line-height:1.02;
+  font-weight:900;
+  letter-spacing:-3px;
+}
+h1 span{color:#B68A55}
+.subtitle{
+  color:#9AA5AC;
+  font-size:13px;
+  line-height:1.8;
+  margin-top:17px;
+  max-width:450px;
+}
+#scene{
+  width:100%;
+  max-width:720px;
+  height:390px;
+  position:relative;
+  margin:0 auto;
+  cursor:grab;
+  touch-action:pan-y;
+}
+#scene:active{cursor:grabbing}
+#scene canvas{
+  display:block;
+  width:100%;
+  height:100%;
+}
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:-8px;
+  position:relative;
+  z-index:2;
+}
+.btn{
+  border:1px solid #B68A55;
+  background:#B68A55;
+  color:#090B0E;
+  padding:14px 24px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  font-size:10px;
+  cursor:pointer;
+  transition:.25s;
+}
+.btn:hover{
+  background:transparent;
+  color:#B68A55;
+  box-shadow:0 0 25px #B68A5540;
+}
+.btn.secondary{
+  background:transparent;
+  color:#E5E5E5;
+  border-color:#53616A;
+}
+.btn.secondary:hover{
+  border-color:#B68A55;
+  color:#B68A55;
+}
+.hint{
+  color:#68757D;
+  font-size:10px;
+  letter-spacing:2px;
+  margin-top:22px;
+}
+.bottom{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  flex-wrap:wrap;
+  padding:22px;
+  border-top:1px solid #283139;
+  color:#89949C;
+  font-size:9px;
+  letter-spacing:2px;
+}
+.bottom span{color:#B68A55}
+#loading{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#B68A55;
+  font-size:11px;
+  letter-spacing:3px;
+  pointer-events:none;
+}
+@media(max-width:600px){
+  nav{height:65px;padding:0 20px}
+  .nav-tag{font-size:8px;letter-spacing:1px}
+  .hero{min-height:calc(100svh - 65px);padding-top:45px}
+  #scene{height:310px}
+  h1{letter-spacing:-2px}
+  .subtitle{font-size:12px}
+  .bottom{gap:15px;font-size:8px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container navbar">
-    <a href="#home" class="logo">
-      BOX<span>QUALITY</span>
-      <small>QUALITY IN EVERY BOX</small>
-    </a>
+<nav>
+  <div class="logo">BOX<span>QUALITY</span></div>
+  <div class="nav-tag">PACKAGING • LOGISTICS</div>
+</nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+<main class="hero">
+  <div class="eyebrow">NEXT GENERATION PACKAGING</div>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#catalog">Catalog</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
-      <a href="#order" class="nav-cta">Order Now ↗</a>
-    </nav>
+  <h1>BEYOND<br><span>THE BOX.</span></h1>
+
+  <p class="subtitle">
+    More than packaging. Built to protect, designed to deliver.
+    Discover the BOXQUALITY experience.
+  </p>
+
+  <div id="scene">
+    <div id="loading">INITIALIZING 3D EXPERIENCE...</div>
   </div>
-</header>
 
-<main>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div class="reveal">
-      <span class="hero-tag">PACKAGING • LOGISTICS • SERVICES</span>
-      <h1>Quality in <span>Every Box.</span></h1>
-      <p>
-        Solusi kebutuhan kardus bekas, jasa packing, pengiriman,
-        dan personal shopping. Praktis, fleksibel, dan mudah dipesan.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#catalog" class="btn btn-primary">Explore Catalog ↗</a>
-        <a href="#services" class="btn btn-outline">Our Services</a>
-      </div>
-    </div>
-
-    <div class="hero-art">
-      <div class="box-illustration">
-        <div class="box-brand">BOXQUALITY</div>
-      </div>
-      <div class="hero-stamp">📦 PACKAGING SOLUTIONS</div>
-    </div>
+  <div class="controls">
+    <button class="btn" id="openBtn">OPEN THE BOX ↗</button>
+    <button class="btn secondary" id="closeBtn">CLOSE BOX</button>
   </div>
-</section>
 
-<!-- TRUST STRIP -->
-<section class="trust-strip">
-  <div class="container trust-grid">
-    <div>
-      <strong>📦 Used Box Supply</strong>
-      <span>Kebutuhan kardus bekas</span>
-    </div>
-    <div>
-      <strong>✦ Packing Service</strong>
-      <span>Bantuan pengemasan barang</span>
-    </div>
-    <div>
-      <strong>🚚 Delivery Service</strong>
-      <span>Layanan pengiriman sesuai tujuan</span>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">What We Offer</div>
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-desc">
-        Berbagai layanan untuk membantu kebutuhan pengemasan,
-        penyediaan kardus, dan kebutuhan sehari-hari.
-      </p>
-    </div>
-
-    <div class="services-grid">
-      <article class="service-card reveal">
-        <div class="service-icon">📦</div>
-        <h3>Used Box Supply</h3>
-        <p>Penyediaan dan jual beli kardus bekas dengan pilihan ukuran dan kondisi sesuai ketersediaan.</p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="service-icon">🎁</div>
-        <h3>Packing Service</h3>
-        <p>Bantuan pengemasan barang agar lebih rapi dan siap untuk dipindahkan atau dikirim.</p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="service-icon">🚚</div>
-        <h3>Delivery Service</h3>
-        <p>Layanan pengiriman yang dapat dikonsultasikan berdasarkan lokasi dan kebutuhan pelanggan.</p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="service-icon">🛍️</div>
-        <h3>Personal Shopping</h3>
-        <p>Bantuan pembelian barang sesuai permintaan dan kesepakatan dengan pelanggan.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- CATALOG -->
-<section class="section catalog" id="catalog">
-  <div class="container">
-    <div class="center reveal">
-      <div class="section-label">Product Collection</div>
-      <h2 class="section-title">Our Catalog</h2>
-      <p class="section-desc">
-        Product Collection</div>
-      <h2 class="section-title">Our Catalog</h2>
-      <p class="section-desc">
-        Pilih kategori kardus yang dibutuhkan. Ukuran, kondisi,
-        stok, dan harga dapat dikonfirmasi melalui WhatsApp.
-      </p>
-    </div>
-  <div class="catalog-grid">
-
-      <article class="product-card reveal">
-        <div class="product-image">
-          <img src="images/img%20wa%2000020.jpg"
-               alt="Kardus BOXQUALITY"
-               onerror="this.style.display='none'">
-          <div class="product-box-art"></div>
-        </div>
-        <div class="product-info">
-          <span
-            class="product-tag">Used cardboard</span>
-          <h3>Kardus Bekas</h3>
-          <p>Kardus bekas untuk berbagai kebutuhan penyimpanan dan pengemasan.</p>
-          <div class="product-bottom">
-            <span class="price">Harga: Hubungi kami</span>
-            <button type="button" onclick="chooseProduct('Kardus Bekas')">Pilih Produk ↗</button>
-          </div>
-        </div>
-      </article>
-    
-    <article class="product-card reveal">
-        <div class="product-image">
-          <div class="product-box-art"></div>
-        </div>
-        <div class="product-info">
-          <span class="product-tag">Packaging</span>
-          <h3>Kardus Ukuran Kecil</h3>
-          <p>Untuk barang berukuran kecil. Ukuran dan stok dikonfirmasi terlebih dahulu.</p>
-          <div class="product-bottom">
-            <span class="price">Harga: Hubungi kami</span>
-            <button type="button" onclick="chooseProduct('Kardus Ukuran Kecil')">Pilih Produk ↗</button>
-          </div>
-        </div>
-    </article>
-      <article class="product-card reveal">
-        <div class="product-image">
-          <div class="product-box-art"></div>
-        </div>
-        <div class="product-info">
-          <span class="product-tag">Packaging</span>
-          <h3>Kardus Ukuran Besar</h3>
-          <p>Untuk kebutuhan barang lebih besar, sesuai pilihan yang tersedia.</p>
-          <div class="product-bottom">
-            <span class="price">Harga: Hubungi kami</span>
-            <button type="button" onclick="chooseProduct('Kardus Ukuran Besar')">Pilih Produk ↗</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
-    <p class="gallery-note center">
-      * Ilustrasi produk selain foto asli. Ketersediaan, ukuran, kondisi, dan harga perlu dikonfirmasi.
-    </p>
-  
-    </div>
-
-    <div class="gallery-grid">
-      <div class="gallery-item reveal">
-        <img src="-" alt="Foto kardus BOXQUALITY" loading="lazy">
-        <div class="gallery-caption">Kardus BOXQUALITY</div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <img src="images/kardus-2.jpg" alt="Koleksi kardus dua" loading="lazy">
-        <div class="gallery-caption">Koleksi Kardus</div>
-      </div>
-       <div class="gallery-item reveal">
-        <img src="images/kardus-3.jpg" alt="Koleksi kardus tiga" loading="lazy">
-        <div class="gallery-caption">Packaging Supply</div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <img src="images/kardus-4.jpg" alt="Koleksi kardus lima" loading="lazy">
-        <div class="gallery-caption">Product Collection</div>
-      </div>
-    </div>
-  
- <p class="gallery-note center">
-      Contoh kardus bekas seperti di atas
-    </p>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section about" id="about">
-  <div class="container about-grid">
-    <div class="about-card reveal">
-      <div class="box-illustration">
-        <div class="box-brand">BOXQUALITY</div>
-      </div>
-    </div>
-
-  <div class="about-text reveal">
-      <div class="section-label">Who We Are</div>
-      <h2 class="section-title">More Than Just a Box.</h2>
-      <p>
-        BOXQUALITY hadir untuk membantu kebutuhan kardus bekas,
-        pengemasan, pengiriman, dan personal shopping.
-      </p>
-      <p>
-        Kami mengutamakan komunikasi yang jelas agar pelanggan
-        dapat menyesuaikan kebutuhan dengan layanan yang tersedia.
-      </p>
-       <div class="about-points">
-        <span>✓ Konsultasi kebutuhan pelanggan</span>
-        <span>✓ Pilihan layanan yang fleksibel</span>
-        <span>✓ Pemesanan praktis melalui WhatsApp</span>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ORDER FORM -->
-<section class="section order-section" id="order">
-  <div class="container">
-    <div class="section-label">Let's Work Together</div>
-    <h2 class="section-title">Start Your Order.</h2>
-    <p class="section-desc">
-      Isi formulir berikut. Detail permintaan akan disiapkan
-      dan dikirim ke WhatsApp BOXQUALITY.
-    </p>
-
-    <div class="order-grid">
-      <div class="order-details">
-        <h3>Need Something?</h3>
-        <p>
-          Ceritakan kebutuhan kardus atau layanan yang ingin
-          kamu pesan. Kami akan menerima detail permintaanmu melalui WhatsApp.
-        </p>
-
-        <div class="contact-line">
-          <strong>WhatsApp</strong>
-          <span>085736213152</span>
-        </div>
-
-        <div class="contact-line">
-          <strong>Address</strong>
-          <span>Jl. Gajayana No. 30, Malang, Jawa Timur</span>
-        </div>
-        <div class="contact-line">
-          <strong>Operating Hours</strong>
-          <span>24 Jam</span>
-        </div>
-      </div>
-
-      <form class="order-form" id="orderForm">
-        <h3>Request Form</h3>
-        <p class="form-intro">Lengkapi detail permintaan kamu.</p>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label
- <input id="customerName" type="text" placeholder="Nama kamu" required>
-          </div>
-
-          <div class="form-group">
-            <label for="customerPhone">Nomor WhatsApp *</label>
-            <input id="customerPhone" type="tel" placeholder="08xxxxxxxxxx" required>
-          </div>
-        </div>
-         <div class="form-row">
-          <div class="form-group">
-            <label for="customerService">Jenis layanan *</label>
-            <select id="customerService" required>
-              <option value="">Pilih layanan</option>
-              <option>Kardus Bekas</option>
-              <option>Kardus Ukuran Kecil</option>
-              <option>Kardus Ukuran Besar</option>
-              <option>Packing Service</option>
-              <option>Delivery Service</option>
-              <option>Personal Shopping</option>
-              <option>Lainnya</
-                option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="customerQuantity">Jumlah / kuantitas</label>
-            <input id="customerQuantity" type="text" placeholder="Contoh: 20 pcs">
-          </div>
-         </div>
-          <div class="form-group">
-          <label for="customerLocation">Lokasi / alamat tujuan *</label>
-          <input id="customerLocation" type="text" placeholder="Kota atau alamat tujuan" required>
-        </div>
-
-        <div class="form-group">
-          <label for="customerDetails">Detail permintaan</label>
-          <textarea id="customerDetails" placeholder="Tuliskan ukuran, kondisi, kebutuhan, atau pertanyaan lainnya..."></textarea>
-        </div>
-
-        <button class="submit-btn" type="submit">
-          Kirim Permintaan via WhatsApp ↗
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section" id="faq">
-  <div class="container">
-    <div class="center reveal">
-      <div class="section-label">Need To Know</div>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-desc">
-        Beberapa pertanyaan yang sering muncul sebelum melakukan pemesanan.
-      </p>
-    </div>
-     <div class="faq-list">
-      <details class="reveal">
-        <summary>Apakah BOXQUALITY menyediakan kardus bekas?</summary>
-        <p>Ya, BOXQUALITY menyediakan layanan kardus bekas. Pilihan ukuran, kondisi, dan stok dapat ditanyakan melalui WhatsApp.</p>
-      </details>
-
-      <details class="reveal">
-        <summary>Bagaimana cara mengetahui harga kardus?</summary>
-        <p>Hubungi kami melalui WhatsApp dengan menyebutkan jenis, ukuran, dan jumlah kardus yang dibutuhkan untuk mendapatkan informasi harga.</p>
-      </details>
-
-      <details class="reveal">
-        <summary>Apakah tersedia jasa packing?</summary>
-        <p>Ya, tersedia layanan packing. Silakan konsultasikan jenis barang, jumlah, dan lokasi terlebih dahulu.</p>
-      </details>
-
-      <details class="reveal">
-        <summary>Apakah BOXQUALITY melayani pengiriman?</summary>
-        <p>Silakan tanyakan tujuan dan kebutuhan pengiriman melalui WhatsApp. Ketersediaan layanan akan dikonfirmasi berdasarkan lokasi.</p>
-      </details>
-
-      <details class="reveal">
-        <summary>Bagaimana cara memesan?</summary>
-        <p>Isi formulir pemesanan pada website ini. Setelah itu, WhatsApp akan terbuka dengan pesan yang sudah disiapkan untuk dikirim.</p>
-      </details>
-
-      <details class="reveal">
-        <summary>Di mana lokasi BOXQUALITY?</summary>
-        <p>Jl. Gajayana No. 30, Malang, Jawa Timur. Silakan hubungi kami untuk konfirmasi sebelum berkunjung.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="section map-section" id="location">
-  <div class="container">
-    <div class="center reveal">
-      <div class="section-label">Find Us</div>
-      <h2 class="section-title">Our Location</h2>
-      <p class="section-desc">
-        Jl. Gajayana No. 30, Malang, Jawa Timur.
-      </p>
-    </div>
-
-    <iframe
-      class="map-frame"
-      title="Lokasi BOXQUALITY di Malang"
-      src="https://maps.google.com/maps?q=Jl.%20Gajayana%20No.%2030%2C%20Malang%2C%20Jawa%20Timur&t=&z=15&ie=UTF8&iwloc=&output=embed"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-
-    <a class="map-link"
-       href="https://www.google.com/maps/search/?api=1&query=Jl.+Gajayana+No.+30,+Malang,+Jawa+Timur"
-       target="_blank" rel="noopener">
-       Open Google Maps ↗
-    </a>
-  </div>
-</section>
-
+  <div class="hint">↔ DRAG TO ROTATE • INTERACTIVE 3D OBJECT</div>
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div
-          class="footer-brand">BOX<span>QUALITY</span></div>
-        <p>
-          Quality in Every Box.<br>
-          Packaging • Logistics • Services
-        </p>
-      </div>
-
-      <div>
-        <h4>Quick Links</h4>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#catalog">Catalog</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#faq">FAQ</a>
-        </div>
-      </div>
-
-      <div>
-        <h4>Contact</h4>
-        <div class="footer-links">
-          <a href="https://wa.me/6285736213152" target="_blank" rel="noopener">WhatsApp: 085736213152</a>
-          <a href="#location">Jl. Gajayana No. 30, Malang</a>
-          <a href="#order">Operating Hours: 24 Jam</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright">
-      © <span id="year"></span> BOXQUALITY. All Rights Reserved.
-    </div>
-    </div>
+<footer class="bottom">
+  <div><span>01</span> QUALITY</div>
+  <div><span>02</span> PACKAGING</div>
+  <div><span>03</span> DELIVERY</div>
+  <div>BOXQUALITY © 2026</div>
 </footer>
 
-<!-- FLOATING WHATSAPP -->
-<a class="floating-wa"
-   href="https://wa.me/6285736213152"
-   target="_blank"
-   rel="noopener"
-   aria-label="Chat BOXQUALITY via WhatsApp">☏</a>
+<script type="module">
+import * as THREE from
+'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
 
-<script>
-// MOBILE MENU
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const container = document.getElementById('scene');
+const loading = document.getElementById('loading');
 
-menuBtn.addEventListener("click", function() {
-  navLinks.classList.toggle("active");
-  menuBtn.textContent = navLinks.classList.contains("active") ? "×" : "☰";
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+  36,
+  container.clientWidth/container.clientHeight,
+  0.1,
+  100
+);
+camera.position.set(4,3.0,6.8);
+camera.lookAt(0,1,0);
+
+const renderer = new THREE.WebGLRenderer({
+  antialias:true,
+  alpha:true
+});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(container.clientWidth,container.clientHeight);
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.25;
+container.appendChild(renderer.domElement);
+loading.style.display='none';
+
+// LIGHTING
+scene.add(new THREE.AmbientLight(0xffffff,1.4));
+
+const bronzeLight=new THREE.PointLight(0xB68A55,100,15);
+bronzeLight.position.set(3,4,3);
+scene.add(bronzeLight);
+
+const topLight=new THREE.DirectionalLight(0xffffff,2.2);
+topLight.position.set(-3,7,5);
+topLight.castShadow=true;
+scene.add(topLight);
+
+const blueLight=new THREE.PointLight(0x53616A,65,12);
+blueLight.position.set(-4,2,-3);
+scene.add(blueLight);
+
+// MATERIAL
+const cardboard=new THREE.MeshStandardMaterial({
+  color:0xA8794E,
+  roughness:0.88,
+  metalness:0.02
+});
+const darkCardboard=new THREE.MeshStandardMaterial({
+  color:0x795333,
+  roughness:0.95
+});
+const insideMaterial=new THREE.MeshStandardMaterial({
+  color:0x68472E,
+  roughness:1
 });
 
-document.querySelectorAll(".nav-links a").forEach(function(link) {
-  link.addEventListener("click", function() {
-    navLinks.classList.remove("active");
-    menuBtn.textContent = "☰";
-  });
-});
+// LOGO TEXTURE
+const canvas=document.createElement('canvas');
+canvas.width=1024;
+canvas.height=512;
+const ctx=canvas.getContext('2d');
 
-// PRODUCT TO ORDER FORM
-function chooseProduct(productName) {
-  document.getElementById("customerService").value = productName;
-  document.getElementById("order").scrollIntoView({behavior: "smooth"});
+ctx.fillStyle='#A8794E';
+ctx.fillRect(0,0,1024,512);
+ctx.fillStyle='#19232A';
+ctx.font='900 105px Arial';
+ctx.textAlign='center';
+ctx.fillText('BOXQUALITY',512,250);
+ctx.fillStyle='#E5E5E5';
+ctx.font='bold 28px Arial';
+ctx.fillText('QUALITY IN EVERY BOX',512,310);
+
+const logoTexture=new THREE.CanvasTexture(canvas);
+logoTexture.colorSpace=THREE.SRGBColorSpace;
+
+// BOX GROUP
+const box=new THREE.Group();
+scene.add(box);
+
+// Dimensions
+const W=2.7;
+const H=1.65;
+const D=2.05;
+const T=0.09;
+
+function panel(w,h,d,x,y,z,material){
+  const mesh=new THREE.Mesh(
+    new THREE.BoxGeometry(w,h,d),
+    material
+  );
+  mesh.position.set(x,y,z);
+  mesh.castShadow=true;
+  mesh.receiveShadow=true;
+  box.add(mesh);
+  return mesh;
 }
 
-// WHATSAPP ORDER FORM
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+// Bottom
+panel(W,T,D,0,T/2,0,darkCardboard);
 
-  const name = document.getElementById("customerName").value.trim();
-  const phone = document.getElementById("customerPhone").value.trim();
-  const service = document.getElementById("customerService").value;
-  const quantity = document.getElementById("customerQuantity").value.trim();
-  const location = document.getElementById("customerLocation").value.trim();
-  const details = document.getElementById("customerDetails").value.trim();
+// Four walls
+panel(W,H,T,0,H/2, D/2-T/2,cardboard);
+panel(W,H,T,0,H/2,-D/2+T/2,cardboard);
+panel(T,H,D,-W/2+T/2,H/2,0,cardboard);
+panel(T,H,D,W/2-T/2,H/2,0,cardboard);
 
-  if (!name || !phone || !service || !location) {
-    alert("Mohon lengkapi semua kolom wajib.");
-    return;
+// Interior bottom
+panel(W-.18,.025,D-.18,0,.13,0,insideMaterial);
+
+// Printed logo on front
+const logo=new THREE.Mesh(
+  new THREE.PlaneGeometry(1.75,.88),
+  new THREE.MeshBasicMaterial({
+    map:logoTexture,
+    side:THREE.DoubleSide
+  })
+);
+logo.position.set(0,.92,D/2+.052);
+box.add(logo);
+
+// FLAPS WITH HINGES
+const flaps=[];
+
+function makeFlap(w,d,x,y,z,axis,angle){
+  const hinge=new THREE.Group();
+  hinge.position.set(x,y,z);
+  box.add(hinge);
+
+  const flap=new THREE.Mesh(
+    new THREE.BoxGeometry(w,T,d),
+    cardboard
+  );
+  flap.position.set(0,0,-d/2);
+  flap.castShadow=true;
+  flap.receiveShadow=true;
+  hinge.add(flap);
+
+  flaps.push({
+    hinge,
+    axis,
+    closed:0,
+    opened:angle
+  });
+}
+
+// Front and back
+makeFlap(W,.99,0,H,D/2-T/2,'x',2.05);
+
+const back=makeFlap(W,.99,0,H,-D/2+T/2,'x',-2.05);
+
+// Left and right
+function sideFlap(sign){
+  const hinge=new THREE.Group();
+  hinge.position.set(sign*(W/2-T/2),H,0);
+  box.add(hinge);
+
+  const flap=new THREE.Mesh(
+    new THREE.BoxGeometry(.99,T,D),
+    cardboard
+  );
+  flap.position.set(-.495*sign,0,0);
+  flap.castShadow=true;
+  flap.receiveShadow=true;
+  hinge.add(flap);
+
+  flaps.push({
+    hinge,
+    axis:'z',
+    closed:0,
+    opened:sign===1?-2.05:2.05
+  });
+}
+sideFlap(1);
+sideFlap(-1);
+
+// FLOOR SHADOW
+const floor=new THREE.Mesh(
+  new THREE.CircleGeometry(3.2,64),
+  new THREE.MeshBasicMaterial({
+    color:0x19232A,
+    transparent:true,
+    opacity:.38
+  })
+);
+floor.rotation.x=-Math.PI/2;
+floor.position.y=-.05;
+scene.add(floor);
+
+// FLOATING ANIMATION
+let targetOpen=false;
+let currentOpen=0;
+let dragging=false;
+let previousX=0;
+let previousY=0;
+let rotationY=0;
+let rotationX=0;
+
+box.position.y=.1;
+
+function openBox(value){
+  targetOpen=value;
+}
+
+document.getElementById('openBtn')
+.addEventListener('click',()=>openBox(true));
+
+document.getElementById('closeBtn')
+.addEventListener('click',()=>openBox(false));
+
+// TOUCH / MOUSE ROTATION
+container.addEventListener('pointerdown',e=>{
+  dragging=true;
+  previousX=e.clientX;
+  previousY=e.clientY;
+  container.setPointerCapture(e.pointerId);
+});
+
+container.addEventListener('pointermove',e=>{
+  if(!dragging)return;
+
+  const dx=e.clientX-previousX;
+  const dy=e.clientY-previousY;
+
+  rotationY+=dx*.009;
+  rotationX+=dy*.004;
+  rotationX=Math.max(-.35,Math.min(.35,rotationX));
+
+  previousX=e.clientX;
+  previousY=e.clientY;
+});
+
+container.addEventListener('pointerup',()=>dragging=false);
+container.addEventListener('pointercancel',()=>dragging=false);
+
+// AUTO OPEN/CLOSE
+let timer=0;
+
+function animate(){
+  requestAnimationFrame(animate);
+
+  const time=performance.now()*.001;
+
+  if(!dragging){
+    rotationY+=.0025;
   }
-  const message =
-`HALO BOXQUALITY!
 
-Saya ingin mengajukan permintaan:
+  box.rotation.y=rotationY;
+  box.rotation.x=rotationX;
 
-Nama: ${name}
-Nomor WhatsApp: ${phone}
-Layanan: ${service}
-Jumlah: ${quantity || "-"}
-Lokasi tujuan: ${location}
+  box.position.y=.12+Math.sin(time*1.4)*.09;
 
-Detail permintaan:
-${details || "-"}
+  const desired=targetOpen?1:0;
+  currentOpen+=(desired-currentOpen)*.055;
 
-Mohon informasi lebih lanjut.
-Terima kasih.
-
-Sent via BOXQUALITY Website`;
-
-  const whatsappURL =
-    "https://wa.me/6285736213152?text=" + encodeURIComponent(message);
-
-  window.open(whatsappURL, "_blank");
-});
-
-// FAQ: KEEP ONLY ONE OPEN AT A TIME
-document.querySelectorAll(".faq-list details").forEach(function(item) {
-  item.addEventListener("toggle", function() {
-    if (item.open) {
-      document.querySelectorAll(".faq-list details").forEach(function(other) {
-        if (other !== item) other.open = false;
-      });
-    }
+  flaps.forEach(f=>{
+    f.hinge.rotation[f.axis]=
+      THREE.MathUtils.lerp(f.closed,f.opened,currentOpen);
   });
+
+  // Automatically demonstrate opening and closing
+  timer+=.012;
+  if(timer>950){
+    targetOpen=!targetOpen;
+    timer=0;
+  }
+
+  renderer.render(scene,camera);
+}
+animate();
+
+// RESPONSIVE
+window.addEventListener('resize',()=>{
+  const w=container.clientWidth;
+  const h=container.clientHeight;
+  camera.aspect=w/h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w,h);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 });
-
-// SCROLL REVEAL ANIMATION
-const revealObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.12});
-
-document.querySelectorAll(".reveal").forEach(function(element) {
-  revealObserver.observe(element);
-});
-
-// CURRENT YEAR
-document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
-
-
-  
