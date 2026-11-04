@@ -502,8 +502,328 @@ footer strong{font-family:Orbitron,sans-serif;color:var(--bronze)}
 <a class="float-wa" href="https://wa.me/6285736213152" target="_blank" rel="noopener">◉ WhatsApp</a>
 
 <script>
-document.getElementById("menuBtn").addEventListener("click",()=>{
-  document.getElementById("navLinks").classList.toggle("open");
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js";
+
+const canvas = document.getElementById("box3d");
+const openBtn = document.getElementById("openBox");
+const closeBtn = document.getElementById("closeBox");
+
+const scene = new THREE.Scene();
+scene.background = null;
+
+const camera = new THREE.PerspectiveCamera(
+  38, canvas.clientWidth / canvas.clientHeight, 0.1, 100
+);
+camera.position.set(4.7, 3.4, 6.5);
+camera.lookAt(0, 0.9, 0);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  alpha: true,
+  antialias: true
+});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.7));
+renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+
+// LIGHTING
+scene.add(new THREE.HemisphereLight(0xffffff, 0x34251a, 2));
+
+const key = new THREE.DirectionalLight(0xffd6a0, 3.2);
+key.position.set(4, 7, 5);
+scene.add(key);
+
+const bronzeLight = new THREE.PointLight(0xb68a55, 40, 12);
+bronzeLight.position.set(-3, 3, 2);
+scene.add(bronzeLight);
+
+const rim = new THREE.PointLight(0x718b9a, 24, 10);
+rim.position.set(3, 2, -4);
+scene.add(rim);
+
+// MATERIAL
+const kraft = new THREE.MeshStandardMaterial({
+  color: 0xb58a55,
+  roughness: 0.9,
+  metalness: 0
+});
+
+const edgeMaterial = new THREE.MeshStandardMaterial({
+  color: 0x795532,
+  roughness: 0.95
+});
+
+const insideMaterial = new THREE.MeshStandardMaterial({
+  color: 0x98734b,
+  roughness: 1,
+  side: THREE.DoubleSide
+});
+
+const box = new THREE.Group();
+scene.add(box);
+
+// BOX DIMENSIONS
+const W = 2.8;
+const H = 1.8;
+const D = 2.2;
+const T = 0.09;
+const flapOpen = Math.PI * 0.48;
+
+// BODY
+function cube(parent, w, h, d, material, x, y, z) {
+  const mesh = new THREE.Mesh(
+    new THREE.BoxGeometry(w, h, d),
+    material
+  );
+  mesh.position.set(x, y, z);
+  parent.add(mesh);
+  return mesh;
+}
+
+// Bottom
+cube(box, W, T, D, kraft, 0, 0, 0);
+
+// Four walls
+cube(box, W, H, T, kraft, 0, H / 2, -D / 2);
+cube(box, W, H, T, kraft, 0, H / 2, D / 2);
+cube(box, T, H, D, kraft, -W / 2, H / 2, 0);
+cube(box, T, H, D, kraft, W / 2, H / 2, 0);
+
+// INNER BOTTOM
+cube(box, W - .18, .025, D - .18,
+  insideMaterial, 0, T / 2 + .015, 0);
+
+// HINGED FLAPS
+// Each flap is attached at its actual hinge edge.
+
+function createFlap(width, depth, hingeX, hingeZ, direction, axis) {
+  const pivot = new THREE.Group();
+  pivot.position.set(hingeX, H, hingeZ);
+  box.add(pivot);
+
+  const geometry = new THREE.BoxGeometry(width, T, depth);
+  const flap = new THREE.Mesh(geometry, edgeMaterial);
+  flap.material = new THREE.MeshStandardMaterial({
+    color: 0xb58a55,
+    roughness: .88,
+    side: THREE.DoubleSide
+  });
+
+  if (axis === "x") {
+    flap.position.z = direction * depth / 2;
+  } else {
+    flap.position.x = direction * width / 2;
+  }
+
+  pivot.add(flap);
+
+  return {
+    pivot,
+    axis,
+    direction,
+    angle: 0
+  };
+}
+
+// Front and rear: long flaps
+const rearFlap = createFlap(
+  W + .02, D / 2 + .04,
+  0, -D / 2, -1, "x"
+);
+
+const frontFlap = createFlap(
+  W + .02, D / 2 + .04,
+  0, D / 2, 1, "x"
+);
+
+// Left and right: short flaps
+const leftFlap = createFlap(
+  D / 2 + .04, D,
+  -W / 2, 0, 1, "z"
+);
+
+const rightFlap = createFlap(
+  D / 2 + .04, D,
+  W / 2, 0, -1, "z"
+);
+
+const flaps = [
+  rearFlap,
+  frontFlap,
+  leftFlap,
+  rightFlap
+];
+
+// BRAND LABEL
+const labelCanvas = document.createElement("canvas");
+labelCanvas.width = 1024;
+labelCanvas.height = 512;
+
+const ctx = labelCanvas.getContext("2d");
+ctx.fillStyle = "#19232A";
+ctx.fillRect(0, 0, 1024, 512);
+
+ctx.strokeStyle = "#B68A55";
+ctx.lineWidth = 16;
+ctx.strokeRect(25, 25, 974, 462);
+
+ctx.fillStyle = "#E5E5E5";
+ctx.textAlign = "center";
+ctx.font = "bold 100px Arial";
+ctx.fillText("BOXQUALITY", 512, 235);
+
+ctx.fillStyle = "#B68A55";
+ctx.font = "bold 45px Arial";
+ctx.fillText("QUALITY IN EVERY BOX", 512, 320);
+
+const labelTexture = new THREE.CanvasTexture(labelCanvas);
+labelTexture.colorSpace = THREE.SRGBColorSpace;
+
+const logo = new THREE.Mesh(
+  new THREE.PlaneGeometry(1.8, .9),
+  new THREE.MeshBasicMaterial({ map: labelTexture })
+);
+
+logo.position.set(0, .95, D / 2 + .052);
+box.add(logo);
+
+// SMALL BRONZE DETAILS
+const stripeMaterial = new THREE.MeshStandardMaterial({
+  color: 0xb68a55,
+  metalness: .55,
+  roughness: .4
+});
+
+cube(box, 1.8, .035, .018, stripeMaterial, 0, .28, D / 2 + .055);
+
+// GROUND
+const ground = new THREE.Mesh(
+  new THREE.CircleGeometry(3, 64),
+  new THREE.MeshBasicMaterial({
+    color: 0x19232a,
+    transparent: true,
+    opacity: .5
+  })
+);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -.13;
+scene.add(ground);
+
+// SHADOW-LIKE BASE RING
+const ring = new THREE.Mesh(
+  new THREE.TorusGeometry(1.8, .012, 8, 90),
+  new THREE.MeshBasicMaterial({
+    color: 0xb68a55,
+    transparent: true,
+    opacity: .65
+  })
+);
+ring.rotation.x = Math.PI / 2;
+ring.position.y = -.1;
+scene.add(ring);
+
+// OPEN / CLOSE SYSTEM
+let targetOpen = 0;
+let currentOpen = 0;
+
+openBtn.addEventListener("click", () => {
+  targetOpen = 1;
+});
+
+closeBtn.addEventListener("click", () => {
+  targetOpen = 0;
+});
+
+// TOUCH / MOUSE ROTATION
+let dragging = false;
+let lastX = 0;
+let lastY = 0;
+
+let targetRotationX = -.12;
+let targetRotationY = -.4;
+
+canvas.addEventListener("pointerdown", e => {
+  dragging = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+  canvas.setPointerCapture(e.pointerId);
+});
+
+canvas.addEventListener("pointermove", e => {
+  if (!dragging) return;
+
+  targetRotationY += (e.clientX - lastX) * .008;
+  targetRotationX += (e.clientY - lastY) * .006;
+
+  targetRotationX = Math.max(
+    -.8, Math.min(.7, targetRotationX)
+  );
+
+  lastX = e.clientX;
+  lastY = e.clientY;
+});
+
+function stopDrag() {
+  dragging = false;
+}
+
+canvas.addEventListener("pointerup", stopDrag);
+canvas.addEventListener("pointercancel", stopDrag);
+
+// RESPONSIVE
+function resizeScene() {
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+
+  if (!width || !height) return;
+
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height, false);
+}
+
+new ResizeObserver(resizeScene).observe(canvas);
+
+// ANIMATION
+const clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  const time = clock.getElapsedTime();
+
+  // Smooth rotation
+  if (!dragging) {
+    targetRotationY += .002;
+  }
+
+  box.rotation.x += (targetRotationX - box.rotation.x) * .07;
+  box.rotation.y += (targetRotationY - box.rotation.y) * .07;
+
+  // Floating effect
+  box.position.y = Math.sin(time * 1.4) * .055;
+
+  // Smooth open / close
+  currentOpen += (targetOpen - currentOpen) * .055;
+
+  // Four flaps rotate from their hinge edges
+  rearFlap.pivot.rotation.x = -flapOpen * currentOpen;
+  frontFlap.pivot.rotation.x = flapOpen * currentOpen;
+
+  leftFlap.pivot.rotation.z = flapOpen * currentOpen;
+  rightFlap.pivot.rotation.z = -flapOpen * currentOpen;
+
+  renderer.render(scene, camera);
+}
+
+resizeScene();
+animate();
+</script>
+
 });
 document.querySelectorAll(".nav-links a").forEach(link=>{
   link.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
