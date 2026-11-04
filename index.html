@@ -17,6 +17,7 @@
   --light:#fffaf2;
   --text:#493525;
 }
+
 * {box-sizing:border-box;margin:0;padding:0}
 html {scroll-behavior:smooth}
 body {
@@ -37,12 +38,12 @@ header {
   border-bottom:1px solid #e8dccb;
 }
 .nav {
-  height:76px;display:flex;align-items:center;
+  min-height:76px;display:flex;align-items:center;
   justify-content:space-between;
 }
 .logo {font-size:23px;font-weight:900;letter-spacing:1px;color:var(--brown)}
 .logo span {color:var(--kraft)}
-.nav-links {display:flex;gap:27px;font-size:13px;font-weight:bold}
+.nav-links {display:flex;gap:22px;font-size:13px;font-weight:bold}
 .nav-links a:hover {color:var(--kraft)}
 .nav-cta {
   background:var(--brown);color:white;padding:12px 19px;
@@ -106,12 +107,10 @@ header {
 .box-front {
   position:absolute;left:0;top:65px;width:235px;height:125px;
   background:linear-gradient(135deg,#bd8a59,#8c5c32);
-  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
-  border:2px solid #744923;
 }
 .box-side {
   position:absolute;right:-48px;top:65px;width:48px;height:125px;
-  background:#80512e;clip-path:polygon(0 0,100% -25%,100% 75%,0 100%);
+  background:#80512e;
 }
 .box-top {
   position:absolute;top:0;left:0;width:235px;height:70px;
@@ -171,6 +170,75 @@ section {padding:90px 0}
 }
 .service-card h3 {font-size:17px;margin:20px 0 10px}
 .service-card p {font-size:13px;color:#806d59;line-height:1.7}
+
+/* GALLERY */
+.gallery {background:#f8f1e7}
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.gallery-card {
+  background:#fffaf2;
+  border:1px solid #eadcc9;
+  border-radius:15px;
+  overflow:hidden;
+  transition:.3s;
+}
+.gallery-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 15px 30px #60432320;
+}
+.gallery-image {
+  height:230px;
+  background:linear-gradient(135deg,#e9d8c1,#d5b58f);
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+}
+.gallery-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.gallery-placeholder {
+  text-align:center;
+  color:#79583a;
+  font-size:13px;
+  font-weight:bold;
+}
+.gallery-placeholder span {
+  display:block;
+  font-size:48px;
+  margin-bottom:10px;
+}
+.gallery-content {padding:22px}
+.gallery-content h3 {
+  font-size:18px;
+  margin-bottom:9px;
+  color:var(--dark);
+}
+.gallery-content p {
+  font-size:13px;
+  color:#806d59;
+  line-height:1.7;
+}
+.gallery-button {
+  display:inline-block;
+  margin-top:17px;
+  padding:11px 17px;
+  background:var(--brown);
+  color:white;
+  border-radius:7px;
+  font-size:12px;
+  font-weight:bold;
+  transition:.2s;
+}
+.gallery-button:hover {
+  background:var(--kraft);
+  transform:translateY(-2px);
+}
 
 /* ABOUT */
 .about-grid {
@@ -274,8 +342,9 @@ footer a:hover {color:white}
 
 /* RESPONSIVE */
 @media(max-width:850px) {
-  .nav-links {gap:14px}
+  .nav-links {gap:12px;font-size:12px}
   .service-grid {grid-template-columns:repeat(2,1fr)}
+  .gallery-grid {grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:650px) {
   .nav {height:65px}
@@ -294,6 +363,8 @@ footer a:hover {color:white}
   .orbit {width:280px;height:280px}
   .service-grid {grid-template-columns:1fr 1fr;gap:12px}
   .service-card {padding:20px 14px}
+  .gallery-grid {grid-template-columns:1fr}
+  .gallery-image {height:240px}
   .section-head h2 {font-size:29px}
   section {padding:65px 0}
   .about-visual {min-height:230px}
@@ -312,11 +383,12 @@ footer a:hover {color:white}
 
 <header>
   <div class="container nav">
-    <a href="#" class="logo">BOX<span>QUALITY</span></a>
+    <a href="#home" class="logo">BOX<span>QUALITY</span></a>
     <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
     <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
       <a href="#request">Request</a>
       <a href="#contact">Contact</a>
@@ -326,6 +398,8 @@ footer a:hover {color:white}
 </header>
 
 <main>
+
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="container hero-grid">
     <div>
@@ -357,6 +431,7 @@ footer a:hover {color:white}
   </div>
 </section>
 
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
     <div class="section-head">
@@ -389,6 +464,92 @@ footer a:hover {color:white}
   </div>
 </section>
 
+<!-- PRODUCT GALLERY: GANTI SLOT FOTO DENGAN TAG IMG -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <small>OUR PRODUCT COLLECTION</small>
+      <h2>Product Gallery</h2>
+      <p>Explore our available cardboard products and packaging solutions.</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- PRODUCT 1 -->
+      <article class="gallery-card">
+        <div class="gallery-image">
+          <div class="gallery-placeholder">
+            <span>📦</span>YOUR PRODUCT PHOTO
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Kardus Produk 01</h3>
+          <p>Tambahkan deskripsi, ukuran, dan kondisi kardus di sini.</p>
+          <a href="#request" class="gallery-button">ORDER NOW →</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 2 -->
+      <article class="gallery-card">
+        <div class="gallery-image">
+          <div class="gallery-placeholder">
+            <span>📦</span>YOUR PRODUCT PHOTO
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Kardus Produk 02</h3>
+          <p>Tambahkan deskripsi, ukuran, dan kondisi kardus di sini.</p>
+          <a href="#request" class="gallery-button">ORDER NOW →</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 3 -->
+      <article class="gallery-card">
+        <div class="gallery-image">
+          <div class="gallery-placeholder">
+            <span>📦</span>YOUR PRODUCT PHOTO
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Kardus Produk 03</h3>
+          <p>Tambahkan deskripsi, ukuran, dan kondisi kardus di sini.</p>
+          <a href="#request" class="gallery-button">ORDER NOW →</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 4 -->
+      <article class="gallery-card">
+        <div class="gallery-image">
+          <div class="gallery-placeholder">
+            <span>📦</span>YOUR PRODUCT PHOTO
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Kardus Produk 04</h3>
+          <p>Tambahkan deskripsi, ukuran, dan kondisi kardus di sini.</p>
+          <a href="#request" class="gallery-button">ORDER NOW →</a>
+        </div>
+      </article>
+
+      <!-- PRODUCT 5 -->
+      <article class="gallery-card">
+        <div class="gallery-image">
+          <div class="gallery-placeholder">
+            <span>📦</span>YOUR PRODUCT PHOTO
+          </div>
+        </div>
+        <div class="gallery-content">
+          <h3>Kardus Produk 05</h3>
+          <p>Tambahkan deskripsi, ukuran, dan kondisi kardus di sini.</p>
+          <a href="#request" class="gallery-button">ORDER NOW →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
 <section id="about">
   <div class="container about-grid">
     <div class="about-visual">📦</div>
@@ -411,6 +572,7 @@ footer a:hover {color:white}
   </div>
 </section>
 
+<!-- PROCESS -->
 <section class="process">
   <div class="container">
     <div class="section-head">
@@ -438,6 +600,7 @@ footer a:hover {color:white}
   </div>
 </section>
 
+<!-- REQUEST FORM -->
 <section class="request-section" id="request">
   <div class="container request-container">
     <div class="request-info">
@@ -486,99 +649,4 @@ footer a:hover {color:white}
       <label for="customerLocation">Lokasi / Alamat Kebutuhan</label>
       <input id="customerLocation" type="text" placeholder="Kecamatan, kota, atau alamat">
 
-      <label for="customerDetails">Detail Permintaan *</label>
-      <textarea id="customerDetails" placeholder="Ceritakan kebutuhan kamu..." required></textarea>
-
-      <button class="submit-btn" type="submit">
-        SEND REQUEST VIA WHATSAPP →
-      </button>
-      <small class="form-note">
-        Formulir ini akan membuka WhatsApp dengan pesan yang sudah disiapkan.
-        Pastikan informasi sudah benar sebelum mengirim.
-      </small>
-    </form>
-  </div>
-</section>
-</main>
-
-<footer id="contact">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h3>BOXQUALITY.</h3>
-        <p>Quality in Every Box.</p>
-        <p>Packaging • Logistics • Services</p>
-      </div>
-      <div>
-        <h3>Quick Links</h3>
-        <p><a href="#home">Home</a></p>
-        <p><a href="#services">Our Services</a></p>
-        <p><a href="#about">About Us</a></p>
-        <p><a href="#request">Customer Request</a></p>
-      </div>
-      <div>
-        <p>Jl. Gajayana No. 30, Malang, Jawa Timur</p>
-        <p>Operating Hours: 24 Hours</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 BOXQUALITY. Quality in Every Box.
-    </div>
-  </div>
-</footer>
-
-<a class="whatsapp-float"
-   href="https://wa.me/6285736213152"
-   target="_blank" rel="noopener">
-   WhatsApp Us ↗
-</a>
-
-<script>
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => navLinks.classList.remove("show"));
-});
-
-document.getElementById("boxqualityForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("customerName").value.trim();
-  const phone = document.getElementById("customerPhone").value.trim();
-  const service = document.getElementById("customerService").value;
-  const quantity = document.getElementById("customerQuantity").value.trim() || "-";
-  const location = document.getElementById("customerLocation").value.trim() || "-";
-  const details = document.getElementById("customerDetails").value.trim();
-
-  if (!name || !phone || !service || !details) {
-    alert("Mohon lengkapi semua kolom wajib.");
-    return;
-  }
-
-  const message =
-`Halo BOXQUALITY! Saya ingin mengajukan permintaan layanan.
-
-Nama: ${name}
-Layanan: ${service}
-Jumlah/Kebutuhan: ${quantity}
-Lokasi: ${location}
-
-Detail Permintaan:
-${details}
-
-Mohon informasi harga dan ketersediaannya. Terima kasih!`;
-
-  const whatsappURL =
-    "https://wa.me/6285736213152?text=" + encodeURIComponent(message);
-
-  window.open(whatsappURL, "_blank");
-});
-</script>
-
-</body>
-</html>
+      <label for="customerDetails">Detail Permi
