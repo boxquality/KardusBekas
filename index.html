@@ -5,491 +5,690 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090B0E">
-<title>BOXQUALITY | Beyond Packaging</title>
+<title>BOXQUALITY | Quality in Every Box</title>
+<meta name="description" content="BOXQUALITY - Used cardboard, packaging, packing and delivery services in Malang.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --black:#090B0E;
+  --navy:#19232A;
+  --steel:#53616A;
+  --bronze:#B68A55;
+  --silver:#E5E5E5;
+  --muted:#92999d;
+}
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  background:#090B0E;
-  color:#E5E5E5;
-  font-family:Arial,sans-serif;
+  background:var(--black);
+  color:var(--silver);
+  font-family:'Rajdhani',sans-serif;
   overflow-x:hidden;
 }
 body:before{
   content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
+  position:fixed;inset:0;z-index:-2;
   background-image:
-  linear-gradient(rgba(83,97,106,.09) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(83,97,106,.09) 1px,transparent 1px);
+  linear-gradient(rgba(182,138,85,.045) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(182,138,85,.045) 1px,transparent 1px);
   background-size:45px 45px;
-  mask-image:linear-gradient(to bottom,black,transparent 90%);
 }
-nav{
-  height:75px;
-  padding:0 7%;
-  display:flex;
+a{text-decoration:none;color:inherit}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.container{width:min(1160px,90%);margin:auto}
+.gold{color:var(--bronze)}
+.eyebrow{
+  color:var(--bronze);font-family:Orbitron,sans-serif;
+  font-size:10px;letter-spacing:3px;margin-bottom:14px;
+}
+.section{padding:95px 0}
+.section-title{
+  font-family:Orbitron,sans-serif;font-size:clamp(25px,5vw,42px);
+  line-height:1.25;margin-bottom:14px;
+}
+.section-desc{color:var(--muted);font-size:18px;max-width:600px;line-height:1.5}
+.line{
+  width:65px;height:3px;background:var(--bronze);
+  margin:22px 0 30px;box-shadow:0 0 15px var(--bronze);
+}
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  background:rgba(9,11,14,.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(182,138,85,.2);
+}
+.nav{
+  height:76px;display:flex;align-items:center;
   justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #283139;
-  position:relative;
-  z-index:5;
 }
 .logo{
-  font-size:21px;
-  font-weight:900;
-  letter-spacing:2px;
+  font-family:Orbitron,sans-serif;font-weight:800;
+  font-size:20px;letter-spacing:1px;
 }
-.logo span{color:#B68A55}
-.nav-tag{
-  font-size:10px;
-  letter-spacing:3px;
-  color:#84919A;
+.logo span{color:var(--bronze)}
+.nav-links{display:flex;gap:27px;align-items:center}
+.nav-links a{font-size:16px;color:#c3c7c9;transition:.3s}
+.nav-links a:hover{color:var(--bronze)}
+.nav-cta,.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:9px;padding:13px 21px;border:1px solid var(--bronze);
+  color:var(--bronze);font-weight:700;letter-spacing:1px;
+  background:rgba(182,138,85,.08);transition:.3s;
+}
+.nav-cta:hover,.btn:hover{
+  background:var(--bronze);color:#090B0E;
+  box-shadow:0 0 25px rgba(182,138,85,.3);
+}
+.menu-btn{
+  display:none;background:none;border:1px solid #53616A;
+  color:white;padding:8px 12px;font-size:22px;
 }
 .hero{
-  min-height:calc(100vh - 75px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:35px 18px 50px;
-  position:relative;
+  min-height:720px;padding:145px 0 70px;
+  display:flex;align-items:center;position:relative;overflow:hidden;
 }
-.eyebrow{
-  color:#B68A55;
-  letter-spacing:5px;
-  font-size:10px;
-  font-weight:bold;
-  margin-bottom:22px;
+.hero:after{
+  content:"";position:absolute;width:500px;height:500px;
+  background:rgba(182,138,85,.09);filter:blur(100px);
+  border-radius:50%;right:-120px;top:100px;z-index:-1;
 }
-h1{
-  font-size:clamp(38px,8vw,76px);
-  line-height:1.02;
-  font-weight:900;
-  letter-spacing:-3px;
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1.1fr;
+  gap:30px;align-items:center;
 }
-h1 span{color:#B68A55}
-.subtitle{
-  color:#9AA5AC;
-  font-size:13px;
-  line-height:1.8;
-  margin-top:17px;
-  max-width:450px;
+.hero h1{
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(38px,6vw,70px);line-height:1.12;
+  margin-bottom:23px;
 }
-#scene{
-  width:100%;
-  max-width:720px;
-  height:390px;
-  position:relative;
-  margin:0 auto;
-  cursor:grab;
-  touch-action:pan-y;
+.hero p{font-size:20px;color:#aeb5b8;line-height:1.6;max-width:490px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.hero-meta{
+  display:flex;gap:25px;flex-wrap:wrap;margin-top:38px;
+  color:#8e999e;font-size:13px;letter-spacing:1px;
 }
-#scene:active{cursor:grabbing}
-#scene canvas{
-  display:block;
-  width:100%;
-  height:100%;
+.hero-meta strong{color:var(--bronze);font-family:Orbitron,sans-serif}
+.scene-wrap{
+  position:relative;min-height:430px;
+  border:1px solid rgba(182,138,85,.18);
+  background:radial-gradient(ellipse at center,rgba(83,97,106,.24),rgba(9,11,14,.1) 65%);
+  overflow:hidden;
 }
-.controls{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:-8px;
-  position:relative;
-  z-index:2;
+#box3d{width:100%;height:430px;display:block;touch-action:none}
+.scene-label{
+  position:absolute;left:18px;bottom:16px;
+  font-family:Orbitron,sans-serif;font-size:10px;
+  letter-spacing:2px;color:var(--bronze);
 }
-.btn{
-  border:1px solid #B68A55;
-  background:#B68A55;
-  color:#090B0E;
-  padding:14px 24px;
-  font-weight:900;
-  letter-spacing:1.5px;
-  font-size:10px;
-  cursor:pointer;
-  transition:.25s;
+.scene-controls{
+  position:absolute;right:15px;bottom:12px;display:flex;gap:7px;
 }
-.btn:hover{
-  background:transparent;
-  color:#B68A55;
-  box-shadow:0 0 25px #B68A5540;
+.scene-controls button{
+  background:#11191e;border:1px solid #53616A;
+  color:#e5e5e5;padding:8px 12px;font-size:12px;
 }
-.btn.secondary{
-  background:transparent;
-  color:#E5E5E5;
-  border-color:#53616A;
+.scene-controls button:hover{border-color:var(--bronze);color:var(--bronze)}
+.fallback-box{
+  display:none;position:absolute;inset:0;
+  align-items:center;justify-content:center;
+  font-family:Orbitron,sans-serif;color:var(--bronze);
+  text-align:center;padding:20px;
 }
-.btn.secondary:hover{
-  border-color:#B68A55;
-  color:#B68A55;
+.stats{
+  border-top:1px solid #263139;border-bottom:1px solid #263139;
+  background:rgba(25,35,42,.45);padding:25px 0;
 }
-.hint{
-  color:#68757D;
-  font-size:10px;
-  letter-spacing:2px;
-  margin-top:22px;
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.stat strong{display:block;font-family:Orbitron,sans-serif;color:var(--bronze);font-size:20px}
+.stat span{color:var(--muted);font-size:14px;letter-spacing:1px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-top:40px}
+.card{
+  padding:25px 21px;background:linear-gradient(145deg,#172127,#0d1114);
+  border:1px solid #29343a;transition:.3s;position:relative;overflow:hidden;
 }
-.bottom{
-  display:flex;
-  justify-content:center;
-  gap:35px;
-  flex-wrap:wrap;
-  padding:22px;
-  border-top:1px solid #283139;
-  color:#89949C;
-  font-size:9px;
-  letter-spacing:2px;
+.card:before{
+  content:"";position:absolute;top:0;left:0;width:35px;height:2px;
+  background:var(--bronze);
 }
-.bottom span{color:#B68A55}
-#loading{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  color:#B68A55;
-  font-size:11px;
-  letter-spacing:3px;
-  pointer-events:none;
+.card:hover{transform:translateY(-7px);border-color:var(--bronze);box-shadow:0 12px 35px #0008}
+.card-icon{font-size:30px;margin-bottom:20px}
+.card h3{font-family:Orbitron,sans-serif;font-size:15px;margin-bottom:12px}
+.card p{color:var(--muted);font-size:16px;line-height:1.5}
+.catalog-grid,.gallery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;
 }
-@media(max-width:600px){
-  nav{height:65px;padding:0 20px}
-  .nav-tag{font-size:8px;letter-spacing:1px}
-  .hero{min-height:calc(100svh - 65px);padding-top:45px}
-  #scene{height:310px}
-  h1{letter-spacing:-2px}
-  .subtitle{font-size:12px}
-  .bottom{gap:15px;font-size:8px}
+.product,.gallery-item{
+  background:#11181d;border:1px solid #29343a;overflow:hidden;
+}
+.product img,.gallery-item img{
+  width:100%;height:220px;object-fit:cover;display:block;
+  background:#19232A;transition:.4s;
+}
+.product:hover img,.gallery-item:hover img{transform:scale(1.04)}
+.product-info{padding:18px}
+.product-info h3{font-family:Orbitron,sans-serif;font-size:14px;margin-bottom:8px}
+.product-info p{color:var(--muted);font-size:15px}
+.product-info a{display:inline-block;margin-top:14px;color:var(--bronze);font-weight:700}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;
+}
+.about-panel{
+  border:1px solid #344149;background:linear-gradient(135deg,#19232A,#0b0e11);
+  padding:35px;position:relative;
+}
+.about-panel:after{
+  content:"BOXQUALITY";font-family:Orbitron,sans-serif;
+  color:rgba(182,138,85,.09);font-size:30px;font-weight:800;
+}
+.about-list{list-style:none;margin-top:22px}
+.about-list li{padding:12px 0;border-bottom:1px solid #263139;color:#c3c9cc}
+.about-list li:before{content:"▸";color:var(--bronze);margin-right:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.step{border-left:2px solid var(--bronze);padding:18px;background:#11181d}
+.step b{font-family:Orbitron,sans-serif;color:var(--bronze);font-size:22px}
+.step h3{margin:12px 0;font-family:Orbitron,sans-serif;font-size:14px}
+.step p{color:var(--muted);font-size:15px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:40px}
+.contact-box{
+  background:#11181d;border:1px solid #29343a;padding:27px;
+}
+.contact-box h3{font-family:Orbitron,sans-serif;margin-bottom:20px;font-size:17px}
+.contact-line{padding:13px 0;border-bottom:1px solid #29343a;color:#bdc4c7;font-size:17px}
+.contact-line span{color:var(--bronze);display:block;font-size:12px;letter-spacing:1px}
+form{display:grid;gap:13px}
+input,textarea,select{
+  width:100%;padding:14px;background:#090e11;
+  border:1px solid #344149;color:white;outline:none;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--bronze)}
+textarea{min-height:100px;resize:vertical}
+form button{
+  padding:15px;border:0;background:var(--bronze);
+  color:#090B0E;font-weight:800;letter-spacing:1px;
+}
+.map{
+  width:100%;height:330px;border:1px solid #344149;
+  filter:grayscale(.75) contrast(1.1);
+}
+.faq{max-width:800px;margin-top:35px}
+details{border-bottom:1px solid #344149;padding:18px 0}
+summary{cursor:pointer;font-size:18px;font-weight:700;color:#e5e5e5}
+details p{color:var(--muted);padding-top:12px;font-size:16px}
+footer{
+  border-top:1px solid #29343a;padding:35px 0;
+  color:var(--muted);text-align:center;background:#07090b;
+}
+footer strong{font-family:Orbitron,sans-serif;color:var(--bronze)}
+.float-wa{
+  position:fixed;right:19px;bottom:20px;z-index:90;
+  background:#176d43;color:white;padding:14px 19px;
+  border-radius:40px;font-weight:700;
+  box-shadow:0 5px 25px #0008;
+}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:850px){
+  .nav-links{
+    display:none;position:absolute;top:76px;left:0;width:100%;
+    padding:20px;background:#090B0E;border-bottom:1px solid #344149;
+    flex-direction:column;align-items:stretch;gap:18px;
+  }
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+  .nav-cta{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero{padding-top:125px}
+  .scene-wrap{min-height:330px}
+  #box3d{height:330px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .section{padding:70px 0}
+  .hero{min-height:auto;padding-bottom:55px}
+  .hero h1{font-size:37px}
+  .hero p{font-size:18px}
+  .cards{grid-template-columns:1fr 1fr;gap:10px}
+  .card{padding:18px 13px}
+  .card h3{font-size:12px}
+  .catalog-grid,.gallery-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .product img,.gallery-item img{height:145px}
+  .product-info{padding:12px}
+  .product-info h3{font-size:12px}
+  .steps{grid-template-columns:1fr}
+  .stats-grid{gap:8px}
+  .stat strong{font-size:15px}
+  .stat span{font-size:11px}
+  .scene-wrap{min-height:290px}
+  #box3d{height:290px}
+  .about-panel{padding:23px}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">BOX<span>QUALITY</span></div>
-  <div class="nav-tag">PACKAGING • LOGISTICS</div>
-</nav>
-
-<main class="hero">
-  <div class="eyebrow">NEXT GENERATION PACKAGING</div>
-
-  <h1>BEYOND<br><span>THE BOX.</span></h1>
-
-  <p class="subtitle">
-    More than packaging. Built to protect, designed to deliver.
-    Discover the BOXQUALITY experience.
-  </p>
-
-  <div id="scene">
-    <div id="loading">INITIALIZING 3D EXPERIENCE...</div>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">BOX<span>QUALITY</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">HOME</a>
+      <a href="#services">SERVICES</a>
+      <a href="#catalog">CATALOG</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/6285736213152">CONTACT US ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
   </div>
+</header>
 
-  <div class="controls">
-    <button class="btn" id="openBtn">OPEN THE BOX ↗</button>
-    <button class="btn secondary" id="closeBtn">CLOSE BOX</button>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">PACKAGING • LOGISTICS • SERVICES</div>
+      <h1>BEYOND<br>THE <span class="gold">BOX.</span></h1>
+      <p>Solusi kardus, packing, dan kebutuhan pengiriman dengan kualitas dan pelayanan yang bisa kamu andalkan.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#catalog">EXPLORE CATALOG ↗</a>
+        <a class="btn" href="https://wa.me/6285736213152">ORDER NOW</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>01</strong> / QUALITY</div>
+        <div><strong>02</strong> / PACKAGING</div>
+        <div><strong>03</strong> / SERVICE</div>
+      </div>
+    </div>
+    <div class="scene-wrap reveal">
+      <canvas id="box3d"></canvas>
+      <div class="fallback-box" id="fallbackBox">BOXQUALITY<br>3D PREVIEW UNAVAILABLE</div>
+      <div class="scene-label">INTERACTIVE 3D OBJECT // 001</div>
+      <div class="scene-controls">
+        <button id="openBox">OPEN BOX</button>
+        <button id="closeBox">CLOSE BOX</button>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="hint">↔ DRAG TO ROTATE • INTERACTIVE 3D OBJECT</div>
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>24 HOURS</strong><span>OPERATING TIME</span></div>
+    <div class="stat"><strong>MALANG</strong><span>OUR LOCATION</span></div>
+    <div class="stat"><strong>QUALITY</strong><span>OUR PRIORITY</span></div>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="eyebrow">WHAT WE DO / 001</div>
+    <h2 class="section-title">OUR <span class="gold">SERVICES</span></h2>
+    <div class="line"></div>
+    <p class="section-desc">Layanan praktis untuk kebutuhan kardus, pengemasan, dan pengiriman.</p>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-icon">▧</div>
+        <h3>USED BOX SUPPLY</h3>
+        <p>Jual beli kardus bekas untuk berbagai kebutuhan penyimpanan dan pengiriman.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">⬡</div>
+        <h3>PACKING SERVICE</h3>
+        <p>Bantuan pengemasan barang agar lebih rapi dan siap dikirim.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">⇢</div>
+        <h3>DELIVERY SERVICE</h3>
+        <p>Layanan pengantaran sesuai area dan ketersediaan layanan.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">◈</div>
+        <h3>PERSONAL SHOPPING</h3>
+        <p>Bantuan pembelian barang sesuai permintaan dan kesepakatan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catalog">
+  <div class="container">
+    <div class="eyebrow">PRODUCT DATABASE / 002</div>
+    <h2 class="section-title">BOX <span class="gold">CATALOG</span></h2>
+    <div class="line"></div>
+    <p class="section-desc">Lihat pilihan kardus yang tersedia. Hubungi kami untuk mengecek ukuran dan stok.</p>
+    <div class="catalog-grid">
+      <article class="product reveal">
+        <img src="images/img%20wa%2000020.jpg" alt="Kardus BOXQUALITY" loading="lazy">
+        <div class="product-info"><h3>USED CARDBOARD</h3><p>Kardus bekas pilihan.</p><a href="https://wa.me/6285736213152?text=Halo%20BOXQUALITY%2C%20saya%20ingin%20tanya%20stok%20kardus.">ASK PRICE ↗</a></div>
+      </article>
+      <article class="product reveal">
+        <img src="images/kardus-2.jpg" alt="Produk kardus kedua" loading="lazy">
+        <div class="product-info"><h3>CARDBOARD TYPE 02</h3><p>Hubungi kami untuk detail ukuran.</p><a href="https://wa.me/6285736213152">ASK PRICE ↗</a></div>
+      </article>
+      <article class="product reveal">
+        <img src="images/kardus-3.jpg" alt="Produk kardus ketiga" loading="lazy">
+        <div class="product-info"><h3>CARDBOARD TYPE 03</h3><p>Cek ketersediaan produk.</p><a href="https://wa.me/6285736213152">ASK PRICE ↗</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="eyebrow">REAL DOCUMENTATION / 003</div>
+    <h2 class="section-title">OUR <span class="gold">GALLERY</span></h2>
+    <div class="line"></div>
+    <p class="section-desc">Dokumentasi produk dan aktivitas BOXQUALITY.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal"><img src="images/img%20wa%2000020.jpg" alt="Dokumentasi kardus 1" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="images/kardus-2.jpg" alt="Dokumentasi kardus 2" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="images/kardus-3.jpg" alt="Dokumentasi kardus 3" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="images/kardus-4.jpg" alt="Dokumentasi kardus 4" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="images/kardus-5.jpg" alt="Dokumentasi kardus 5" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <div class="eyebrow">ABOUT THE COMPANY / 004</div>
+      <h2 class="section-title">QUALITY IN<br>EVERY <span class="gold">BOX.</span></h2>
+      <div class="line"></div>
+      <p class="section-desc">BOXQUALITY hadir untuk membantu kebutuhan kardus, packing, dan layanan pendukung lainnya. Kami mengutamakan komunikasi yang jelas, pelayanan praktis, dan kualitas.</p>
+      <a class="btn" style="margin-top:25px" href="https://wa.me/6285736213152">TALK TO US ↗</a>
+    </div>
+    <div class="about-panel reveal">
+      <div class="eyebrow">COMPANY INFORMATION</div>
+      <h3 style="font-family:Orbitron;margin:12px 0">BOXQUALITY</h3>
+      <ul class="about-list">
+        <li>Packaging & cardboard solutions</li>
+        <li>Based in Malang, East Java</li>
+        <li>Operating 24 hours</li>
+        <li>Order and stock confirmation via WhatsApp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">HOW IT WORKS / 005</div>
+    <h2 class="section-title">ORDER <span class="gold">PROCESS</span></h2>
+    <div class="line"></div>
+    <div class="steps">
+      <div class="step reveal"><b>01</b><h3>CHOOSE PRODUCT</h3><p>Pilih kardus atau layanan yang kamu butuhkan.</p></div>
+      <div class="step reveal"><b>02</b><h3>CONTACT US</h3><p>Kirim detail pesanan melalui WhatsApp.</p></div>
+      <div class="step reveal"><b>03</b><h3>CONFIRMATION</h3><p>Konfirmasi harga, stok, dan pengiriman bersama tim kami.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="eyebrow">GET IN TOUCH / 006</div>
+    <h2 class="section-title">CONTACT <span class="gold">US</span></h2>
+    <div class="line"></div>
+    <p class="section-desc">Ada pertanyaan atau ingin melakukan pemesanan? Hubungi BOXQUALITY.</p>
+
+    <div class="contact-grid">
+      <div class="contact-box reveal">
+        <h3>CONTACT INFORMATION</h3>
+        <div class="contact-line"><span>WHATSAPP</span>085736213152</div>
+        <div class="contact-line"><span>ADDRESS</span>Jl. Gajayana No. 30, Malang, Jawa Timur</div>
+        <div class="contact-line"><span>OPERATING HOURS</span>24 Jam</div>
+        <div class="contact-line"><span>BRAND</span>BOXQUALITY — Quality in Every Box</div>
+        <a class="btn" style="margin-top:22px" href="https://wa.me/6285736213152">CHAT WHATSAPP ↗</a>
+      </div>
+
+      <div class="contact-box reveal">
+        <h3>ORDER REQUEST</h3>
+        <form id="orderForm">
+          <input id="customerName" type="text" placeholder="Nama kamu" required>
+          <input id="customerPhone" type="tel" placeholder="Nomor telepon (opsional)">
+          <select id="orderType" required>
+            <option value="">Pilih layanan</option>
+            <option>Used Box Supply</option>
+            <option>Packing Service</option>
+            <option>Delivery Service</option>
+            <option>Personal Shopping</option>
+          </select>
+          <textarea id="orderDetail" placeholder="Tuliskan detail pesanan, ukuran, jumlah, atau alamat tujuan..." required></textarea>
+          <button type="submit">SEND ORDER TO WHATSAPP ↗</button>
+        </form>
+      </div>
+    </div>
+
+    <div style="margin-top:35px">
+      <div class="eyebrow">OUR LOCATION</div>
+      <h3 style="font-family:Orbitron;margin-bottom:17px">FIND <span class="gold">US</span></h3>
+      <iframe class="map"
+        src="https://maps.google.com/maps?q=Jl.%20Gajayana%20No.%2030%2C%20Malang%2C%20Jawa%20Timur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+        title="Peta lokasi BOXQUALITY">
+      </iframe>
+      <a class="btn" style="margin-top:15px" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Jl.+Gajayana+No.+30+Malang">OPEN GOOGLE MAPS ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">HELP CENTER / 007</div>
+    <h2 class="section-title">FREQUENTLY <span class="gold">ASKED</span></h2>
+    <div class="faq">
+      <details><summary>Apakah bisa membeli kardus bekas?</summary><p>Bisa. Hubungi kami untuk menanyakan ukuran, kondisi, dan stok kardus yang tersedia.</p></details>
+      <details><summary>Bagaimana cara memesan?</summary><p>Isi formulir pemesanan atau hubungi WhatsApp BOXQUALITY.</p></details>
+      <details><summary>Apakah tersedia layanan pengiriman?</summary><p>Ketersediaan pengiriman dikonfirmasi berdasarkan lokasi, jenis barang, dan kesepakatan.</p></details>
+      <details><summary>Bagaimana mengetahui harga?</summary><p>Harga dapat ditanyakan melalui WhatsApp dengan menyertakan detail produk dan jumlah yang dibutuhkan.</p></details>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer class="bottom">
-  <div><span>01</span> QUALITY</div>
-  <div><span>02</span> PACKAGING</div>
-  <div><span>03</span> DELIVERY</div>
-  <div>BOXQUALITY © 2026</div>
+<footer>
+  <div class="container">
+    <strong>BOXQUALITY</strong>
+    <p style="margin:10px 0">QUALITY IN EVERY BOX.</p>
+    <p>© <span id="year"></span> BOXQUALITY. ALL RIGHTS RESERVED.</p>
+  </div>
 </footer>
 
-<script type="module">
-import * as THREE from
-'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+<a class="float-wa" href="https://wa.me/6285736213152" target="_blank" rel="noopener">◉ WhatsApp</a>
 
-const container = document.getElementById('scene');
-const loading = document.getElementById('loading');
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-  36,
-  container.clientWidth/container.clientHeight,
-  0.1,
-  100
-);
-camera.position.set(4,3.0,6.8);
-camera.lookAt(0,1,0);
-
-const renderer = new THREE.WebGLRenderer({
-  antialias:true,
-  alpha:true
+<script>
+document.getElementById("menuBtn").addEventListener("click",()=>{
+  document.getElementById("navLinks").classList.toggle("open");
 });
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-renderer.setSize(container.clientWidth,container.clientHeight);
-renderer.shadowMap.enabled=true;
-renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-renderer.outputColorSpace=THREE.SRGBColorSpace;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=1.25;
-container.appendChild(renderer.domElement);
-loading.style.display='none';
-
-// LIGHTING
-scene.add(new THREE.AmbientLight(0xffffff,1.4));
-
-const bronzeLight=new THREE.PointLight(0xB68A55,100,15);
-bronzeLight.position.set(3,4,3);
-scene.add(bronzeLight);
-
-const topLight=new THREE.DirectionalLight(0xffffff,2.2);
-topLight.position.set(-3,7,5);
-topLight.castShadow=true;
-scene.add(topLight);
-
-const blueLight=new THREE.PointLight(0x53616A,65,12);
-blueLight.position.set(-4,2,-3);
-scene.add(blueLight);
-
-// MATERIAL
-const cardboard=new THREE.MeshStandardMaterial({
-  color:0xA8794E,
-  roughness:0.88,
-  metalness:0.02
-});
-const darkCardboard=new THREE.MeshStandardMaterial({
-  color:0x795333,
-  roughness:0.95
-});
-const insideMaterial=new THREE.MeshStandardMaterial({
-  color:0x68472E,
-  roughness:1
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
 });
 
-// LOGO TEXTURE
-const canvas=document.createElement('canvas');
-canvas.width=1024;
-canvas.height=512;
-const ctx=canvas.getContext('2d');
+document.getElementById("year").textContent=new Date().getFullYear();
 
-ctx.fillStyle='#A8794E';
-ctx.fillRect(0,0,1024,512);
-ctx.fillStyle='#19232A';
-ctx.font='900 105px Arial';
-ctx.textAlign='center';
-ctx.fillText('BOXQUALITY',512,250);
-ctx.fillStyle='#E5E5E5';
-ctx.font='bold 28px Arial';
-ctx.fillText('QUALITY IN EVERY BOX',512,310);
+document.getElementById("orderForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const type=document.getElementById("orderType").value;
+  const detail=document.getElementById("orderDetail").value.trim();
+  const message=
+`Halo BOXQUALITY, saya ingin melakukan pemesanan.
 
-const logoTexture=new THREE.CanvasTexture(canvas);
-logoTexture.colorSpace=THREE.SRGBColorSpace;
+Nama: ${name}
+Nomor telepon: ${phone || "-"}
+Layanan: ${type}
+Detail pesanan: ${detail}
 
-// BOX GROUP
-const box=new THREE.Group();
-scene.add(box);
+Mohon informasi lebih lanjut. Terima kasih.`;
+  window.open("https://wa.me/6285736213152?text="+encodeURIComponent(message),"_blank");
+});
 
-// Dimensions
-const W=2.7;
-const H=1.65;
-const D=2.05;
-const T=0.09;
-
-function panel(w,h,d,x,y,z,material){
-  const mesh=new THREE.Mesh(
-    new THREE.BoxGeometry(w,h,d),
-    material
-  );
-  mesh.position.set(x,y,z);
-  mesh.castShadow=true;
-  mesh.receiveShadow=true;
-  box.add(mesh);
-  return mesh;
-}
-
-// Bottom
-panel(W,T,D,0,T/2,0,darkCardboard);
-
-// Four walls
-panel(W,H,T,0,H/2, D/2-T/2,cardboard);
-panel(W,H,T,0,H/2,-D/2+T/2,cardboard);
-panel(T,H,D,-W/2+T/2,H/2,0,cardboard);
-panel(T,H,D,W/2-T/2,H/2,0,cardboard);
-
-// Interior bottom
-panel(W-.18,.025,D-.18,0,.13,0,insideMaterial);
-
-// Printed logo on front
-const logo=new THREE.Mesh(
-  new THREE.PlaneGeometry(1.75,.88),
-  new THREE.MeshBasicMaterial({
-    map:logoTexture,
-    side:THREE.DoubleSide
-  })
-);
-logo.position.set(0,.92,D/2+.052);
-box.add(logo);
-
-// FLAPS WITH HINGES
-const flaps=[];
-
-function makeFlap(w,d,x,y,z,axis,angle){
-  const hinge=new THREE.Group();
-  hinge.position.set(x,y,z);
-  box.add(hinge);
-
-  const flap=new THREE.Mesh(
-    new THREE.BoxGeometry(w,T,d),
-    cardboard
-  );
-  flap.position.set(0,0,-d/2);
-  flap.castShadow=true;
-  flap.receiveShadow=true;
-  hinge.add(flap);
-
-  flaps.push({
-    hinge,
-    axis,
-    closed:0,
-    opened:angle
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
   });
-}
-
-// Front and back
-makeFlap(W,.99,0,H,D/2-T/2,'x',2.05);
-
-const back=makeFlap(W,.99,0,H,-D/2+T/2,'x',-2.05);
-
-// Left and right
-function sideFlap(sign){
-  const hinge=new THREE.Group();
-  hinge.position.set(sign*(W/2-T/2),H,0);
-  box.add(hinge);
-
-  const flap=new THREE.Mesh(
-    new THREE.BoxGeometry(.99,T,D),
-    cardboard
-  );
-  flap.position.set(-.495*sign,0,0);
-  flap.castShadow=true;
-  flap.receiveShadow=true;
-  hinge.add(flap);
-
-  flaps.push({
-    hinge,
-    axis:'z',
-    closed:0,
-    opened:sign===1?-2.05:2.05
-  });
-}
-sideFlap(1);
-sideFlap(-1);
-
-// FLOOR SHADOW
-const floor=new THREE.Mesh(
-  new THREE.CircleGeometry(3.2,64),
-  new THREE.MeshBasicMaterial({
-    color:0x19232A,
-    transparent:true,
-    opacity:.38
-  })
-);
-floor.rotation.x=-Math.PI/2;
-floor.position.y=-.05;
-scene.add(floor);
-
-// FLOATING ANIMATION
-let targetOpen=false;
-let currentOpen=0;
-let dragging=false;
-let previousX=0;
-let previousY=0;
-let rotationY=0;
-let rotationX=0;
-
-box.position.y=.1;
-
-function openBox(value){
-  targetOpen=value;
-}
-
-document.getElementById('openBtn')
-.addEventListener('click',()=>openBox(true));
-
-document.getElementById('closeBtn')
-.addEventListener('click',()=>openBox(false));
-
-// TOUCH / MOUSE ROTATION
-container.addEventListener('pointerdown',e=>{
-  dragging=true;
-  previousX=e.clientX;
-  previousY=e.clientY;
-  container.setPointerCapture(e.pointerId);
-});
-
-container.addEventListener('pointermove',e=>{
-  if(!dragging)return;
-
-  const dx=e.clientX-previousX;
-  const dy=e.clientY-previousY;
-
-  rotationY+=dx*.009;
-  rotationX+=dy*.004;
-  rotationX=Math.max(-.35,Math.min(.35,rotationX));
-
-  previousX=e.clientX;
-  previousY=e.clientY;
-});
-
-container.addEventListener('pointerup',()=>dragging=false);
-container.addEventListener('pointercancel',()=>dragging=false);
-
-// AUTO OPEN/CLOSE
-let timer=0;
-
-function animate(){
-  requestAnimationFrame(animate);
-
-  const time=performance.now()*.001;
-
-  if(!dragging){
-    rotationY+=.0025;
-  }
-
-  box.rotation.y=rotationY;
-  box.rotation.x=rotationX;
-
-  box.position.y=.12+Math.sin(time*1.4)*.09;
-
-  const desired=targetOpen?1:0;
-  currentOpen+=(desired-currentOpen)*.055;
-
-  flaps.forEach(f=>{
-    f.hinge.rotation[f.axis]=
-      THREE.MathUtils.lerp(f.closed,f.opened,currentOpen);
-  });
-
-  // Automatically demonstrate opening and closing
-  timer+=.012;
-  if(timer>950){
-    targetOpen=!targetOpen;
-    timer=0;
-  }
-
-  renderer.render(scene,camera);
-}
-animate();
-
-// RESPONSIVE
-window.addEventListener('resize',()=>{
-  const w=container.clientWidth;
-  const h=container.clientHeight;
-  camera.aspect=w/h;
-  camera.updateProjectionMatrix();
-  renderer.setSize(w,h);
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 
+<script type="module">
+const canvas=document.getElementById("box3d");
+const fallback=document.getElementById("fallbackBox");
+
+try{
+  const THREE=await import("https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js");
+
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(38,canvas.clientWidth/canvas.clientHeight,.1,100);
+  camera.position.set(5,3.5,6);
+  camera.lookAt(0,.2,0);
+
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.7));
+  renderer.setSize(canvas.clientWidth,canvas.clientHeight,false);
+  renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=1.15;
+
+  scene.add(new THREE.AmbientLight(0xffffff,1.5));
+  const keyLight=new THREE.DirectionalLight(0xffd5a0,3);
+  keyLight.position.set(4,6,5);
+  scene.add(keyLight);
+  const rimLight=new THREE.PointLight(0xb68a55,35,12);
+  rimLight.position.set(-3,2,1);
+  scene.add(rimLight);
+
+  const box=new THREE.Group();
+  scene.add(box);
+
+  const cardboard=new THREE.MeshStandardMaterial({color:0xb58a55,roughness:.82});
+  const darkCardboard=new THREE.MeshStandardMaterial({color:0x765333,roughness:.9});
+  const inside=new THREE.MeshStandardMaterial({color:0x9b754c,roughness:.95});
+
+  function panel(w,h,d,mat,x,y,z,parent=box){
+    const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+    mesh.position.set(x,y,z);
+    parent.add(mesh);
+    return mesh;
+  }
+
+  const W=2.7,H=1.8,D=2.1,T=.10;
+  // Dasar dan empat sisi kotak
+  panel(W,T,D,cardboard,0,0,0);
+  panel(W,H,T,cardboard,0,H/2, -D/2+T/2);
+  panel(W,H,T,cardboard,0,H/2, D/2-T/2);
+  panel(T,H,D,cardboard,-W/2+T/2,H/2,0);
+  panel(T,H,D,cardboard,W/2-T/2,H/2,0);
+
+  // Flap atas dengan engsel
+  function makeFlap(width,depth,x,z,rotationAxis){
+    const pivot=new THREE.Group();
+    pivot.position.set(x,H-T/2,z);
+    box.add(pivot);
+    const flap=new THREE.Mesh(new THREE.BoxGeometry(width,T,depth),darkCardboard);
+    flap.position.set(0,0,rotationAxis==="x" ? depth/2 : 0);
+    if(rotationAxis==="z") flap.position.set(width/2,0,0);
+    pivot.add(flap);
+    return pivot;
+  }
+
+  const flapBack=makeFlap(W,T*1.2,0,-D/2+T/2,"x");
+  const flapFront=makeFlap(W,T*1.2,0,D/2-T/2,"x");
+  const flapLeft=makeFlap(T*1.2,D-0.2,-W/2+T/2,0,"z");
+  const flapRight=makeFlap(T*1.2,D-0.2,W/2-T/2,0,"z");
+
+  // Label BOXQUALITY di sisi depan
+  const labelCanvas=document.createElement("canvas");
+  labelCanvas.width=512;labelCanvas.height=256;
+  const ctx=labelCanvas.getContext("2d");
+  ctx.fillStyle="#19232A";ctx.fillRect(0,0,512,256);
+  ctx.strokeStyle="#B68A55";ctx.lineWidth=8;ctx.strokeRect(12,12,488,232);
+  ctx.fillStyle="#E5E5E5";ctx.textAlign="center";
+  ctx.font="bold 48px Arial";ctx.fillText("BOXQUALITY",256,112);
+  ctx.fillStyle="#B68A55";ctx.font="bold 23px Arial";
+  ctx.fillText("QUALITY IN EVERY BOX",256,165);
+  const texture=new THREE.CanvasTexture(labelCanvas);
+  texture.colorSpace=THREE.SRGBColorSpace;
+  const label=new THREE.Mesh(
+    new THREE.PlaneGeometry(1.55,.78),
+    new THREE.MeshBasicMaterial({map:texture,transparent:false})
+  );
+  label.position.set(0,.93,D/2+.012);
+  box.add(label);
+
+  // Lantai bayangan
+  const floor=new THREE.Mesh(
+    new THREE.CircleGeometry(2.8,64),
+    new THREE.MeshBasicMaterial({color:0x19232A,transparent:true,opacity:.45})
+  );
+  floor.rotation.x=-Math.PI/2;
+  floor.position.y=-.13;
+  scene.add(floor);
+
+  let targetX=-.12,targetY=-.35;
+  let currentX=targetX,currentY=targetY;
+  let isDragging=false,lastX=0,lastY=0;
+  let opened=false,openAmount=0;
+
+  canvas.addEventListener("pointerdown",e=>{
+    isDragging=true;lastX=e.clientX;lastY=e.clientY;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove",e=>{
+    if(!isDragging)return;
+    targetY+=(e.clientX-lastX)*.009;
+    targetX+=(e.clientY-lastY)*.006;
+    targetX=Math.max(-.8,Math.min(.65,targetX));
+    lastX=e.clientX;lastY=e.clientY;
+  });
+  canvas.addEventListener("pointerup",()=>isDragging=false);
+  canvas.addEventListener("pointercancel",()=>isDragging=false);
+
+  document.getElementById("openBox").addEventListener("click",()=>opened=true);
+  document.getElementById("closeBox").addEventListener("click",()=>opened=false);
+
+  function resize(){
+    const w=canvas.clientWidth,h=canvas.clientHeight;
+    if(!w||!h)return;
+    camera.aspect=w/h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w,h,false);
+  }
+  new ResizeObserver(resize).observe(canvas);
+
+  const clock=new THREE.Clock();
+  function animate(){
+    requestAnimationFrame(animate);
+    const t=clock.getElapsedTime();
+    if(!isDragging)targetY+=.0025;
+    currentX+=(targetX-currentX)*.07;
+    currentY+=(targetY-currentY)*.07;
+    box.rotation.x=currentX;
+    box.rotation.y=currentY;
+    box.position.y=Math.sin(t*1.3)*.09;
+    const wanted=openAmount+(opened?1:0);
+    openAmount+=(wanted-openAmount)*.055;
+    flapBack.rotation.x=-openAmount*1.5;
+    flapFront.rotation.x=openAmount*1.5;
+    flapLeft.rotation.z=openAmount*1.5;
+    flapRight.rotation.z=-openAmount*1.5;
+    renderer.render(scene,camera);
+  }
+  animate();
+}catch(error){
+  console.error("3D scene error:",error);
+  canvas.style.display="none";
+  fallback.style.display="flex";
+}
+</script>
 </body>
 </html>
