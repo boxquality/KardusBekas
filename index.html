@@ -309,9 +309,12 @@ section {
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .5s;
+  height: 220px;
+  object-fit: contain;
+  object-position: center;
+  background: #f5eee4;
+  border-radius:14px;
+  display:block;
 }
 
 .gallery-item:hover img {
@@ -573,9 +576,9 @@ footer a:hover {
 
 /* MOBILE */
 
-@media(max-width:850px) {
-  .menu-toggle {
-    display: block;
+@media(max-width:600px) {
+  .gallery-item item {
+    height:200px;
   }
 
   .nav-links {
