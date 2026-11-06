@@ -108,11 +108,40 @@
     .product-info p{color:var(--muted);font-size:.83rem;min-height:52px}
     .product-info a{display:inline-block;margin-top:14px;color:var(--gold2);font-size:.8rem;font-weight:700}
     /* GALLERY */
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .gallery-item{height:245px;background:#141a1d;border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
-    .gallery-item img{width:100%;height:100%;object-fit:contain;background:#0d1113;transition:transform .4s}
-    .gallery-item:hover img{transform:scale(1.04)}
-    .gallery-note{margin-top:14px;color:var(--muted);font-size:.76rem}
+    .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.gallery-item {
+  min-height: 280px;
+  background: #141a1d;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: contain;
+  display: block;
+  transition: transform .4s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+.gallery-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: .76rem;
+}
     /* ORDER */
     .order-section{background:radial-gradient(ellipse at 80% 20%,rgba(182,138,85,.12),transparent 38%),#101619}
     .order-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
