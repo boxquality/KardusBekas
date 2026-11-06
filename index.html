@@ -527,12 +527,14 @@ footer{
     scroll-behavior:auto!important;
     transition-duration:.01ms!important;
   }
-  /* BOXQUALITY LOADING SCREEN */
+  
+/* ===== BOXQUALITY 3D LOADER ===== */
 #bq-loader {
   position: fixed;
   inset: 0;
   z-index: 999999;
-  background: #090705;
+  background:
+    radial-gradient(ellipse at center, #26302f 0%, #101313 45%, #050606 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -541,39 +543,153 @@ footer{
   transition: opacity .8s ease, visibility .8s ease;
 }
 
-#bq-loader img {
+#bq-loader::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: bqZoom 4s ease-in-out infinite alternate;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(182,138,85,.35);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(182,138,85,.2);
+  animation: bqRing 5s linear infinite;
 }
 
-.bq-progress {
+#bq-loader::after {
+  content: "";
   position: absolute;
-  bottom: 17%;
-  width: 65%;
-  height: 5px;
-  background: #55432d;
-  border-radius: 20px;
-  overflow: hidden;
+  width: 220px;
+  height: 220px;
+  border: 1px dashed rgba(229,229,229,.2);
+  border-radius: 50%;
+  animation: bqRing 12s linear infinite reverse;
+}
+
+.bq-scene {
+  width: 180px;
+  height: 180px;
+  perspective: 800px;
+  position: relative;
   z-index: 2;
 }
 
-#bq-progress-bar {
+.bq-box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 35px;
+  left: 40px;
+  transform-style: preserve-3d;
+  animation: bqRotate 6s linear infinite;
+}
+
+.bq-face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(145deg,#bd8b4d,#70421e);
+  border: 1px solid #d5a66c;
+  box-shadow: inset 0 0 20px rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f3d4a2;
+}
+
+.bq-front {
+  transform: translateZ(50px);
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bq-front span {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.bq-front small {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.bq-back {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.bq-right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.bq-left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.bq-top {
+  transform: rotateX(90deg) translateZ(50px);
+  background: #c99b60;
+}
+
+.bq-bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.bq-shadow {
+  position: absolute;
+  width: 130px;
+  height: 30px;
+  left: 25px;
+  bottom: 0;
+  background: rgba(0,0,0,.65);
+  filter: blur(15px);
+  border-radius: 50%;
+  animation: bqShadow 3s ease-in-out infinite alternate;
+}
+
+.bq-loader-info {
+  position: relative;
+  z-index: 3;
+  width: 75%;
+  max-width: 350px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.bq-loader-info h2 {
+  color: #d5a66c;
+  font-size: 25px;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+.bq-loader-info p {
+  color: #a7a7a7;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin: 10px 0 25px;
+}
+
+.bq-track {
+  width: 100%;
+  height: 4px;
+  background: #30302c;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#bq-bar {
   width: 0%;
   height: 100%;
-  background: #d5a45d;
-  transition: width .15s linear;
+  background: linear-gradient(90deg,#80552b,#f2d19a);
+  box-shadow: 0 0 12px #c99b60;
 }
 
-#bq-progress-text {
-  position: absolute;
-  bottom: 11%;
-  color: #e5c18c;
-  font-size: 14px;
-  z-index: 2;
+.bq-percent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  color: #c9a777;
+  font-size: 9px;
+  letter-spacing: 1px;
 }
 
 #bq-loader.hide {
@@ -582,22 +698,58 @@ footer{
   pointer-events: none;
 }
 
-@keyframes bqZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.05); }
-    }
-  
+@keyframes bqRotate {
+  from { transform: rotateX(-15deg) rotateY(0deg); }
+  to { transform: rotateX(-15deg) rotateY(360deg); }
+}
+
+@keyframes bqRing {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bqShadow {
+  from { transform: scale(.8); opacity: .5; }
+  to { transform: scale(1.2); opacity: .9; }
+}
+
+@media (max-width: 600px) {
+  .bq-scene {
+    transform: scale(.9);
+  }
+}
 </style>
 </head>
 
 <body>
-  <div id="bq-loader">
-  <img src="images/file_0000000074808211a26731f82ae58793.png" alt="BOXQUALITY">
-  <div class="bq-progress">
-    <div id="bq-progress-bar"></div>
+ 
+<div id="bq-loader">
+  <div class="bq-scene">
+    <div class="bq-box">
+      <div class="bq-face bq-front">
+        <span>BQ</span>
+        <small>BOXQUALITY</small>
+      </div>
+      <div class="bq-face bq-back"></div>
+      <div class="bq-face bq-right"></div>
+      <div class="bq-face bq-left"></div>
+      <div class="bq-face bq-top"></div>
+      <div class="bq-face bq-bottom"></div>
+    </div>
+    <div class="bq-shadow"></div>
   </div>
-  <p id="bq-progress-text">0%</p>
+
+  <div class="bq-loader-info">
+    <h2>BOXQUALITY</h2>
+    <p>QUALITY IN EVERY BOX</p>
+    <div class="bq-track">
+      <div id="bq-bar"></div>
+    </div>
+    <div class="bq-percent">
+      <span>PREPARING EXPERIENCE</span>
+      <span id="bq-number">0%</span>
+    </div>
   </div>
+</div>
   
 <header>
   <div class="container nav">
@@ -1095,6 +1247,50 @@ Mohon informasi selanjutnya. Terima kasih.`;
   const url = 'https://wa.me/6285736213152?text=' + encodeURIComponent(message);
   window.open(url, '_blank');
 });
+  
+(function () {
+  const loader = document.getElementById("bq-loader");
+  const bar = document.getElementById("bq-bar");
+  const number = document.getElementById("bq-number");
+
+  if (!loader || !bar || !number) return;
+
+  let progress = 0;
+  let pageLoaded = document.readyState === "complete";
+  let finished = false;
+
+  window.addEventListener("load", function () {
+    pageLoaded = true;
+  });
+
+  const timer = setInterval(function () {
+    let step = progress < 70 ? 2 : 1;
+
+    if (pageLoaded && progress >= 90) {
+      progress += 2;
+    } else if (progress < 90) {
+      progress += step;
+    }
+
+    if (progress >= 100 && pageLoaded) {
+      progress = 100;
+      finished = true;
+      clearInterval(timer);
+
+      setTimeout(function () {
+        loader.classList.add("hide");
+
+        setTimeout(function () {
+          loader.remove();
+        }, 900);
+      }, 350);
+    }
+
+    bar.style.width = progress + "%";
+    number.textContent = progress + "%";
+  }, 60);
+})();
+
 </script>
 </body>
 </html>
