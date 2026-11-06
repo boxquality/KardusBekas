@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="description" content="BOXQUALITY — jual beli kardus bekas, jasa packing, pengiriman, dan personal shopping. Quality in Every Box.">
+  <title>BOXQUALITY — Quality in Every Box</title>
+  <style>
+    :root{
+      --bg:#090b0e;--panel:#11171b;--panel2:#19232a;--gold:#b68a55;
+      --gold2:#e1bd86;--text:#f1eee8;--muted:#a7a49e;--line:rgba(225,189,134,.18);
+      --max:1160px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .eyebrow{color:var(--gold2);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+    .section{padding:100px 0}
+    .section-head{max-width:680px;margin-bottom:38px}
+    .section-head h2{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:12px 0 16px;letter-spacing:-.04em}
+    .section-head p,.muted{color:var(--muted)}
+    .gold{color:var(--gold2)}
+    /* LOADING SCREEN */
+    #bq-loader{position:fixed;inset:0;z-index:99999;background:radial-gradient(circle at 50% 42%,#26302f 0,#101619 42%,#050708 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity .65s ease,visibility .65s ease}
+    #bq-loader.hide{opacity:0;visibility:hidden;pointer-events:none}
+    .loader-scene{width:180px;height:160px;position:relative;perspective:700px}
+    .loader-cube{position:absolute;width:90px;height:90px;left:45px;top:28px;transform-style:preserve-3d;animation:cubeSpin 5s linear infinite}
+    .cube-face{position:absolute;width:90px;height:90px;display:grid;place-items:center;border:1px solid #e2b77d;background:linear-gradient(145deg,#c3975e,#754823);box-shadow:inset 0 0 18px #3c2514;color:#fff0d4}
+    .cube-front{transform:translateZ(45px);font-weight:900;letter-spacing:3px;font-size:24px}
+    .cube-back{transform:rotateY(180deg) translateZ(45px)}
+    .cube-right{transform:rotateY(90deg) translateZ(45px)}
+    .cube-left{transform:rotateY(-90deg) translateZ(45px)}
+    .cube-top{transform:rotateX(90deg) translateZ(45px);background:#d2a66c}
+    .cube-bottom{transform:rotateX(-90deg) translateZ(45px)}
+    .loader-shadow{position:absolute;bottom:0;left:35px;width:110px;height:20px;border-radius:50%;background:#000;filter:blur(12px)}
+    .loader-copy{width:min(330px,78vw);text-align:center}
+    .loader-copy strong{display:block;color:var(--gold2);letter-spacing:.28em;font-size:1.2rem}
+    .loader-copy small{display:block;color:#b9b5ac;letter-spacing:.2em;font-size:.62rem;margin:5px 0 20px}
+    .loader-track{height:3px;background:#303638;border-radius:10px;overflow:hidden}
+    #loader-bar{height:100%;width:0;background:linear-gradient(90deg,#80552b,#f2d19a);box-shadow:0 0 12px var(--gold2);transition:width .12s linear}
+    .loader-status{display:flex;justify-content:space-between;color:var(--gold2);font-size:.62rem;letter-spacing:.1em;margin-top:10px}
+    @keyframes cubeSpin{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(-18deg) rotateY(360deg)}}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:1000;background:rgba(9,11,14,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:900;letter-spacing:.13em;font-size:1.05rem}
+    .brand span{color:var(--gold2)}
+    .nav-links{display:flex;align-items:center;gap:26px;color:#d0cec8;font-size:.83rem}
+    .nav-links a:hover{color:var(--gold2)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 19px;border:1px solid var(--gold);border-radius:4px;background:linear-gradient(135deg,#c69a63,#8b6035);color:#100e0b;font-weight:800;font-size:.82rem;transition:.25s}
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .menu-btn{display:none;background:none;color:var(--text);border:1px solid var(--line);padding:8px 11px;border-radius:4px}
+    /* HERO */
+    .hero{min-height:690px;display:grid;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 78% 45%,rgba(182,138,85,.15),transparent 34%),linear-gradient(115deg,#090b0e 40%,#121a1d)}
+    .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to right,black,transparent)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;padding:90px 0}
+    .hero h1{font-size:clamp(2.8rem,6.6vw,5.7rem);line-height:.98;letter-spacing:-.065em;margin:18px 0 22px}
+    .hero h1 span{color:var(--gold2)}
+    .hero-copy{max-width:580px;color:#b9b8b2;font-size:1.02rem}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn-outline{background:transparent;color:var(--gold2);border:1px solid var(--line)}
+    .hero-note{margin-top:25px;color:#8e918d;font-size:.72rem;letter-spacing:.08em}
+    .hero-art{height:390px;position:relative;display:grid;place-items:center;perspective:900px}
+    .hero-ring{position:absolute;width:310px;height:310px;border:1px solid rgba(225,189,134,.32);border-radius:50%;box-shadow:0 0 55px rgba(182,138,85,.12),inset 0 0 40px rgba(182,138,85,.08);transform:rotateX(68deg)}
+    .hero-ring:after{content:"";position:absolute;inset:24px;border:1px dashed rgba(225,189,134,.28);border-radius:50%}
+    .hero-box{width:190px;height:190px;position:relative;transform-style:preserve-3d;transform:rotateX(-18deg) rotateY(-32deg);animation:heroFloat 5s ease-in-out infinite}
+    .hero-box .side{position:absolute;width:190px;height:190px;border:1px solid #d4a66e;background:linear-gradient(145deg,#bd8d56,#70431f);box-shadow:inset 0 0 30px rgba(0,0,0,.3)}
+    .hero-box .front{transform:translateZ(95px);display:grid;place-items:center;text-align:center;color:#f7dfb8}
+    .hero-box .front b{font-size:2rem;letter-spacing:.15em}
+    .hero-box .front small{display:block;font-size:.55rem;letter-spacing:.22em}
+    .hero-box .back{transform:rotateY(180deg) translateZ(95px)}
+    .hero-box .right{transform:rotateY(90deg) translateZ(95px)}
+    .hero-box .left{transform:rotateY(-90deg) translateZ(95px)}
+    .hero-box .top{transform:rotateX(90deg) translateZ(95px);background:linear-gradient(135deg,#d8b27e,#966333)}
+    .hero-box .bottom{transform:rotateX(-90deg) translateZ(95px)}
+    .hero-glow{position:absolute;width:230px;height:70px;bottom:42px;border-radius:50%;background:rgba(0,0,0,.65);filter:blur(28px)}
+    @keyframes heroFloat{0%,100%{transform:translateY(0) rotateX(-18deg) rotateY(-32deg)}50%{transform:translateY(-17px) rotateX(-12deg) rotateY(8deg)}}
+    /* TICKER */
+    .ticker{overflow:hidden;border-bottom:1px solid var(--line);background:#11171b}
+    .ticker-track{display:flex;gap:52px;white-space:nowrap;width:max-content;padding:15px 0;animation:tickerMove 28s linear infinite;color:#c6c1b7;font-size:.72rem;letter-spacing:.16em}
+    .ticker-track b{color:var(--gold2)}
+    @keyframes tickerMove{to{transform:translateX(-50%)}}
+    /* GENERAL SECTIONS */
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+    .about-panel{padding:34px;background:linear-gradient(145deg,#19232a,#101518);border:1px solid var(--line);position:relative}
+    .about-panel:before{content:"BQ";font-size:6rem;font-weight:900;line-height:1;color:rgba(225,189,134,.08);position:absolute;right:22px;bottom:5px}
+    .about-panel h3{font-size:1.5rem;margin-bottom:12px}
+    .about-panel p{color:var(--muted);max-width:500px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .stat{border-top:1px solid var(--gold);padding-top:12px}
+    .stat b{display:block;color:var(--gold2);font-size:1.3rem}
+    .stat span{font-size:.7rem;color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(145deg,#151d21,#0e1316);border:1px solid var(--line);padding:26px;min-height:210px;transition:.25s}
+    .card:hover{transform:translateY(-5px);border-color:rgba(225,189,134,.55)}
+    .card-icon{width:44px;height:44px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);font-size:1.2rem;margin-bottom:20px}
+    .card h3{font-size:1.08rem;margin-bottom:9px}
+    .card p{font-size:.88rem;color:var(--muted)}
+    .catalog{background:linear-gradient(180deg,#0b0f12,#11171b)}
+    .product-card{border:1px solid var(--line);background:#101619;overflow:hidden}
+    .product-visual{height:175px;display:grid;place-items:center;background:radial-gradient(circle,#443321,#171b1b 65%);font-size:4rem}
+    .product-info{padding:20px}
+    .product-info h3{font-size:1rem;margin-bottom:6px}
+    .product-info p{color:var(--muted);font-size:.83rem;min-height:52px}
+    .product-info a{display:inline-block;margin-top:14px;color:var(--gold2);font-size:.8rem;font-weight:700}
+    /* GALLERY */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .gallery-item{height:245px;background:#141a1d;border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
+    .gallery-item img{width:100%;height:100%;object-fit:contain;background:#0d1113;transition:transform .4s}
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-note{margin-top:14px;color:var(--muted);font-size:.76rem}
+    /* ORDER */
+    .order-section{background:radial-gradient(ellipse at 80% 20%,rgba(182,138,85,.12),transparent 38%),#101619}
+    .order-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+    .contact-list{margin-top:25px;display:grid;gap:15px}
+    .contact-line{border-bottom:1px solid var(--line);padding-bottom:13px}
+    .contact-line small{display:block;color:var(--gold2);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+    .contact-line b{font-size:.95rem;font-weight:600}
+    .order-form{padding:28px;background:#0b1013;border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .field{display:grid;gap:6px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:.75rem;color:#d2c7b5}
+    .field input,.field select,.field textarea{width:100%;background:#151d21;border:1px solid #354047;color:var(--text);padding:12px;border-radius:3px;outline:none}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+    .field textarea{min-height:105px;resize:vertical}
+    .order-form button{grid-column:1/-1;cursor:pointer}
+    /* FAQ */
+    .faq-list{max-width:850px;display:grid;gap:10px}
+    .faq-item{border:1px solid var(--line);background:#11171b}
+    .faq-question{width:100%;background:none;border:0;color:var(--text);padding:18px 20px;text-align:left;display:flex;justify-content:space-between;gap:15px;cursor:pointer;font-weight:700}
+    .faq-question span:last-child{color:var(--gold2);font-size:1.2rem}
+    .faq-answer{display:none;padding:0 20px 18px;color:var(--muted);font-size:.88rem}
+    .faq-item.open .faq-answer{display:block}
+    .faq-item.open .faq-question span:last-child{transform:rotate(45deg)}
+    /* MAP + FOOTER */
+    .map-frame{width:100%;height:330px;border:1px solid var(--line);filter:grayscale(.65) contrast(1.05)}
+    footer{border-top:1px solid var(--line);padding:35px 0 22px;background:#07090b}
+    .footer-top{display:flex;justify-content:space-between;gap:20px;align-items:center;padding-bottom:25px}
+    .footer-copy{font-size:.76rem;color:#888982}
+    .credit{text-align:right;color:#777970;font-size:.68rem;letter-spacing:.08em;margin-top:16px}
+    .wa-float{position:fixed;right:20px;bottom:20px;z-index:900;background:#b68a55;color:#100e0b;border-radius:50px;padding:13px 18px;font-weight:900;font-size:.8rem;box-shadow:0 8px 30px #0008}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:850px){
+      .nav-links{display:none;position:absolute;top:76px;left:0;right:0;padding:22px;background:#0b1013;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
+      .nav-links.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}
+      .hero-grid,.about-grid,.order-grid{grid-template-columns:1fr}
+      .hero{min-height:auto}.hero-grid{padding:75px 0 55px}.hero-art{height:310px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:560px){
+      .wrap{width:min(var(--max),calc(100% - 30px))}
+      .section{padding:72px 0}
+      .hero h1{font-size:3.15rem}
+      .hero-art{height:270px;transform:scale(.86)}
+      .cards,.gallery-grid{grid-template-columns:1fr 1fr;gap:10px}
+      .card{padding:18px;min-height:205px}
+      .gallery-item{height:170px}
+      .order-form{grid-template-columns:1fr;padding:19px}
+      .field.full,.order-form button{grid-column:auto}
+      .stats{gap:8px}.stat b{font-size:1.05rem}
+      .footer-top{align-items:flex-start;flex-direction:column}
+      .credit{text-align:left}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div id="bq-loader" aria-label="Memuat BOXQUALITY">
+    <div class="loader-scene">
+      <div class="loader-cube">
+        <div class="cube-face cube-front">BQ</div>
+        <div class="cube-face cube-back"></div>
+        <div class="cube-face cube-right"></div>
+        <div class="cube-face cube-left"></div>
+        <div class="cube-face cube-top"></div>
+        <div class="cube-face cube-bottom"></div>
+      </div>
+      <div class="loader-shadow"></div>
+    </div>
+    <div class="loader-copy">
+      <strong>BOXQUALITY</strong>
+      <small>QUALITY IN EVERY BOX</small>
+      <div class="loader-track"><div id="loader-bar"></div></div>
+      <div class="loader-status"><span>PREPARING EXPERIENCE</span><span id="loader-number">0%</span></div>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">BOX<span>QUALITY</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a><a href="#about">Tentang</a><a href="#services">Layanan</a>
+        <a href="#catalog">Katalog</a><a href="#gallery">Galeri</a><a href="#faq">FAQ</a><a href="#contact">Kontak</a>
+      </nav>
+      <a class="nav-cta" href="#order">PESAN SEKARANG ↗</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">PACKAGING • LOGISTICS • SERVICES</div>
+          <h1>SMART<br>PACKING.<br><span>BETTER</span><br>DELIVERY.</h1>
+          <p class="hero-copy">Solusi kebutuhan kardus bekas, layanan packing, pengiriman, dan personal shopping dalam satu tempat. Praktis, fleksibel, dan siap membantu kebutuhanmu.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#order">KONSULTASI / PESAN ↗</a>
+            <a class="btn btn-outline" href="#catalog">LIHAT KATALOG</a>
+          </div>
+          <p class="hero-note">QUALITY IN EVERY BOX — BOXQUALITY</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-ring"></div><div class="hero-glow"></div>
+          <div class="hero-box">
+            <div class="side front"><div><b>BQ</b><small>BOXQUALITY</small></div></div>
+            <div class="side back"></div><div class="side right"></div><div class="side left"></div>
+            <div class="side top"></div><div class="side bottom"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker"><div class="ticker-track">
+      <span><b>✦</b> BOXQUALITY</span><span>PACKAGING SOLUTIONS</span><span><b>✦</b> QUALITY IN EVERY BOX</span><span>SMART SERVICES</span>
+      <span><b>✦</b> BOXQUALITY</span><span>PACKAGING SOLUTIONS</span><span><b>✦</b> QUALITY IN EVERY BOX</span><span>SMART SERVICES</span>
+    </div></div>
+
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="section-head reveal">
+          <div class="eyebrow">WHO WE ARE</div>
+          <h2>Lebih dari sekadar <span class="gold">kardus.</span></h2>
+          <p>BOXQUALITY hadir untuk membantu kebutuhan pengemasan dan layanan pendukung dengan solusi yang sederhana, fleksibel, dan mudah dijangkau.</p>
+        </div>
+        <div class="about-panel reveal">
+          <h3>Quality in Every Box.</h3>
+          <p>Kami berfokus pada jual beli kardus bekas serta layanan tambahan seperti packing, pengiriman, dan personal shopping. Sampaikan kebutuhanmu, lalu kami bantu konfirmasi pilihan dan ketersediaannya.</p>
+          <div class="stats">
+            <div class="stat"><b>24/7</b><span>Jam layanan</span></div>
+            <div class="stat"><b>4</b><span>Layanan utama</span></div>
+            <div class="stat"><b>Malang</b><span>Lokasi layanan</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="eyebrow">WHAT WE DO</div><h2>Layanan <span class="gold">BOXQUALITY.</span></h2><p>Pilih layanan yang kamu butuhkan. Detail, harga, dan ketersediaan dapat dikonfirmasi melalui WhatsApp.</p></div>
+        <div class="cards">
+          <article class="card reveal"><div class="card-icon">▧</div><h3>Jual Beli Kardus Bekas</h3><p>Kebutuhan kardus bekas untuk berbagai keperluan. Hubungi kami untuk menanyakan ukuran, kondisi, dan stok yang tersedia.</p></article>
+          <article class="card reveal"><div class="card-icon">◇</div><h3>Jasa Packing</h3><p>Bantuan pengemasan barang agar lebih rapi dan siap untuk dibawa atau dikirim.</p></article>
+          <article class="card reveal"><div class="card-icon">➤</div><h3>Jasa Pengiriman</h3><p>Bantuan pengiriman sesuai tujuan dan kesepakatan. Jangkauan serta biaya dikonfirmasi terlebih dahulu.</p></article>
+          <article class="card reveal"><div class="card-icon">⌕</div><h3>Personal Shopping</h3><p>Butuh bantuan mencarikan atau membelikan barang? Sampaikan detail barang dan lokasi tujuanmu.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog" id="catalog">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="eyebrow">PRODUCT CATALOG</div><h2>Pilih kebutuhan <span class="gold">packing.</span></h2><p>Katalog ini merupakan kategori kebutuhan. Ukuran, kondisi, jumlah, dan ketersediaan kardus bekas perlu dikonfirmasi terlebih dahulu.</p></div>
+        <div class="cards">
+          <article class="product-card reveal"><div class="product-visual">📦</div><div class="product-info"><h3>Kardus Bekas Serbaguna</h3><p>Untuk kebutuhan penyimpanan, pindahan, dan pengemasan berbagai barang.</p><a href="#order" data-service="Kardus bekas serbaguna">TANYAKAN KETERSEDIAAN ↗</a></div></article>
+          <article class="product-card reveal"><div class="product-visual">▤</div><div class="product-info"><h3>Kardus Berbagai Ukuran</h3><p>Ukuran menyesuaikan stok yang tersedia. Kirim perkiraan dimensi atau foto barang.</p><a href="#order" data-service="Kardus berbagai ukuran">TANYAKAN UKURAN ↗</a></div></article>
+          <article class="product-card reveal"><div class="product-visual">◫</div><div class="product-info"><h3>Paket Packing</h3><p>Kombinasi kebutuhan kardus dan bantuan packing sesuai permintaan.</p><a href="#order" data-service="Paket packing">KONSULTASI ↗</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="eyebrow">OUR GALLERY</div><h2>Dokumentasi <span class="gold">produk.</span></h2><p>Foto kardus dan dokumentasi BOXQUALITY.</p></div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal"><img src="images/IMG-20261102-WA0020.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/IMG-20261102-WA0042.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/IMG-20261102-WA0039.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/IMG-20261102-WA0028.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/IMG-20261102-WA0009.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/kardus-6.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/kardus-7.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+          <div class="gallery-item reveal"><img src="images/kardus-8.jpg" alt="Dokumentasi kardus BOXQUALITY" loading="lazy"></div>
+        </div>
+        <p class="gallery-note">Jika foto tidak tampil, pastikan nama file di folder <b>images</b> sama persis dengan nama pada kode (termasuk huruf besar-kecil).</p>
+      </div>
+    </section>
+
+    <section class="section order-section" id="order">
+      <div class="wrap order-grid">
+        <div class="reveal">
+          <div class="eyebrow">LET'S CONNECT</div><h2 style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:12px 0 16px">Ada kebutuhan? <span class="gold">Hubungi kami.</span></h2>
+          <p class="muted">Isi formulir berikut. Pesan akan disiapkan dan dibuka melalui WhatsApp agar bisa langsung dikirim.</p>
+          <div class="contact-list">
+            <div class="contact-line"><small>WhatsApp</small><b>0857 3621 3152</b></div>
+            <div class="contact-line"><small>Alamat</small><b>Jl. Gajayana No. 30, Malang, Jawa Timur</b></div>
+            <div class="contact-line"><small>Jam layanan</small><b>24 Jam — konfirmasi respons melalui WhatsApp</b></div>
+          </div>
+        </div>
+        <form class="order-form reveal" id="waForm">
+          <div class="field"><label for="custName">Nama</label><input id="custName" required placeholder="Nama kamu"></div>
+          <div class="field"><label for="custPhone">Nomor WhatsApp</label><input id="custPhone" required inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+          <div class="field"><label for="service">Pilih layanan</label><select id="service" required><option value="">Pilih layanan</option><option>Jual beli kardus bekas</option><option>Jasa packing</option><option>Jasa pengiriman</option><option>Personal shopping</option><option>Paket packing</option></select></div>
+          <div class="field"><label for="quantity">Jumlah / kuantitas</label><input id="quantity" placeholder="Contoh: 20 pcs / 2 paket"></div>
+          <div class="field full"><label for="location">Lokasi / alamat tujuan</label><input id="location" placeholder="Kecamatan, kota, atau alamat"></div>
+          <div class="field full"><label for="details">Detail kebutuhan</label><textarea id="details" placeholder="Ukuran kardus, kondisi, jenis barang, atau detail lainnya..."></textarea></div>
+          <button class="btn" type="submit">LANJUTKAN KE WHATSAPP ↗</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="eyebrow">FAQ</div><h2>Pertanyaan yang <span class="gold">sering diajukan.</span></h2><p>Belum menemukan jawaban? Hubungi kami melalui WhatsApp.</p></div>
+        <div class="faq-list">
+          <div class="faq-item reveal"><button class="faq-question" type="button"><span>Apakah BOXQUALITY menjual kardus baru?</span><span>+</span></button><div class="faq-answer">BOXQUALITY berfokus pada jual beli kardus bekas. Kondisi dan ketersediaan dapat ditanyakan melalui WhatsApp.</div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button"><span>Bagaimana cara mengetahui ukuran dan stok kardus?</span><span>+</span></button><div class="faq-answer">Kirim ukuran atau perkiraan kebutuhanmu melalui formulir WhatsApp. Kami akan membantu mengecek stok yang tersedia.</div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button"><span>Apakah tersedia jasa packing?</span><span>+</span></button><div class="faq-answer">Ya, tersedia layanan packing. Sampaikan jenis barang, jumlah, dan lokasi agar kebutuhan dapat dikonfirmasi.</div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button"><span>Apakah pengiriman tersedia ke luar Malang?</span><span>+</span></button><div class="faq-answer">Tujuan pengiriman dapat dikonsultasikan. Jangkauan, jadwal, dan biaya akan dikonfirmasi berdasarkan lokasi.</div></div>
+          <div class="faq-item reveal"><button class="faq-question" type="button"><span>Bagaimana cara memesan?</span><span>+</span></button><div class="faq-answer">Isi formulir pemesanan di website. Setelah itu WhatsApp akan terbuka dengan pesan yang sudah disiapkan untuk kamu kirim.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="eyebrow">FIND US</div><h2>Kunjungi <span class="gold">BOXQUALITY.</span></h2><p>Jl. Gajayana No. 30, Malang, Jawa Timur.</p><p style="margin-top:12px"><a class="gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Jl.+Gajayana+No.+30+Malang">BUKA PETUNJUK LOKASI ↗</a></p></div>
+        <iframe class="map-frame" title="Peta lokasi BOXQUALITY" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Jl.%20Gajayana%20No.%2030%2C%20Malang%2C%20Jawa%20Timur&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top"><a class="brand" href="#home">BOX<span>QUALITY</span></a><div class="footer-copy">QUALITY IN EVERY BOX.<br>PACKAGING • LOGISTICS • SERVICES</div></div>
+      <div class="footer-copy">© 2026 BOXQUALITY. ALL RIGHTS RESERVED.</div>
+      <div class="credit">Designed by ElangPhantom.</div>
+    </div>
+  </footer>
+  <a class="wa-float" href="https://wa.me/6285736213152" target="_blank" rel="noopener">WHATSAPP ↗</a>
+
+  <script>
+    (function(){
+      const loader = document.getElementById('bq-loader');
+      const bar = document.getElementById('loader-bar');
+      const number = document.getElementById('loader-number');
+      let progress = 0;
+      const timer = setInterval(function(){
+        progress = Math.min(progress + 4, 100);
+        bar.style.width = progress + '%';
+        number.textContent = progress + '%';
+        if(progress >= 100){
+          clearInterval(timer);
+          setTimeout(function(){
+            loader.classList.add('hide');
+            setTimeout(function(){ loader.remove(); }, 700);
+          }, 180);
+        }
+      }, 45);
+    })();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
+    navLinks.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(function(button){
+      button.addEventListener('click', function(){ button.parentElement.classList.toggle('open'); });
+    });
+
+    document.querySelectorAll('[data-service]').forEach(function(link){
+      link.addEventListener('click', function(){
+        document.getElementById('service').value = link.getAttribute('data-service');
+      });
+    });
+
+    document.getElementById('waForm').addEventListener('submit', function(event){
+      event.preventDefault();
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const service = document.getElementById('service').value;
+      const quantity = document.getElementById('quantity').value.trim();
+      const location = document.getElementById('location').value.trim();
+      const details = document.getElementById('details').value.trim();
+      const message = [
+        'Halo BOXQUALITY, saya ingin bertanya/memesan.',
+        '',
+        'Nama: ' + name,
+        'Nomor WhatsApp: ' + phone,
+        'Layanan: ' + service,
+        'Jumlah: ' + (quantity || '-'),
+        'Lokasi tujuan: ' + (location || '-'),
+        'Detail kebutuhan: ' + (details || '-'),
+        '',
+        'Mohon informasi selanjutnya. Terima kasih.'
+      ].join('\n');
+      window.open('https://wa.me/6285736213152?text=' + encodeURIComponent(message), '_blank');
+    });
+
+    const revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(element){ revealObserver.observe(element); });
+  </script>
+</body>
+</html>
