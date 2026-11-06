@@ -527,11 +527,54 @@ footer{
     scroll-behavior:auto!important;
     transition-duration:.01ms!important;
   }
+/* BOXQUALITY GOLDEN LOADING */
+#bq-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #090705;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .8s ease, visibility .8s ease;
 }
+
+#bq-loader img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: bqIntro 2s ease-in-out infinite alternate;
+}
+
+#bq-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes bqIntro {
+  from { transform: scale(1); }
+  to { transform: scale(1.035); }
+}
+
+body.bq-loading {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #bq-loader img {
+    animation: none;
+  }
 </style>
 </head>
 
 <body>
+  <div id="bq-loader">
+  <img src="images/boxquality-loading.png" alt="BOXQUALITY Loading">
+  </div>
 <div class="ambient"></div>
 <div class="grid-bg"></div>
 
@@ -1030,6 +1073,23 @@ Mohon informasi selanjutnya. Terima kasih.`;
 
   const url = 'https://wa.me/6285736213152?text=' + encodeURIComponent(message);
   window.open(url, '_blank');
+});
+  <script>
+document.body.classList.add("bq-loading");
+
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    const loader = document.getElementById("bq-loader");
+
+    if (loader) {
+      loader.classList.add("hide");
+      document.body.classList.remove("bq-loading");
+
+      setTimeout(function () {
+        loader.remove();
+      }, 900);
+    }
+  }, 1200);
 });
 </script>
 </body>
